@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<form action="">
+		<fieldset>
+			<legend>정보 후원</legend>
+			<label for="id">ID : </label>
+			<input type="text" name="호록" id="id" maxlength="5" placeholder="궁금하내요">
+			<br>
+			<label for="pw">PW : </label>
+			<input type="password" name="호로록" id="pw" placeholder="잘 쓰겠습니다" required>
+			<br>
+			<label for="txta">발언권:</label>
+			<textarea name="txta" id="txta" cols="30" rows="5"></textarea>
+			<br>
+			<label for="bab">머글거:</label>
+			<select name="bab" id="bab">
+				<option value="0">라면</option>
+				<option value="1">빵</option>
+				<option value="2">떡</option>
+				<option value="3">콩나물</option>
+			</select>
+		</fieldset>
+		<br>
+		<label for="email">email : </label>
+		<input type="email" name="후르르릅" id="email" placeholder="이없찐??" readonly value="괜찮습니다">
+		<br>
+		<label for="number">number : </label>
+		<input type="number" name="춉" id="number" min="0" max="5" placeholder="나이">
+		<br>
+		<label for="range">range : </label>
+		<input type="range" id="range">
+		<br>
+		<label for="date">date : </label>
+		<input type="date" id="date"  max="5">
+		<br>
+		<label for="banana">banana : </label>
+		<input type="checkbox" id="banana"  name="chk_fruit">
+		<!-- 같은 그룹이라서 중복 가능 -->		
+		<label for="sb">sb : </label>
+		<input type="checkbox" id="sb" name="chk_fruit">
+		<label for="wm">wm  : </label>
+		<input type="checkbox" id="wm"  name="chk_fruit">
+		<br>
+		<label for="zz">짜장면</label>
+		<input type="radio" id="zz"  name="foods">
+		<!-- 같은 그룹이라서 or이 가능 -->		
+		<label for="ta">탕수육</label>
+		<input type="radio" id="ta"  name="foods">
+		<br>
+		<!-- <input type="submit" value="이름정할수 이따">
+		<input type="reset"> -->
+
+		<button type="submit">전송</button>
+		<button type="reset">최기획</button>
+		<button type="button">빠튼</button>
+
+		<br>
+		<input type="hidden" value="이스터에그" name="hidden">
+	</form>
+</body>
+</html>
