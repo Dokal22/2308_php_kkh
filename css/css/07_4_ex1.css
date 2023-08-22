@@ -1,0 +1,13 @@
+.cook1 {
+	list-style-type: none; /*불릿 없애기*/
+	list-style-type: decimal;
+	list-style-type: lower-alpha;
+}
+
+.cook2 {
+	list-style-position: inside;
+}
+
+.cook3 {
+	list-style-image: url(../../html/img/busymz3.png);
+}

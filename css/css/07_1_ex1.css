@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Diphylleia&display=swap');
+body {
+	font-family: 'Diphylleia'; /*앞에꺼 엎으면 뒤껄로*/
+}
+
+.e2 {
+	font-family: 'Bagel Fat One';
+}
+
+
+.p1_size1 {
+	font-size: xx-small;
+}
+
+.p1_size2 {
+	font-size: medium;
+}
+
+.p1_size3 {
+	font-size: xx-large;
+}
+
+.p1_size4 {
+	/* font-size: 20px; */
+	font-size: 10px; /* 부모요소(현 div'태그')의 글자크기 기준배율 */
+}
+
+.p1_size5 {
+	/* font-size: 20px; */
+	font-size: 1.5em; /* 부모요소(현 div'태그')의 글자크기 기준배율 */
+}
+
+.p1_size6 {
+	/* font-size: 20px; */
+	font-size: 1.5rem; /* 최상위 부모요소(body'태그'???)의 글자크기 기준배율 */
+}
+
+.p1_weight1 {
+	font-weight: 100;
+}
+
+.p1_weight2 {
+	font-weight: 551;
+}
+
+.p1_weight3 {
+	font-weight: 900;
+}
+
+

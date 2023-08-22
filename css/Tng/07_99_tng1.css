@@ -1,0 +1,17 @@
+.a1 {
+	color: rgb(196, 40, 40);
+	font-weight: 551;
+	font-size: 1.1rem;
+}
+div {
+	border: 1px solid #000;
+	width: 430px;
+}
+li {
+	list-style-type: none;
+	height: 30px;
+}
+.a2 {
+	font-size: 90px;
+	font-weight: 351;
+}

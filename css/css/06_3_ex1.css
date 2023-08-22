@@ -1,0 +1,25 @@
+* {
+	color: skyblue;
+}
+
+h1 {
+	color: red;
+}
+
+/* 클래스 선택자 */
+
+.font-color {
+	color: orange;
+}
+
+/* 아이디 선택자 */
+
+#p1 {
+	color: black;
+}
+
+/*그룹 선택자*/
+
+em, strong {
+	color: purple;
+}
