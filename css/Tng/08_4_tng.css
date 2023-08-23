@@ -1,0 +1,27 @@
+.l1 {
+	display: inline-block;
+	width: 5rem;
+	line-height: 5rem;
+	text-align: center;
+}
+div {
+
+}
+.u1 {
+	background-color: rgb(116, 116, 116);
+	display: inline-block;
+	margin-left: 20px;
+	padding-left: 0px;
+	list-style: none; /*block끼리는 6픽셀 공간 남는단다~*/
+}
+
+.u2 {
+	list-style: none;
+	display: flex;	/* display: flex; 업계에선 이거 쓰면 붙는다 */
+}
+.l2 {
+	background-color: rgb(116, 116, 116);
+	width: 80px;
+	line-height: 80px;
+	text-align: center;
+}

@@ -1,0 +1,26 @@
+.no {
+	display: none;
+}
+.blc {
+	display: block;
+}
+span{
+	border: 1px solid black;
+	width: 150px; /*to block, not to inline*/
+}
+
+.inln {
+	display: inline;
+	border: 1px solid black;
+	width: 150px; /*to block, not to inline*/
+}
+.inlnb {
+	display: inline-block;/*가로배열 블럭을 위해 for width설정*/
+	
+	border: 1px solid black;
+	width: 150px; /*to block, not to inline*/
+}
+
+div {
+	border: 5px solid black;
+}

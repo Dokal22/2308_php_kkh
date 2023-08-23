@@ -1,0 +1,11 @@
+img {
+	float: left;
+}
+.p2 {
+	clear: both;
+}
+/* 
+	원하는지점 두개 시작 끝 호출해서
+	시작은 float left, 끝은 clear both 하면
+	? 나중에 배움
+ */

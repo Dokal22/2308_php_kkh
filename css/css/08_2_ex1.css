@@ -1,0 +1,38 @@
+div {
+	width: 200px;
+	height: 20px;
+	margin: 20px;
+}
+
+.dv1 {
+	border-style: none;
+}
+
+.dv2 {
+	border-style: solid;
+	border-color: darkblue;
+	border-width: 5px 10px 15px 20px; /*시계방향*/
+}
+
+.dv3 {
+	border-style: dotted;
+	border-color: brown;
+	border-width: 5px;
+}
+
+.dv4 {
+	border-style: dashed;
+	border-color: cadetblue;
+}
+
+.dv5 {
+	border-style: double;
+	border-color: coral;
+}
+
+.dv6 {
+	border: 5px solid black;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	height: 100px;
+}

@@ -1,0 +1,31 @@
+.mn {
+	background-color: #2c61b1;
+	float: left;
+	height: 200px;
+	width: 150px;
+}
+.hd {
+	background-color: #03eeff;
+	height: 50px;
+}
+.sd1 {
+	background-color: #e4d99e;
+	float: left;
+	height: 200px;
+}
+.sd2 {
+	background-color: #e2ac6f;
+	height: 200px;
+}
+.ft {
+	background-color: #6fff62;
+	clear: both;
+	height: 40px;
+}
+.naga {
+	/* clear: both; */
+	
+}
+.da {
+	width: 300px;
+}
