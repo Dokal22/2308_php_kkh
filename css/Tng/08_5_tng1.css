@@ -1,0 +1,28 @@
+.contain {
+	width: 600px;
+	/* position: absolute; */
+	height: 600px;
+	position: relative;
+}
+
+.coordinate1 {
+	top: 50px;
+	left: 50px;
+}
+.coordinate2 {
+	top: 175px;
+	left: 300px;
+}
+.coordinate3 {	
+	top: 300px;
+	left: 50px;
+}
+#position {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+}
+
+div {
+	border: 1px solid black;
+}

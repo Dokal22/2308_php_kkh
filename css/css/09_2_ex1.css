@@ -1,0 +1,28 @@
+.div-img {
+	background-image: url('../../html/img/dorae.jpg')
+						, url('../../html/img/busymz.png');/*앞에꺼 없을 때 가져옴*/
+	width: 300px;
+	height: 300px;
+	border: 1px solid black;
+
+	background-size: cover;/*이거 가로나 세로 먼저 맞추고 긴부분 짜름*/
+
+	/*background-size: contain; /*가로나 세로 먼저 맞추고 바둑판*/
+	
+	background-size: 100px;/*이 크기로 바둑판*/
+	
+	background-repeat: no-repeat; 
+	/*
+		no-repeat: 바둑판 금지
+		repeat-x?: 가로로만 바둑판
+	*/
+
+	background-position: 50% 70%;/* top 20% left 40% <-이렇게도 함*/
+
+	overflow: scroll;
+}
+
+.body-img {
+	background-image: url('../../html/img/busymz.png');
+	background-size: cover;
+}

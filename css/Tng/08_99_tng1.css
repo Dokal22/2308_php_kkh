@@ -1,0 +1,57 @@
+.contain {
+	width: 700px;
+	margin: auto;
+	margin-top: 0;
+	position: relative;
+}
+
+
+div {
+	padding: 10px;
+	margin: 10px;
+}
+
+
+.bottom {
+	text-align: center;
+	background-color: rgb(56, 56, 56);
+	position: absolute;
+	width: 637px;
+	
+}
+
+h1 {
+	margin-left: 2%;
+}
+.div-id {
+	width: 299px;
+	height: 200px;
+	position: absolute;
+}
+.solid {
+	border: 1px solid black;
+}
+p {
+	/* margin-top: 80px; */
+	font-size: 10px;
+}
+.grey {
+	color: rgb(207, 207, 207);
+}
+.xy1 {
+	
+}
+.xy2 {
+	right: 30px;
+}
+.xy3 {
+	top: 350px;
+}
+.xy4 {
+	right: 30px;
+	top: 350px;
+
+}
+.xy5 {
+	top: 600px;
+}

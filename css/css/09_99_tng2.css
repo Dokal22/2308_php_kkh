@@ -1,0 +1,41 @@
+.head {
+	background-color: rgb(20, 80, 80);
+	color: aliceblue;
+	text-align: center;
+	margin: 20px;
+	line-height: 80px;
+}
+.head2 {
+	font-style: italic;
+	text-align: center;
+}
+.main {
+	
+}
+.red {
+	color: red;
+}
+.contain {
+	width: 800px;
+	margin: auto;
+	background-color: rgb(255, 255, 255);
+	padding: 20px;
+	/* background: #fff url('../../html/img/dorae.jpg') no-repeat right bottom / 70%; */
+}
+.img {
+	background-image: url('../../html/img/dorae.jpg');
+	width: 1000px;
+	height: 500px;
+	background-position: 60%;
+	background-size: 400px;
+	background-repeat: no-repeat; 
+}
+body {
+	background-color: rgb(44, 44, 44);
+}
+.img2 {
+	background: #fff url('../../html/img/dorae.jpg') no-repeat right bottom / 70%;
+	}
+blockquote {
+	text-indent: 3em;
+}
