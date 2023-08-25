@@ -1,0 +1,16 @@
+header div span {
+	color: crimson;
+}
+
+header > span { /*div span 빼고 바로 head span*/
+	color: aqua;
+}
+
+main span + p {
+	color: blue;
+}
+
+footer span ~ p {
+	color: violet;
+}
+

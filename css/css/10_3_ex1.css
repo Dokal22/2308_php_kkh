@@ -1,0 +1,58 @@
+a {
+	color: rgb(191, 132, 240);
+}
+
+a:link { /* 방문전 */
+	color: rgb(112, 20, 148);
+}
+
+a:visited { /* 방문후 */
+	color: rgb(100, 41, 54);
+}
+
+a:hover {
+	background-color: rgba(195, 227, 255, 0.671);
+}
+
+#input-1:focus{ /* 그냥 입력할때...? */
+	border: 1px solid yellow;
+	outline: none;/*  기본으로 라인이 있어서 없앰 */
+}
+
+input:checked+label {
+	color: orange;
+}
+
+#target-1:target {
+	background-color: rgb(81, 146, 37);
+}
+
+.container :nth-child(4) {
+	color: rgb(125, 220, 66);
+}
+
+.container p:nth-of-type(2) {
+	color: rgb(50, 220, 120);
+}
+
+.container :not(p) { /* p가 아닌애들 */
+	color: rgb(255, 0, 0);
+}
+
+#label-2::before {
+	content: "*";
+	color: red;
+	
+}
+/*
+ : <-이거 띄어쓰기 하고 명령하는거랑 붙이고 하는거 차이는
+아마 자식을 지정할 수 있으면 띄우고 없을거같으면 붙이고 쓸려고 만든 듯 
+*/
+
+.korean-1::first-letter {
+	background-color: yellow;
+}
+
+.korean-2::first-line {
+	background-color: blue;
+}
