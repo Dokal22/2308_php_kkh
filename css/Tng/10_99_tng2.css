@@ -1,0 +1,70 @@
+fieldset {
+	font-weight: 600;
+	width: 400px;
+	margin: auto;
+	background: #fff url('../../html/img/dorae.jpg') center;
+	background-size: cover;
+	padding: 10px;
+}
+
+legend {
+	font-size: 25px;
+	color: #ff192c;
+}
+
+label {
+	line-height: 30px;
+}
+
+#red-label::before { /* nth-child로 부르고싶다 */
+	content: "*";
+	color: red;
+}
+
+.label_require:before {
+	content: "*";
+	color: red;
+}
+
+input:focus {
+	outline: none;
+	border: 3px solid red;
+	border-radius: 3px;
+}
+
+#need, #name, #age {
+	background-color: transparent;/*  background: none; 같음 */
+}
+
+input:checked+label {
+	color: red;
+}
+
+textarea:focus {
+	border: 3px solid red;
+	outline: none;
+}
+
+span {
+	font-size: 13px;
+	font-weight: 200;
+	color: white;
+	background-color: rgb(68, 68, 68);
+	display: none;
+}
+
+button:hover+span {
+	display: block;
+}
+
+.flt {
+	float: left;
+}
+
+.clr {
+	clear: both;
+}
+
+.blc {
+	display: block;
+}

@@ -1,0 +1,16 @@
+.ball {
+	width: 50px;
+	height: 50px;
+	background-color: cornflowerblue;
+	border-radius: 50%;
+	animation: moveUpDown 1s ease-in-out infinite alternate;
+} /* 선생님은 여러개 만들어놓고 flex로 가로나열하고 그랬음 */
+
+@keyframes moveUpDown {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(100px);
+	}
+}

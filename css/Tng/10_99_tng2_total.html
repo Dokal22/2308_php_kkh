@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./10_99_tng2.css">
+	<title>Document</title>
+	<!-- <script language="JavaScript">
+		function ageChk()
+		{
+			if(document.frm1.age.value ==20)
+			alert("개능")
+			else {
+				alert("20살 이상부터")
+			}
+		} 
+	</script> -->
+</head>
+<body>
+	<div>
+		<fieldset>
+			<legend><strong>나를 속인거니 진구야</strong></legend>
+			
+			<form> <!-- 위에 레전드랑 필드셋까지 같이 전송하면 비효율 -->
+
+			<label for="name" id="red-label">이름</label>
+			<input type="text" name="name" id="name" required>
+
+			<br>
+
+			<label for="age" id="red-label">나이</label>
+			<input type="number" name="age" id="age" min="20" required>
+
+			<br>
+
+			<label for="sexual" id="red-label">성별</label>
+			방구뿡뿡<br>
+			<input type="radio" name="sexual" value="1" id="male" required>
+			<label for="male">남자</label>
+			<input type="radio" name="sexual" value="2" id="female">
+			<label for="female">여자</label>
+			
+			<br>
+
+			<label for="need" class="need flt">요청사항</label> <!-- 이거 복습 -->
+			<textarea name="" id="need" class="flt" cols="30" rows="10" placeholder="요청 사항 입력"></textarea>
+			
+			<br>
+
+			<button type="submit" class="clr flt">보내기</button><!-- 이거 복습 -->
+			<span class="flt">내용을 다시 한 번 확인해 주세요</span>
+
+		</fieldset>
+	</div>
+</body>
+</html>

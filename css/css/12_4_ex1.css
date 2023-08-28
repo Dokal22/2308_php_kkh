@@ -1,0 +1,20 @@
+.container {
+	background-color: rgb(254, 243, 224);
+	margin: 10px;
+	width: 60vw;
+	height: 60vh;
+	display: flex;
+	/* flex-direction: row; */
+	/* flex-wrap: wrap; 하면 줄 넘기기, 리버스하면 종이 뒤집기? */
+	flex-flow: row wrap;/*  동시에 하기? */
+	/* justify-content: space-around; */
+	/* baseline이 글자밑줄 기준 뭐시기 하는거 */
+	align-items: stretch; /* 뭔가 쓸데 없을거같은게 준내 많음 flex */
+}/*  reverse로 하면 오른쪽부터 나열 */
+
+.item {
+	width: 15vw;
+	height: 15vh;
+	background-color: rgb(255, 231, 221);
+	border: 1px solid black;
+}
