@@ -4,12 +4,12 @@
 	width: 60vw;
 	height: 60vh;
 	display: flex;
-	/* flex-direction: row; */
-	/* flex-wrap: wrap; 하면 줄 넘기기, 리버스하면 종이 뒤집기? */
-	flex-flow: row wrap;/*  동시에 하기? */
-	/* justify-content: space-around; */
-	/* baseline이 글자밑줄 기준 뭐시기 하는거 */
-	align-items: stretch; /* 뭔가 쓸데 없을거같은게 준내 많음 flex */
+	/* flex-direction: row; 가로정렬, 주축 설정(앞으로 졸라 뒤집기 하는거 준비용)*/
+	/* flex-wrap: wrap; 하면 크기 차면 자동 줄 넘기기, 리버스하면 종이 뒤집기? */
+	flex-flow: row wrap;/*  위에 두개 동시에 하기? */
+	/* justify-content: flex-end; 자동 정렬인데 신기함. 외곽정렬있음 */
+	/* baseline이 글자밑줄 기준으로 정렬하는거 */
+	align-items: stretch; /* 뭔가 쓸데 없을거같은게 준내 많음 flex, 아마 위아래(line-height)로 맞추는듯 */
 }/*  reverse로 하면 오른쪽부터 나열 */
 
 .item {

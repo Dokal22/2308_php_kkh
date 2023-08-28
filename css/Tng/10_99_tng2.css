@@ -21,12 +21,12 @@ label {
 	color: red;
 }
 
-.label_require:before {
+.label_require:before { /* 이거 쌤꺼 클래스 */
 	content: "*";
 	color: red;
 }
 
-input:focus {
+input:focus { /* 쌤은 input, textarea만 주셨음 */
 	outline: none;
 	border: 3px solid red;
 	border-radius: 3px;
@@ -36,7 +36,7 @@ input:focus {
 	background-color: transparent;/*  background: none; 같음 */
 }
 
-input:checked+label {
+input:checked+label { /* 쌤 그냥 :checked+label로 했음. 다른 페이지나 영향 가는거 없어서 그런듯 */
 	color: red;
 }
 
@@ -45,13 +45,14 @@ textarea:focus {
 	outline: none;
 }
 
-span {
+span { /* 이거 그냥 label태그로 vertical-align: top;으로 하면 자동으로 textarea 옆 공간에서 올라가는 듯 */
 	font-size: 13px;
 	font-weight: 200;
 	color: white;
 	background-color: rgb(68, 68, 68);
 	display: none;
-}
+} /* span으로 지정하지 않아도 버튼:hover::after{content:}로 써서 표시할 수 있다.
+ 선생님은 위치를 absolute로 지정했다. */
 
 button:hover+span {
 	display: block;

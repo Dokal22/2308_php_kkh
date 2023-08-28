@@ -4,6 +4,7 @@
 	background-color: cornflowerblue;
 	border-radius: 50%;
 	animation: moveUpDown 1s ease-in-out infinite alternate;
+	/* 애니메이션, 이름, 초, 속도함수, (영원히, 되감기) */
 } /* 선생님은 여러개 만들어놓고 flex로 가로나열하고 그랬음 */
 
 @keyframes moveUpDown {
