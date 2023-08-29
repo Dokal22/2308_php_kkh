@@ -60,3 +60,38 @@
 .scl4 {
 	height: 85px;
 }
+
+/* 선생님 방법; 배치->마진->조절 */
+/* 방법1 */
+/* .container {
+	background-color: gray;
+	width: 500px;
+	height: 500px;
+	display: flex;
+	flex-wrap: wrap; 한 div로 쭉 쓰고 이걸로 내리기
+	padding: 10px;
+	justify-content: space-between;
+	align-content: space-between;
+}
+.item {
+	border: 1px solid #000;
+	background-color: cadetblue;
+	width: 49%;
+	height: 32%;
+}
+.item-box {
+	background-color: transparent;
+	border: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.row-1 {
+	width: 100%;
+}
+.col-2 {
+	height: 47%;
+} */
+
+
+/* min-height: 500px; 이거 걸고 하는거 보여줌 */
