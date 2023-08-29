@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./12_4_tng1.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container"> <!-- 플렉스는 부모한테 줘라~ 조건문이 다 자식변경이라-->
+		<div>
+			<div class="item" style="float: left;">1</div>
+			<div class="item" style="float: right;">2</div>
+		</div>
+		<div>
+			<div class="item" style="clear: both; float: left; position: relative; left: 33.3%;">3</div>
+		</div><!-- position: relative; left: 90px; -->
+		<div>
+			<div class="item" style="clear: both; float: left;">4</div>
+			<div class="item" style="float: right;">5</div>
+		</div>
+	</div>
+	 <!-- 플롯하면 마진 안듣나? -->
+	 <div class="container3">
+		<div class="row">
+			<div class="item4 fl_le">1</div>
+			<div class="item4 fl_ri">3</div>
+		</div>
+		<div class="row">
+			
+			<div class="item4 dv_c">5</div>
+		</div>
+		<div class="row">
+			<div class="item4 fl_le">7</div>
+			<div class="item4 fl_le">8</div>
+		</div>
+	</div>
+	<div class="container2">
+		<div class="item3"></div>
+		<div class="item3 hidden"></div>
+		<div class="item3"></div>
+		<div class="item3 clr hidden"></div>
+		<div class="item3"></div>
+		<div class="item3 hidden"></div>
+		<div class="item3 clr"></div>
+		<div class="item3"></div>
+		<div class="item3 hidden"></div>
+	</div>
+</body>
+</html>
+
+<!-- https://flexboxfroggy.com/#ko 플렉스 공부용 게임 -->

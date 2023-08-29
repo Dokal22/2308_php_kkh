@@ -1,0 +1,62 @@
+.container {
+	width: 500px; /* vh, vw 얘기하는데 최댓값, 최솟값 얘기함(min,max) */
+	height: 600px;
+	background-color: cadetblue;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around; /* 선생님 이거 사이 공간 불편해서 마진넣고 between으로만 함 */
+}
+
+.container2 {
+	width: 500px;
+	height: 600px;
+	background-color: cadetblue;
+	display: flex;			/* 이거랑 */
+	flex-flow: row wrap;	/* 이거만 바꾸면 안나눠도 됨 */
+	align-items: center;	/* < - 이거만 추가하고 ㅇㅇ */
+	justify-content: space-around;
+}
+
+.part1 {
+	display: flex;
+	flex-direction: row;
+	/* justify-content: center; */
+	justify-content: space-around;
+}
+
+.part2 {
+	display: flex;
+	justify-content: center;
+}
+
+.part3 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.part3-2 {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.section {	
+	border: 1px solid black;
+	background-color: rgb(114, 89, 223);
+	box-sizing: border-box;
+}
+
+.scl1 {
+	width: 230px;
+	height: 180px;
+} 
+
+.scl2 {
+	width: 480px;
+	height: 180px;
+}
+
+.scl4 {
+	height: 85px;
+}

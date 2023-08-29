@@ -1,0 +1,88 @@
+.container {
+	background-color: rgb(254, 243, 224);
+	margin: 10px;
+	width: 270px;
+	height:270px;
+	/* display: flex; */
+	/* flex-direction: row; 가로정렬, 주축 설정(앞으로 졸라 뒤집기 하는거 준비용)*/
+	/* flex-wrap: wrap; 하면 크기 차면 자동 줄 넘기기, 리버스하면 종이 뒤집기? */
+	/* flex-flow: row wrap; */ /*  위에 두개 동시에 하기? */
+	/* justify-content: flex-end; 자동 정렬인데 신기함. 외곽정렬있음 */
+	/* baseline이 글자밑줄 기준으로 정렬하는거 */
+	/* align-items: stretch; */ /* 위아래(line-height)로 맞춤 */
+	
+
+}/*  reverse로 하면 오른쪽부터 나열 */
+
+.item {
+	width: 90px;
+	height: 90px;
+	background-color: rgb(255, 231, 221);
+	border: 1px solid black;
+	box-sizing: border-box;
+}
+
+.item2 {
+	/* align-self: flex-end; 이거 더 공부해보기8/29*/
+	/* center: 1이랑 3 절반 걸쳐서 */
+	/* flex-end: 5위에 붙어서 */
+}
+
+.item3 {
+	width: 15vh;
+	height: 15vh;
+	background-color: rgb(255, 231, 221);
+	border: 1px solid black;
+	box-sizing: border-box;
+	float: left;
+}
+
+.clr {
+	clear: both;
+}
+.container2 {
+	background-color: rgb(254, 243, 224);
+	margin: 10px;
+	width: 50vw;
+	height: 50vh;
+}
+
+/* .item3:nth-child(even) {
+	border-color: transparent;
+	background-color: transparent;
+}
+ */
+.hidden {
+	background-color: transparent;
+	border: none;
+}
+
+.container3 {
+	background-color: rgb(254, 243, 224);
+	margin: 10px;
+	width: 270px;
+	height: 270px;
+}
+.item4 {
+	width: 90px;
+	height: 90px;
+	background-color: rgb(255, 231, 221);
+	border: 1px solid black;
+	box-sizing: border-box;
+	float: left;
+}
+.row{
+	width: 270px;
+	height: 90px;
+}
+.fl_le{
+	float: left;
+}
+.fl_ri{
+	float: right;
+}
+
+.dv_c {
+	margin: auto;
+	float: none; /* 와 플롯 풀어야지 마진먹네 */
+}
