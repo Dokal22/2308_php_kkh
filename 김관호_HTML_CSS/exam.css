@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+
+body {
+	font-family: 'Sedgwick Ave Display', cursive;
+	margin: 0;
+}
+
+
+
+header {
+	background-image: url("./img/img_1.jpg");
+	background-size: cover;
+	background-position: center;
+	color: #ffffff;
+	align-items: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 70px 30px;
+}
+
+h1 {
+	font-size: 4rem;
+}
+
+.head_p {
+	font-size: 1.5rem;
+	color: #ffffff;
+}
+
+a {
+	background-color: rgb(218, 165, 32);
+	border-radius: 5px;
+	color: #ffffff;
+	font-size: 1rem;
+	text-decoration: none;
+	text-align: center;
+	line-height: 50px;	
+}
+
+a:hover {
+	background-color: rgba(218, 165, 32, 0.6);
+	transition-delay:0.5s;
+}
+
+.a1 {
+	font-size: 1.5rem;
+	padding: 15px 20px;
+}
+
+.div_a {
+	width: 230px
+}
+
+
+
+main {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+	grid-gap: 15px;
+	padding: 20px;
+}
+
+article {
+	border: 1px solid #E2E2E2;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 20px;
+}
+
+figure {
+	position: relative;
+	margin: 0;
+}
+
+img {
+	width: 100%;
+}
+
+h3 {
+	background-color: rgba(0, 0, 0, 0.7);
+	color: #ffffff;	
+	margin: 0;
+	padding: 20px 10px;
+}
+
+figcaption {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+main p {
+	font-size: 1rem;
+	color: #000;
+}
+
+
+
+footer {
+	background-color: #333;
+	color: #ffffff;
+	font-size: 0.75rem;
+	line-height: 40px;
+	width: 100vw;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+}
+
+
+
+@media screen and (max-width: 560px) {
+	main {grid-template-columns: 1fr;}
+	header {grid-template-columns: 1fr;}
+}
+
+@media screen and (min-width: 561px) and (max-width: 800px) {
+	main {grid-template-columns: 1fr 1fr;}
+}
+
+@media screen and (min-width: 801px) and (max-width: 1050px) {
+	main {grid-template-columns: 1fr 1fr 1fr;}
+}
+
+@media screen and (min-width: 1051px) and (max-width: 1300px) {
+	main {grid-template-columns: 1fr 1fr 1fr 1fr;}
+}
