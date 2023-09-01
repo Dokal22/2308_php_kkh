@@ -119,6 +119,20 @@ GROUP BY title HAVING title LIKE('%staff%');
 SELECT COUNT(emp_no) FROM titles WHERE title = 'Engineer';
 
 
+-- 각종 직업군과 직업군의 종사하는 현재 인원 구하기
+SELECT title
+	, COUNT(title) AS personnel
+FROM titles
+WHERE to_date >= NOW()
+GROUP BY title;
+
+
+-- 그럼 직업 종류 수 구하기 어케 함?
+select COUNT(ttl.title)
+FROM titles AS ttl
+WHERE to_date >=NOW()
+;	
+
 
 -- 알리아스 alias ? 컬럼명 별칭 만들어주기? > 나중에 php 쓸 때 호출 불편해서 바꾸는 용
 SELECT title, COUNT(title) AS cooooount
@@ -144,7 +158,9 @@ ORDER BY full_name ASC;
 
 
 
-SELECT * FROM employees ORDER BY emp_no
+SELECT * 
+FROM employees 
+ORDER BY emp_no
 LIMIT 10 OFFSET 10;
 
 
@@ -201,14 +217,14 @@ WHERE emp_no =ANY(
 	WHERE dept_no = 'd001'
 );
 -- mariaDB에서는 = ANY, = ALL 을 IN() 대신으로 사용가능(서브쿼리에서만 가능)
--- =ANY = OR, =ALL = AND 
+-- =ANY 비슷 OR, =ALL 비슷 AND 
 
 -- 현재 시니어 엔지니어인 사원의 사번, 생일 출력
 SELECT 
 	emp_no
 	, birth_date
 FROM employees
-WHERE emp_no OR(
+WHERE emp_no =any(
 	SELECT emp_no
 	FROM titles
 	WHERE title = 'Senior Engineer'
@@ -220,7 +236,7 @@ WHERE emp_no OR(
 -- 다중열 서브쿼리 (속도 이슈?
 SELECT *
 FROM dept_emp
-WHERE (dept_no, emp_no) IN (
+WHERE (dept_no, emp_no) in ( -- 여따가 =ANY 넣으면 되고 OR 넣으면 안됨, 다른가봄
 	SELECT dept_no, emp_no
 	FROM dept_manager
 	WHERE to_date >= NOW()
@@ -230,16 +246,17 @@ WHERE (dept_no, emp_no) IN (
 -- 서브쿼리 응용. select : 존나 공부
 -- 사원의 현재 급여, 현재 급여를 받기 시작한 날, 풀네임
 SELECT 
-	sal.salary
+	sal.salary			-- 여것들 sal. 안넣어도 된다. 설명용
 	, sal.from_date
-	,sal.emp_no
-	, (
-		SELECT CONCAT(emp.first_name, ' ', emp.last_name)
+	,sal.emp_no											-- .sal	여 밑에다가 넣으려고 선언함
+	, (																		 	 --	|
+		SELECT CONCAT(emp.first_name, ' ', emp.last_name)   		 --	↓		
 		FROM employees AS emp
 		WHERE sal.emp_no = emp.emp_no -- 이거 안붙이면 한번에 이름값 2만개 다들어감. 
-		-- ;<-여기까지 1레코드 한바꾸 도는건데
-		-- 지금 풀네임에서 웨어 안걸면 셀렉트로 계산한거 1레코드에 다 넣어버려서 오류남.
+		-- 다른 애들은 셀렉트 아닌 곳에서 다 돌려서 가져오는데 셀렉트 위에서 돌리면 하나씩 올리지를 못함;;
 	) AS full_name
+	
+	
 FROM salaries AS sal
 WHERE to_date >= NOW();
 
@@ -249,6 +266,6 @@ SELECT *
 FROM (
 	SELECT *
 	FROM employees
-	WHERE gender = 'M'
+	WHERE gender = 'M' -- 새로 테이블을 만든 개념인가봄
 ) AS emp;
 
