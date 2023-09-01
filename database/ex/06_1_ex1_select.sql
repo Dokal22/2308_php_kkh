@@ -232,10 +232,13 @@ WHERE (dept_no, emp_no) IN (
 SELECT 
 	sal.salary
 	, sal.from_date
+	,sal.emp_no
 	, (
 		SELECT CONCAT(emp.first_name, ' ', emp.last_name)
 		FROM employees AS emp
-		WHERE sal.emp_no = emp.emp_no -- 샐러리에서 넘버존나  중복
+		WHERE sal.emp_no = emp.emp_no -- 이거 안붙이면 한번에 이름값 2만개 다들어감. 
+		-- ;<-여기까지 1레코드 한바꾸 도는건데
+		-- 지금 풀네임에서 웨어 안걸면 셀렉트로 계산한거 1레코드에 다 넣어버려서 오류남.
 	) AS full_name
 FROM salaries AS sal
 WHERE to_date >= NOW();
