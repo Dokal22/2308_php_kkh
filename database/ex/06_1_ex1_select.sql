@@ -255,8 +255,6 @@ SELECT
 		WHERE sal.emp_no = emp.emp_no -- 이거 안붙이면 한번에 이름값 2만개 다들어감. 
 		-- 다른 애들은 셀렉트 아닌 곳에서 다 돌려서 가져오는데 셀렉트 위에서 돌리면 하나씩 올리지를 못함;;
 	) AS full_name
-	
-	
 FROM salaries AS sal
 WHERE to_date >= NOW();
 
