@@ -49,3 +49,10 @@ SELECT NULLIF(1,1);
 SELECT NULLIF(1,2);
 
 7_2
+;
+SELECT emp_no
+	,title 
+	,to_date
+	,NULLIF(to_date, 99990101) AS to_date2
+FROM titles
+ORDER BY emp_no DESC;
