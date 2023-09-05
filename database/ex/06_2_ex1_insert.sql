@@ -54,13 +54,11 @@ VALUES (
 );
 
 
-
-
 INSERT INTO titles
 VALUES (
 	500000
 	,'Staff'
 	,20020330
 	,99990101
-)
+);
 	
