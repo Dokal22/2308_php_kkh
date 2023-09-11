@@ -26,7 +26,7 @@ if($jumsu>=0 && $jumsu<=100){
 		$grade="F";
 	}
 	// echo "당신의 점수는 {$jumsu}점 입니다. <$grade>";
-	$muzi = sprintf($answer,$jumsu,$grade);
+	$muzi =  sprintf($answer,$jumsu,$grade); // 그냥 printf하면 D38이라 출력되는데 왜지
 	echo $muzi;
 	// printf("\n값%d, 값%u",$a,$b);
 }
