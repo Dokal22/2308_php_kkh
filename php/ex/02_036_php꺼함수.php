@@ -14,7 +14,7 @@ echo str_replace("a","/","asdfqefdzfadqeda"),"\n"; // 바꿔주는거
 echo substr("asdFiuoAshdng",3,5),"\n";
 echo mb_substr("함흥차사납시오",2,3),"\n";
 
-echo strpos("zhncuvhdoiuqewhfasdlhfuiapogih", "f"),"\n"; // substr랑 섞어서 사용가능
+echo strpos("zhncuvhdoiuqewhfasdlhfuiapogih", "f"),"\n"; // substr랑 함수에서 섞어서 사용가능
 
 $anything=1;
 var_dump(isset($anything)); // 있냐

@@ -45,8 +45,9 @@ function mAp(...$itms){
 }
 mAp("a","b","c");
 // 옛날꺼
-function mAp(){
-	$itms = func_get_args();
-	print_r($itms);
-}
+// function mAp(){
+// 	$itms = func_get_args();
+// 	print_r($itms);
+// }
+// mAp("a","b","c");
 
