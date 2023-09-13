@@ -36,7 +36,7 @@ function a($a){
 	settype($a,"int");
 	$c=0;
 	$d=0;
-	for($b=strlen($a);$b>0;$b--){ 		// 4 3 2
+	for($b=strlen($a);$b>0;$b--){ 		// 4 	3 	2
 		$c=floor($a/pow(10,($b-1)));  	// 4	5	
 		$a-=$c*pow(10,($b-1));  		// 565	65
 		$d+=$c;							// +4	+5
@@ -44,10 +44,19 @@ function a($a){
 	return $d;
 }
 echo a("4565");
-	// echo floor(4565/pow(10,(4-1)));  	// 4	5	
-	// $a-=$c*pow(10,($b-1));  // 565	65
+// echo floor(4565/pow(10,(4-1)));  	// 4	5	
+// $a-=$c*pow(10,($b-1));  // 565	65
+
+// 쌤방식
+// for($idx=0;$idx<=$len-1;$idx++){
+// 	$sum+=(int)mb_substr($str,$idx,1);
+// }
+
+// 젤빠른게 어레이섬(php에서 만들어논거 쓰세요)
+// (=return array_sum($arr));
 
 	
+// 학생분들꺼
 // function a($a){
 // 	$b=str_split($a);
 // 	$c=0;
