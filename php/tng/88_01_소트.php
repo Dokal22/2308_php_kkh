@@ -22,9 +22,9 @@ $r=[4,28,2,17];
 
 // while로 하기
 // $i=1;
-// $j=1;
 
 // while($j<count($r)){
+//  $j=1;
 // 	while($i<=count($r)-$j){
 // 		$tmp=$r[$i-1];	
 // 		if($tmp>$r[$i]){

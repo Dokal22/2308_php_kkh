@@ -12,8 +12,8 @@ class ClassRoom{
 	private $now;
 
 
-	// 생성자 (컨스트럭트?)
-	public function __construct() { // 꼭 이름이 __construct 이어야 한다.
+	// 생성자 (컨스트럭트?), 선언 안해도 원래 있는거
+	public function __construct() { // 꼭 이름이 __construct 이어야 한다
 	// 무적권 퍼블릭
 		echo "컨스트럭트 실행\n";
 		$this->now=date("Y-m-d H:i:s");
@@ -33,7 +33,7 @@ class ClassRoom{
 		echo $this->bag,"\n";
 	}
 
-	// getter 메소드/setter는 값지정?
+	// getter 메소드/setter는 값지정? // 두 놈 다 private랑 protected 접근하는 용인듯
 	public function get_now() {
 		return $this->now;
 	}
