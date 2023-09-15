@@ -133,7 +133,7 @@ while(!$anham){
 
 		if($try=="no"){
 			$anham=1;
-			$chance=0;
+			$chance=-1;
 			break;
 		}
 		else if($ran_val==$try){
@@ -150,7 +150,10 @@ while(!$anham){
 	if($chance==0){
 		echo "왤케 못함? ㅉㅉ {$ran_val}인데...\n다시 ";
 	}
-	else{
+	else if($chance<=6){
 		echo "{$ran_val} 맞음... 어케 맞춤?ㄷㄷ\n";
+	}
+	else{
+		echo "\n";
 	}
 }

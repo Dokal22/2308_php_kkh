@@ -106,6 +106,11 @@
 // 	echo "{$key} : {$val}\n";
 // }
 
-define("MSG", "에러가 발생했습니다. (CODE : %s)");
-$msg = sprintf(MSG, "E01");
-echo $msg;
+// define("MSG", "에러가 발생했습니다. (CODE : %s)");
+// $msg = sprintf(MSG, "E01");
+// echo $msg;
+
+
+for($i=0;$i<10;$i++){
+    echo $i;
+}
