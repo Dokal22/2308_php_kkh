@@ -34,6 +34,7 @@ UPDATE titles
 SET 
 	title = 'Staff'
 WHERE emp_no = 500000;
+
 UPDATE salaries
 SET
 	salary = 25000

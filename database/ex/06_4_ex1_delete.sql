@@ -12,3 +12,10 @@ DELETE FROM employees
 WHERE emp_no >= 500001;
 
 
+SELECT @@autocommit;
+
+SET autocommit=FALSE;
+
+FLUSH PRIVILEGES;
+
+COMMIT;

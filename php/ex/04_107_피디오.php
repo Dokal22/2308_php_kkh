@@ -10,7 +10,7 @@ $db_dns = "mysql:host=".$db_host.";dbname=".$db_name.";charset=".$db_charset;
 
 
 $db_options = [ // 스태틱 호출 ::
-    PDO::ATTR_EMULATE_PREPARES      => false // ?
+    PDO::ATTR_EMULATE_PREPARES      => false // Preppared Statement 를 데이터베이스가 지원 하지 않을 경우 에뮬레이션 하는 기능
     ,PDO::ATTR_ERRMODE              => PDO::ERRMODE_EXCEPTION // 에러나도 킵고잉
     ,PDO::ATTR_DEFAULT_FETCH_MODE   => PDO::FETCH_ASSOC // 데이터를 배열화
 ];
