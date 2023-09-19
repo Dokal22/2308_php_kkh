@@ -8,7 +8,7 @@ function PDO_set(&$conn){
 	$db_pw="php504";
 	$db_name="employees";
 	$db_charset="utf8mb4";
-	$db_dns="mysql:host".$db_host.";port=".$db_port.";dbname=".$db_name.";charset=".$db_charset;
+	$db_dns="mysql:host=".$db_host.";port=".$db_port.";dbname=".$db_name.";charset=".$db_charset;
 
 	$db_option=[
 		PDO::ATTR_EMULATE_PREPARES => false // Preppared Statement 를 데이터베이스가 지원 하지 않을 경우 에뮬레이션 하는 기능

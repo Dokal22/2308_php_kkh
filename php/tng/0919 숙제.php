@@ -20,11 +20,25 @@ $arr_ps=[
 $stmt=$conn->prepare($sql);
 $stmt->execute($arr_ps);
 $no_title=$stmt->fetchAll();
-var_dump($no_title);
+
+
+// 리절트값 확인용
+// var_dump($no_title);
+
+// foreach($no_title as $val){
+	
+// 	echo $val['emp_no'];
+// 	// echo $val['birth_date'];
+// 	// echo $val['first_name'];
+// 	// echo $val['last_name'];
+// 	// echo $val['gender'];
+// 	// echo $val['hire_date'];
+	
+// }
 
 // -----------------------------------------------
 
-$sql="
+$sql2="
  INSERT INTO titles
  VALUES(
 	:emp_no
@@ -33,16 +47,37 @@ $sql="
 	,99990101
  ) 
 ";
+
+// $sql2=" // 테스트
+//  select emp_no
+//  from employees
+//  where emp_no = :emp_no
+// ";
+
+$stmt2=$conn->prepare($sql2);
+
+
 foreach($no_title as $val){
-    $arr_ps=[
-        ":emp_no"=> $val
+
+    $arr_ps2=[
+        ":emp_no"=>$val['emp_no']
     ];
 
-    $stmt=$conn->prepare($sql);
-    $result=$stmt->execute($arr_ps);
+	// $stmt2->execute($arr_ps2); // 테스트
+	// $result=$stmt2->fetchAll();
+	// var_dump($result);
+
+
+    // $stmt2=$conn->prepare($sql2);
+    $result=$stmt2->execute($arr_ps2);
     var_dump($result);
-    $conn->commit();
+    
 }
+
+
+
+
+
 
 // ------------------------------------------
 PDO_del($conn);

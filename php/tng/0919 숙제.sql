@@ -1,12 +1,12 @@
 INSERT INTO employees
 VALUES(
-	700000
+	700002
 	,20000101
 	,'first'
 	,'last'
 	,'M'
 	,20230919
-	,null
+-- 	,null
 );
 COMMIT;
 
@@ -39,7 +39,7 @@ SELECT *
  ;
  
  DELETE FROM titles
- WHERE emp_no = 700000
+ WHERE emp_no >= 700000
  ;
  
  FLUSH PRIVILEGES;

@@ -7,6 +7,6 @@
 
 
 // 쿠키 생성
-setcookie("myCookie", "홍길동"); // 경로도 있다?
+setcookie("myCookie", "홍길동", time()+89400); // 경로도 있다?
 
 base64_encode("여따가 넣으면 암호화됨"); // 암호화
