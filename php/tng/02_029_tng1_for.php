@@ -134,7 +134,7 @@
 // 	echo "\n";
 // }
 
-// 학생분들꺼 2
+// // 학생분들꺼 2
 // $num=5;
 // for($i=1;$i<=$num;$i++){
 // 	for($j=$num-$i;$j>=1;$j--){
@@ -274,22 +274,22 @@
 // }
 
 // 별 다리 만듬 
-$scale=10;
-for($i=1;$i<=$scale;$i++){
-	for( $blank1=$scale;$blank1>$i;$blank1-- ){
-			echo " ";
-	}
-	for( $starL=$i;$starL<$scale;$starL++ ){
-		echo "*";
-	}
-	for( $blank2=0;$blank2<4*$i-4;$blank2++ ){
-		echo " ";
-	}
-	for( $starR=$i;$starR<$scale;$starR++ ){
-		echo "*";
-	}
-	echo "\n";
-}
+// $scale=10;
+// for($i=1;$i<=$scale;$i++){
+// 	for( $blank1=$scale;$blank1>$i;$blank1-- ){
+// 			echo " ";
+// 	}
+// 	for( $starL=$i;$starL<$scale;$starL++ ){
+// 		echo "*";
+// 	}
+// 	for( $blank2=0;$blank2<4*$i-4;$blank2++ ){
+// 		echo " ";
+// 	}
+// 	for( $starR=$i;$starR<$scale;$starR++ ){
+// 		echo "*";
+// 	}
+// 	echo "\n";
+// }
 
 
 

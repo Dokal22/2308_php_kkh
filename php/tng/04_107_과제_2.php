@@ -22,7 +22,7 @@ function my_ins(){
 	$sql="insert into employees( emp_no, birth_date, first_name, last_name, gender, hire_date ) 
 		values( :emp_no, :birth_date, :first_name, :last_name, :gender, :hire_date )";
 	$arr_ps=[
-		":emp_no"=>500000
+		":emp_no"=>500011
 		,":birth_date"=>20020329
 		,":first_name"=>"김"
 		,":last_name"=>"관호"
@@ -37,22 +37,10 @@ function my_ins(){
 
 function my_up(){
 	PDO_set($conn);
-	$sql="update employees set first_name = :first_name where emp_no = :emp_no";
+	$sql="update employees set first_name = :first_name, last_name = :last_name where emp_no = :emp_no";
 	$arr_ps=[
 		":first_name"=>'호이'
-		,":emp_no"=>500000
-	];
-
-	$stmt=$conn->prepare($sql);
-	$result=$stmt->execute($arr_ps); // 인서트, 딜리트
-	return $result; // 인서트
-}
-	
-function my_up2(){
-	PDO_set($conn);
-	$sql="update employees set last_name = :last_name where emp_no = :emp_no";
-	$arr_ps=[
-		":last_name"=>'둘리'
+		,":last_name"=>'둘리'
 		,":emp_no"=>500000
 	];
 
@@ -81,26 +69,35 @@ function my_del(){
 
 $conn=null;
 $result=[];
-
+$a;
 
 
 
 // --------------------------------------------
 
-my_del();
-	// $sql="delete from employees where emp_no=:emp_no;";
+// $a=my_del();
+	PDO_set($conn);
+	$sql="delete from employees where emp_no=:emp_no;";
+	$arr_ps=[
+		":emp_no"=>500000
+	];
+	// PDO_set($conn);
+	// $sql="select * from employees where emp_no=:emp_no;";
 	// $arr_ps=[
 	// 	":emp_no"=>500000
 	// ];
 
+	$stmt=$conn->prepare($sql);
+	// $stmt->execute($arr_ps);
+	// $result=$stmt->fetchAll(); // 셀렉트
 	// $stmt=$conn->prepare($sql);
 	// $stmt->execute($arr_ps);
 	// $result=$stmt->fetchAll(); // 셀렉트
 	// print_r($result);
-	// $result=$stmt->execute($arr_ps); // 인서트, 딜리트
-	// var_dump($result); // 인서트
+	$result=$stmt->execute($arr_ps); // 인서트, 딜리트
+	var_dump($result); // 인서트
 	// $res_cnt=$stmt->rowCount(); // 딜리트
-	var_dump($res_cnt);
+	// var_dump($a);
 	
 
 	// $conn->commit();
