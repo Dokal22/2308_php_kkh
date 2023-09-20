@@ -6,7 +6,7 @@ VALUES(
 	,'last'
 	,'M'
 	,20230919
--- 	,null
+	,null
 );
 COMMIT;
 
