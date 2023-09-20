@@ -14,7 +14,7 @@ if(!PDO_set($conn)){
     exit;
 }
 
-//게시글 리스트 조회
+// 게시글 리스트 조회
 $result = db_select_boards_paging($conn);
 if(!$result){
     echo "DB error : 셀렉트보드";
