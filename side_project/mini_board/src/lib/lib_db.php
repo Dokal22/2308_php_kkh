@@ -129,9 +129,11 @@ function db_insert_boards(&$conn, &$arr_param){
 		return $result;
 
 	} catch(Exception $e){
+		echo $e->getMessage(); // Exception 메세지 출력
 		return false;
 	}
 }
+?>
 
 
 
@@ -140,8 +142,7 @@ function db_insert_boards(&$conn, &$arr_param){
 
 
 
-
-// 확인용
+<!-- // 확인용
 // $conn=null;
 // PDO_set($conn);
-// echo db_select_boards_cnt($conn);
+// echo db_select_boards_cnt($conn); -->

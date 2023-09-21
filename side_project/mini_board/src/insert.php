@@ -6,8 +6,6 @@ require_once(ROOT."lib/lib_db.php");
 
 
 
-
-
 //post로 리퀘스트가 왔을 때 처리
 $http_method=$_SERVER["REQUEST_METHOD"];
 // var_dump($http_method);
@@ -32,7 +30,7 @@ if($http_method === "POST"){
 
         // 값넣기
         if(!db_insert_boards($conn, $arr_post)){
-            throw new Exception("인서트화긴\n");
+            throw new Exception("인서트화긴");
         }
 
 
@@ -87,12 +85,12 @@ if($http_method === "POST"){
 
 
         <label for="title">제목</label>
-        <input type="text" name="title" id="title" size="30">
+        <input type="text" name="title" id="title" size="30" required>
 
         <br>
 
         <label for="content">내용</label>
-        <textarea type="txta" name="content" id="content" cols="32" rows="10"></textarea>
+        <textarea type="txta" name="content" id="content" cols="32" rows="10" required></textarea>
 
         <br>
 
