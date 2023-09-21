@@ -2,9 +2,9 @@
 
 
 define("ROOT",$_SERVER["DOCUMENT_ROOT"]."/mini_board/src/");
+define("FILE_HEADER", ROOT."header.php");
 require_once(ROOT."lib/lib_db.php");
 // var_dump($_SERVER);
-
 
 
 $conn=null;
@@ -14,18 +14,75 @@ if(!PDO_set($conn)){
     exit;
 }
 
-// 게시글 리스트 조회
-$result = db_select_boards_paging($conn);
-if(!$result){
-    echo "DB error : 셀렉트보드";
-    exit;
-}
+
+
+
+
+
+
+
+// $a = db_select_boards_cnt($conn);
+
+// 페이징 처리
+$list_cnt=5; // 한 페이지 최대 표시 수
+$page_num=1; // 페이지 번호 초기화
+// 총 게시글 수 검색
+$max_page_num = ceil(db_select_boards_cnt($conn) / $list_cnt);
+// if($boards_cnt === false){
+//     echo "DB Error : select count";
+//     exit;
+// }
+
+    if(isset($_GET["page"])){
+        $page_num = $_GET["page"]; // 유저가 보내온 페이지 번호
+    }
+
+    $offset = ($page_num-1) * $list_cnt; // 오프셋 계산
+
+    // DB 조회시 사용할 데이터 배열
+    $arr_param=[
+        "list_cnt"=>$list_cnt
+        ,"offset"=>$offset
+    ];
+
+
+        // 게시글 리스트 조회
+        $result = db_select_boards_paging($conn, $arr_param);
+        if(!$result){
+            echo "DB error : 셀렉트보드";
+            exit;
+        }
+
+
+            // 이전버튼
+            $prev_page_num = $page_num - 1;
+            if($prev_page_num === 0){
+                $prev_page_num = 1;
+            }
+
+            // 다음 버튼
+            $next_page_num = $page_num + 1;
+            if($next_page_num > $max_page_num){
+                $next_page_num = $max_page_num;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
 
 PDO_del($conn); // 디비 잘가
 
 
 
-var_dump($result);
+// var_dump($result);
 
 
 
@@ -37,64 +94,62 @@ var_dump($result);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="/mini_board/src/css/common.css">
     <title>리스트 페이지</title>
 </head>
 <body>
-
-    <header>
-       
-        <h1>mini Board</h1>
-
-    </header>
-
+    <?php
+        require_once(FILE_HEADER);
+    ?>
     <main>
         <table>
+
+
             <colgroup>
                 <col width=10%>
                 <col width=70%>
                 <col width=20%>
             </colgroup>
+
+
             <tr class="table-title">
                 <th>번호</th>
                 <th>제목</th>
                 <th>작성일자</th>
             </tr>
-            <tr>
-                <td>5</td>
-                <td>오번게시글</td>
-                <td>2023/09/20 14:50</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>사번게시글</td>
-                <td>2023/09/20 13:50</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>삼번게시글</td>
-                <td>2023/09/20 12:50</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>이번게시글</td>
-                <td>2023/09/20 11:50</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>일번게시글</td>
-                <td>2023/09/20 10:50</td>
-            </tr>
+ 
+ 
+            <?php foreach($result as $item){ ?>
+
+                <tr>
+                    <td><?php echo $item["id"]; ?></td>
+                    <td><?php echo $item["title"]; ?></td>
+                    <td><?php echo $item["create_at"]; ?></td>
+                </tr>
+
+            <?php } ?>
+
+            
         </table>
         <section>
-            <a href="#">이전</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">다음</a>
+            <a class="page-btn" href="http://localhost/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>">이전</a>
+
+            
+                <?php
+                // if($page_num%5==1){
+                //     for($i=$page_num;$i<=$page_num+4;$i++){
+                for($i=1;$i<=$max_page_num;$i++){
+                ?>        
+                    <a class="page-btn" href="http://localhost/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                <?php
+                }
+                // }}
+                ?>
+                
+
+            <a class="page-btn" href="http://localhost/mini_board/src/list.php/?page=<?php echo $next_page_num ?>">다음</a>
         </section>
+        <a href="/mini_board/src/insert.php" id="insert" class="page-btn">작성</a>
     </main>
 
 </body>

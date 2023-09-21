@@ -104,6 +104,7 @@ SELECT MIN(salary) FROM salaries WHERE to_date >= 20230901;
 SELECT AVG(salary) FROM salaries WHERE to_date >= 20230901;
 
 SELECT COUNT(emp_no) FROM employees;
+-- SELECT COUNT(id) FROM boards;
 -- 이름 Mary인 사람 수
 
 SELECT COUNT(emp_no) FROM employees WHERE employees.first_name = 'Mary';
