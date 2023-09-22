@@ -133,6 +133,50 @@ function db_insert_boards(&$conn, &$arr_param){
 		return false;
 	}
 }
+
+
+// -----------------------------------------------------------
+// 함수명 : db_open_paging
+// 기능 : 게시글 열기
+// 파라미터 : PDO   &$conn   
+//			 인트  &$id   쿼리용 
+// 리턴 : boolean
+// -----------------------------------------------------------
+function db_select_boards_id(&$conn, &$id){
+
+	
+	$sql="
+	 select
+		 id
+		 ,title
+		 ,content
+		 ,create_at 
+	 from
+		 boards
+	 where
+	 	 id = :id		 	
+	";	
+	
+	$arr_ps=[
+		":id" => $id
+	];
+
+	try{
+
+		$stmt=$conn->prepare($sql);
+		$stmt->execute($arr_ps);
+		$result=$stmt->fetchAll();
+
+		return $result;
+
+	} catch(Exception $e){
+		echo $e->getMessage(); // Exception 메세지 출력
+		return false;
+	}
+}
+
+
+
 ?>
 
 

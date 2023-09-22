@@ -46,20 +46,27 @@
 // 	}
 // 	return $d;
 // }
-// echo a("4565");
+// echo a("123456789");
+
+
 // echo floor(4565/pow(10,(4-1)));  	// 4	5	
 // $a-=$c*pow(10,($b-1));  // 565	65
 
+
+
+
+
+
 // 쌤방식
-// function my_test(string $str) {
-// 	$sum=0;
-// 	$len = mb_strlen($str);
-// 	for($idx=0;$idx<=$len-1;$idx++){
-// 		$sum+=(int)mb_substr($str,$idx,1);
-// 	}
-// 	return $sum;
-// }
-// echo my_test("738291");
+function my_test(string $str) {
+	$sum=0;
+	$len = mb_strlen($str);
+	for($idx=0;$idx<=$len-1;$idx++){
+		$sum+=(int)mb_substr($str,$idx,1);
+	}
+	return $sum;
+}
+echo my_test("738291");
 
 // 젤빠른게 어레이섬(php에서 만들어논거 쓰세요)
 // <return array_sum($arr)>
