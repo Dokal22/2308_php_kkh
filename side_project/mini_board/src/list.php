@@ -133,8 +133,9 @@ try{
                 //         for($i;$i<=$culc+5;$i++){
                 //             if($i>$max_page_num){   
                 //             break;}
-                $culc=((ceil($page_num/5))*5);
-                $i=$culc-4;
+                $page_list=5;
+                $culc=((ceil($page_num/$page_list))*$page_list);
+                $i=$culc-($page_list-1);
                         for($i;$i<=$culc;$i++){
                             if($i>$max_page_num){   
                             break;}
