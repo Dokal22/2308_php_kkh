@@ -5,33 +5,100 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url(../../doc/줌\ 이쪼기야.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0 145px;
+    /* background-image: url(../../doc/줌\ 이쪼기야.png); */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* background-position: 0 145px; */
 }
 
-main {
-    font-size: 1rem;
+.baggat {
+    width: 1080px;
+    margin: auto;
+}
+
+.never_img{
+    position: absolute;
+}
+
+.header_flex{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: end;
+    align-items: center;
+    height: 35px;
+}
+
+.header_img{
+    position: absolute;
+}
+
+.header_a{
+    margin: 0px 10px;
+    font-size: 12px;
+}
+
+.sero{
+    width: 2px;
+    height: 18px;
+    background-color: rgb(221, 221, 221);
 }
 
 header {
+    height: 340px;
     width: 100%;
     background-color: black;
+    background-image: url(../../doc/임시배너.jpg);
+    display: flex;
 }
 
 header > h1 {
     color: white;
-    text-align: center;
+    /* text-align: center; */
     font-size: 4rem;
     padding: 2rem;
+    margin-left: 50px;
+}
+
+.search{
+    display: flex;
+    justify-content: end;
+    margin: 5px 0px;
+}
+
+main {
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: 200px 860px;
+    gap: 20px;
+}
+
+aside{
+    
+}
+
+h3{
+    font-size: 22px;
+    display: inline-block;
     margin: 0;
+}
+
+.contents{
+}
+
+.sort{
+    display: flex;
+    justify-content: end;
+    align-items: center;    
+    height: 53px;
+}
+
+.sort_a{
+    margin: 0px 10px;
 }
 
 table {
     border-collapse: collapse;
-    width: 1000px;
-    margin: 50px auto;
+    width: 100%;
     font-size: 1.5rem;
     position: relative;
 }
@@ -42,34 +109,60 @@ colgroup{
 
 tr {
     
-    height: 100px;
+    height: 38px;
 }
 
 th{
     /* position: relative; */
+    font-size: 18px;
 }
 
 td {
+    font-size: 18px;
     text-align: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(223, 223, 223);
 }
 
 .table-title {
-    border: none;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    border-top: 1px solid black;
+    border-bottom: 1px solid rgb(223, 223, 223);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     height: 50px;
 }
 
-section {
+.jagseong {
     text-align: center;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    /* line-height: 36px;
+    width: 74px; */
+    padding: 9px 5px 9px 22px;
+    margin: 5px;
+    border: 1px solid black;
+    background-color: white;
+    font-weight: normal;
+    position: relative;
+    float: right;
+}
+
+.pen{
+    transform: rotate(135deg);
+    position: absolute;
+    left: 5px;
+}
+
+section {
     /* display: inline-block; */
     /* float: left; */
     /* position: relative; */
     /* left: 25%; */
+    margin-top: 68px;
+}
+
+.page_buts{
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 
 .tri {
@@ -86,10 +179,6 @@ a {
     display: block;
     text-align: center;
     line-height: 50px;
-    
-    background-color: rgba(0, 0, 0, 0.486);
-    color: white;
-    border-radius: 50%;
     margin: 0px 7px;
 }
 
@@ -116,7 +205,7 @@ a {
 #page-btn-R:after {
     content: '';
     top: 5px;
-    left: -15px;
+    left: -16px;
     width: 40px;
     height: 40px;
     background-color: rgb(0, 0, 0);
@@ -144,7 +233,7 @@ a {
 #page-btn-L:after {
     content: '';
     top: 5px;
-    left: -15px;
+    left: -14px;
     width: 40px;
     height: 40px;
     background-color: rgb(0, 0, 0);
@@ -154,29 +243,3 @@ a {
     transform: rotate(-135deg);
  }
 
-#insert {
-    border: 0px solid rgb(0, 0, 0);
-    background-color: rgba(65, 65, 65, 0.897);
-    border-radius: 17%;
-    
-
-    position: absolute;	
-    right: 5%;
-    top: 108%;
-
-
-
-    font-weight: normal;
-
-
-
-    width: 5.9rem;
-    line-height: 3.7rem;
-
-
-
-    display: inline;
-    /* float: left; */
-    /* margin-left: 80%; */
-    /* line-height: 35px; */
-}
