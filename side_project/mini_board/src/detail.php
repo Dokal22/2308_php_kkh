@@ -2,6 +2,9 @@
 
 define("ROOT",$_SERVER["DOCUMENT_ROOT"]."/mini_board/src/");
 define("FILE_HEADER", ROOT."header.php");
+define("FILE_ASIDE", ROOT."aside.php");
+define("FILE_FOOTER", ROOT."footer.php");
+define("FILE_SEARCH", ROOT."search.php");
 require_once(ROOT."lib/lib_db.php");
 
 $id="";
@@ -60,34 +63,55 @@ try{
     <title>상세 페이지</title>
 </head>
 <body>
-    <?php
-        require_once(FILE_HEADER);
-    ?>
-    <!-- 상세페이지 -->
-    <!-- <br> -->
-    <?php var_dump($result) ?>
-    <table>
-        <tr>
-            <th>글 번호</th>
-            <td><?php echo $item["id"]; ?></td>
-        </tr>
-        <tr>
-            <th>제목</th>
-            <td><?php echo $item["title"]; ?></td>
-        </tr>
-        <tr>
-            <th>내용</th>
-            <td><?php echo $item["content"]; ?></td>
-        </tr>
-        <tr>
-            <th>작성일자</th>
-            <td><?php echo $item["create_at"]; ?></td>
-        </tr>
-    </table>
+    <div class="baggat">
+        <?php
+            require_once(FILE_HEADER);
+        ?>
 
-    <a href="#">수정</a>
-    <a href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>">취소</a>
-    <a href="#">삭제</a>
+        <?php
+            require_once(FILE_SEARCH);
+        ?>
 
+        <main>
+            <?php
+                require_once(FILE_ASIDE);
+            ?>
+
+            <div class="detail_con">
+                <!-- <colgroup>
+                    <col width=10%>
+                    <col width=90%>
+                </colgroup> -->
+
+                <table>
+                    <tr>
+                        <th>글 번호</th>
+                        <td><?php echo $item["id"]; ?></td>
+                    </tr>
+                    <tr>
+                        <th>제목</th>
+                        <td><?php echo $item["title"]; ?></td>
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+                        <td><?php echo $item["content"]; ?></td>
+                    </tr>
+                    <tr>
+                        <th>작성일자</th>
+                        <td><?php echo $item["create_at"]; ?></td>
+                    </tr>
+                </table>
+
+                <div>
+                    <a href="#">수정</a>
+                    <a href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>">취소</a>
+                    <a href="#">삭제</a>
+                </div>
+            </div>
+        </main>
+        <?php
+            require_once(FILE_FOOTER);
+        ?> 
+    </div>
 </body>
 </html>

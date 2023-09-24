@@ -1,5 +1,5 @@
 
-<div class="never_img">never</div>
+<div class="never_img"><b>NEVER</b></div>
 <div class="header_flex">
         <a class="header_a" href="#">카페홈</a>
         <div class="sero"></div>
@@ -22,7 +22,7 @@
 
 <header>
        
-        <h1>치얼쓰🍷</h1>
+        <!-- <h1>치얼쓰🍷</h1> -->
 
 </header>
 

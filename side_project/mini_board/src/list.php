@@ -3,6 +3,9 @@
 
 define("ROOT",$_SERVER["DOCUMENT_ROOT"]."/mini_board/src/");
 define("FILE_HEADER", ROOT."header.php");
+define("FILE_ASIDE", ROOT."aside.php");
+define("FILE_FOOTER", ROOT."footer.php");
+define("FILE_SEARCH", ROOT."search.php");
 require_once(ROOT."lib/lib_db.php");
 // var_dump($_SERVER);
 
@@ -11,7 +14,13 @@ require_once(ROOT."lib/lib_db.php");
 
 $list_cnt=5; // 한 페이지 최대 표시 수
 $page_num=1; // 페이지 번호 초기화
-$page_list=10;
+$page_list=10; // 밑에 페이지이동버튼 개수
+
+
+
+if(isset($_GET['gaeshick'])){
+    $list_cnt = $_GET['gaeshick'];
+}
 
 
 
@@ -80,6 +89,9 @@ try{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/mini_board/src/css/common.css">
     <title>리스트 페이지</title>
+    <style>
+        
+    </style>
 </head>
 <body>
     <div class="baggat">
@@ -87,51 +99,59 @@ try{
             require_once(FILE_HEADER);
         ?>
 
-        <form class="search" action="">
-        <!-- <form class="search" action="/mini_board/src/detail.php/?search= echo $search;"> -->
-            <input type="text" name="search" id="search">
-            <button type="submit">검색</button>
-        </form>
+        <?php
+            require_once(FILE_SEARCH);
+        ?>
 
         <main>
-
-            <aside>
-                길쭉하게 옆에 달려있기~
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            </aside>
+            <?php
+                require_once(FILE_ASIDE);
+            ?>
 
             <div class="contents">
 
                 <h3>자유게시판</h3>
                 <a href="#" class="favorate">★</a>
 
-                <div class="sort">
-                    <a href="" class="sort_a">새글 구독</a>
+                <form class="sort" method="post" action="list.php">
+                    <a href="#" class="sort_a">새글 구독</a>
                     <div class="slider"></div>
                     <!-- <input type="range" id="gudok" name="gudok" min="0" max="1" step="1" style="width:25px;"> -->
-                    <a href="" class="sort_a">□ 공지 숨기기</a>
+                    <a href="#" class="sort_a">□ 공지 숨기기</a>
                     <div class="sero"></div>
-                    <a href="" class="sort_a">▤</a>
-                    <a href="" class="sort_a">▦</a>
-                    <a href="" class="sort_a">📄</a>
+                    <a href="#" class="sort_a">▤</a>
+                    <a href="#" class="sort_a">▦</a>
+                    <a href="#" class="sort_a">📄</a>
                     <select name="gaeshick" id="gaeshick">
-                        <option value="5">5개씩</option>
-                        <option value="10">10개씩</option>
-                        <option value="15">15개씩</option>
-                        <option value="20">20개씩</option>
-                        <option value="30">30개씩</option>
-                        <option value="40">40개씩</option>
-                        <option value="50">50개씩</option>
+                        <button type="submit" value="" class="gaeshick"><option value="5">5개씩</option></button>
+                        <button type="submit" value="" class="gaeshick"><option value="10">10개씩</option></button>
+                        <option value="15"><button type="submit" value="" class="gaeshick">15개씩</button></option>
+                        <option value="20"><button type="submit" value="" class="gaeshick">20개씩</button></option>
+                        <option value="30"><button type="submit" value="" class="gaeshick">30개씩</button></option>
+                        <option value="40"><button type="submit" value="" class="gaeshick">40개씩</button></option>
+                        <option value="50"><button type="submit" value="" class="gaeshick">50개씩</button></option>
                     </select>
-                </div>
+                    <!-- <details>
+                        <summary>몇개씩</summary>
+                        <ul class="gaeshick">
+                            <li><a href="http://localhost/mini_board/src/list.php/?gaeshick=5">5개씩</a></li>
+                            <li><a href="http://localhost/mini_board/src/list.php/?gaeshick=10">10개씩</a></li>
+                            <li><a href="http://localhost/mini_board/src/list.php/?gaeshick=15">15개씩</a></li>
+                            <li><a href="http://localhost/mini_board/src/list.php/?gaeshick=20">20개씩</a></li>
+                            <li><a href="http://localhost/mini_board/src/list.php/?gaeshick=30">30개씩</a></li>
+                            <li><a href="http://localhost/mini_board/src/list.php/?gaeshick=40">40개씩</a></li>
+                            <li><a href="http://localhost/mini_board/src/list.php/?gaeshick=50">50개씩</a></li>
+                        </ul>
+                    </details> -->
+                </form>
 
                 <table>
 
                     <colgroup>
                         <col width=10%>
-                        <col width=50%>
-                        <col width=14%>
-                        <col width=10%>
+                        <col width=49%>
+                        <col width=13%>
+                        <col width=12%>
                         <col width=8%>
                         <col width=8%>
                     </colgroup>
@@ -152,14 +172,21 @@ try{
 
                         <tr>
                             <td><?php echo $item["id"]; ?></td>
-                            <td><a href="/mini_board/src/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
-                                <?php echo $item["title"]; ?></a></td>
-                            <td><?php
+                            <td>
+                                <a href="/mini_board/src/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
+                                <?php echo $item["title"]; ?></a>
+                            </td>
+                            <td>ip</td>
+                            <td>
+                                <?php
                                      if(date("Y-m-d") == substr($item["create_at"],0,10)){
                                         echo substr($item["create_at"],10,6);
                                     }
                                      else {echo substr($item["create_at"],0,10);}
-                                 ?></td>
+                                 ?>
+                            </td>
+                            <td>0</td>
+                            <td>0</td>
                         </tr>
 
                     <?php } ?>
@@ -170,44 +197,62 @@ try{
                 <a href="/mini_board/src/insert.php" id="insert" class="jagseong"><div class="pen">✏</div>글쓰기</a>
 
                 <section>
-
                     <div class="page_buts">
-                        <div class="tri">
-                            <a class="page-btn" id="page-btn-L" href="http://localhost/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"></a>
-                        </div>
-                            <?php
-                                // $culc=(((ceil($page_num/5))-1)*5);
-                                // $i=$culc+1;
-                                //         for($i;$i<=$culc+5;$i++){
-                                //             if($i>$max_page_num){   
-                                //             break;}
-                                $culc=((ceil($page_num/$page_list))*$page_list);
-                                $i=$culc-($page_list-1);
-                                        for($i;$i<=$culc;$i++){
-                                            if($i>$max_page_num){   
-                                            break;}
-                            ?> 
-
-                            <a class="page-btn" id="page-btn" href="http://localhost/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                            
-                            <?php
-                                }
-                            ?>
-
-
-                        <div class="tri">
-                            <a class="page-btn" id="page-btn-R" href="http://localhost/mini_board/src/list.php/?page=<?php echo $next_page_num ?>"></a>
-                        </div>                  
+                        <?php if($page_num>10){ ?>
+                                   <div class="sero"></div><a class="page-btn" href="http://localhost/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><div class="arrow_L"></div>이전</a>
+                        <?php } ?>
+                        <?php
+                            $culc=((ceil($page_num/$page_list))*$page_list);
+                            $i=$culc-($page_list-1);
+                                    for($i;$i<=$culc;$i++){
+                                        if($i>$max_page_num){   
+                                        break;}
+                        ?>
+                                        <a class="page-btn" id="page-btn" href="http://localhost/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                        <?php       } ?>
+                        <?php if($culc<$max_page_num){ ?>
+                                   <div class="sero"></div><a class="page-btn" href="http://localhost/mini_board/src/list.php/?page=<?php echo $next_page_num ?>"><div class="arrow_R"></div>다음</a>
+                        <?php } ?>         
                     </div>  
 
-                </section>
+                </section>       
+                <div class="whspac">               
+                    <form class="search_detail" action="">
+                    
+                        <select name="" id="">
+                            <option value="">전체기간</option>
+                            <option value="">1일</option>
+                            <option value="">1주</option>
+                            <option value="">1개월</option>
+                            <option value="">6개월</option>
+                            <option value="">1년</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">게시글+댓글</option>
+                            <option value="">제목만</option>
+                            <option value="">글작성자</option>
+                            <option value="">댓글내용</option>
+                            <option value="">댓글작성자</option>
+                        </select>
+                        <input type="text" name="search" id="search" placeholder="  검색어를 입력해주세요">
+                        <button type="submit" class="search">검색</button>
+                    </form>                    
+                </div> 
 
+                <div class="super_ad">
+                    파워링크 광고입니다.
+                    <a href="">광고안내</a>
+                    <p></p>
+                    광고
+                </div>
             </div>            
 
         </main>
 
+        <?php
+            require_once(FILE_FOOTER);
+        ?> 
     </div>
-
 </body>
 </html>
 

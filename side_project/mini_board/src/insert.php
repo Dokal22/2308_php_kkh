@@ -2,6 +2,9 @@
 
 define("ROOT",$_SERVER["DOCUMENT_ROOT"]."/mini_board/src/");
 define("FILE_HEADER", ROOT."header.php");
+define("FILE_ASIDE", ROOT."aside.php");
+define("FILE_FOOTER", ROOT."footer.php");
+define("FILE_SEARCH", ROOT."search.php");
 require_once(ROOT."lib/lib_db.php");
 
 
@@ -75,30 +78,34 @@ if($http_method === "POST"){
     <title>작성페이지</title>
 </head>
 <body>
+    <div class="baggat">
+        <?php
+            require_once(FILE_HEADER);
+        ?>
+        <!-- 나중에 tr로 테이블 주면 css편할듯? -->
 
-    <?php
-        require_once(FILE_HEADER);
-    ?>
-    <!-- 나중에 tr로 테이블 주면 css편할듯? -->
+        <div class="insert_top">
+            <a href="">전체글보기</a>
+            <a href="">이미지모아보기</a>
+            <a href=""></a>
+        </div>
 
-    <form action="/mini_board/src/insert.php" method="post">
+        <form class="insert_form" action="/mini_board/src/insert.php" method="post">
 
+            <div>
+                <button type="submit">작성</button>
+                <a href="/mini_board/src/list.php">취소</a>
+            </div>
 
-        <label for="title">제목</label>
-        <input type="text" name="title" id="title" size="30" required>
+            <label for="title">제목</label>
 
-        <br>
-
-        <label for="content">내용</label>
-        <textarea type="txta" name="content" id="content" cols="32" rows="10" required></textarea>
-
-        <br>
-
-        <button type="submit">작성</button>
-        <a href="/mini_board/src/list.php">취소</a>
-
-
-    </form>
-
+            <div>
+                <input type="text" name="title" id="title" size="30" placeholder="제목을 입력해주세요" required>
+                <br>
+                <textarea type="txta" name="content" id="content" cols="32" rows="10" placeholder="내용을 입력해주세요" required></textarea>
+            </div>
+            
+        </form>
+    </div>
 </body>
 </html>
