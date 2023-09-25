@@ -46,6 +46,9 @@ function db_select_boards_paging(&$conn, &$arr_param){
 			 id
 			,title
 			,create_at
+			,ip
+			,view_cnt
+			,favorate
 		 from 
 			boards
 		 order by 
@@ -101,7 +104,7 @@ function db_select_boards_cnt(&$conn){
 //			 array  &$arr_param   쿼리작성용 배열 
 // 리턴 : boolean
 // -----------------------------------------------------------
-function db_insert_boards(&$conn, &$arr_param){
+function db_insert_boards(&$conn, &$arr_param, $ip){
 
 	
 	$sql="
@@ -109,16 +112,19 @@ function db_insert_boards(&$conn, &$arr_param){
 		 boards (
 			 title
 			 ,content
+			 ,ip
 			 ) 
 	 values (
 		 :title
 		 ,:content
+		 ,:ip
 		 )	
 	";	
 	
 	$arr_ps=[
 		":title" => $arr_param["title"]
 		,":content" => $arr_param["content"]
+		,":ip" => $ip
 	];
 
 	try{
@@ -136,13 +142,13 @@ function db_insert_boards(&$conn, &$arr_param){
 
 
 // -----------------------------------------------------------
-// 함수명 : db_open_paging
+// 함수명 : db_select_boards_id
 // 기능 : 게시글 열기
 // 파라미터 : PDO   &$conn   
 //			 인트  &$id   쿼리용 
 // 리턴 : boolean
 // -----------------------------------------------------------
-function db_select_boards_id(&$conn, &$id){
+function db_select_boards_id(&$conn, $id){
 
 	
 	$sql="
@@ -151,6 +157,9 @@ function db_select_boards_id(&$conn, &$id){
 		 ,title
 		 ,content
 		 ,create_at 
+		 ,ip
+		 ,view_cnt
+		 ,favorate
 	 from
 		 boards
 	 where
@@ -175,6 +184,88 @@ function db_select_boards_id(&$conn, &$id){
 	}
 }
 
+
+
+
+// -----------------------------------------------------------
+// 함수명 : db_update_boards_id
+// 기능 : 수정
+// 파라미터 : PDO   &$conn   
+//			 배열  &$arr_param   쿼리용 
+// 리턴 : 불린
+// -----------------------------------------------------------
+function db_update_boards_id(&$conn, &$arr_param){
+
+	
+	$sql="
+	 update
+	 	 boards
+	 set
+		 title = :title
+		 ,content = :content
+	 where
+	 	 id = :id		 	
+	 ";	
+	
+	$arr_ps=[
+		":id" => $arr_param["id"]
+		,":title" => $arr_param["title"]
+		,":content" => $arr_param["content"]
+
+	];
+
+	try{
+
+		$stmt=$conn->prepare($sql);
+		$result=$stmt->execute($arr_ps);
+
+		return $result;
+
+	} catch(Exception $e){
+		echo $e->getMessage(); // Exception 메세지 출력
+		return false;
+	}
+}
+
+
+
+
+
+// -----------------------------------------------------------
+// 함수명 : db_update_view_cnt
+// 기능 : 수정
+// 파라미터 : PDO   &$conn   
+//			 배열  &$id?   쿼리용 
+// 리턴 : 불린
+// -----------------------------------------------------------
+function db_update_view_cnt(&$conn, &$id){
+
+	
+	$sql="
+	 update
+	 	 boards
+	 set
+		 view_cnt = view_cnt + 1
+	 where
+	 	 id = :id		 	
+	 ";	
+	
+	$arr_ps=[
+		":id" => $id
+	];
+
+	try{
+
+		$stmt=$conn->prepare($sql);
+		$result=$stmt->execute($arr_ps);
+
+		return $result;
+
+	} catch(Exception $e){
+		echo $e->getMessage(); // Exception 메세지 출력
+		return false;
+	}
+}
 
 
 ?>

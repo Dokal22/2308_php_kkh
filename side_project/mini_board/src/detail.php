@@ -10,7 +10,10 @@ require_once(ROOT."lib/lib_db.php");
 $id="";
 $result=[];
 $conn=null;
-$page_num=$_GET["page"];
+$ip = $_SERVER['REMOTE_ADDR'];
+$page_num=isset($_GET["page"]) ? $_GET["page"] : $_POST["page"];
+
+
 
 try{
         
@@ -29,22 +32,32 @@ try{
     $id = $_GET["id"];
 
 
-
+    $conn->beginTransaction();
     // 게시글 리스트 조회
     $result = db_select_boards_id($conn, $id);
     if($result === false){
         throw new Exception("DB error : 아예 못불러왓음");
-    } else if(!count($result) === 1) {
+    } else if(!(count($result) === 1)) {
         throw new Exception("DB error : 먼가 불러오는 데이터 몇 개 빠진거 아임?");
     }
-
-
+    $conn->commit();
 
 
     $item=$result[0];
 
-
     
+    if($_COOKIE["myCookie"]!=$id){
+        $_COOKIE["myCookie"]=$id;
+        $conn->beginTransaction();
+        if(!db_update_view_cnt($conn, $id)){
+            throw new Exception("DB error : 업데이트 안됐음");
+        }
+        $conn->commit();
+    }
+    
+    
+    
+
 } catch(Exception $e) {
     echo $e->getMessage(); // 예외발생 메세지 출력
     exit;
@@ -65,6 +78,8 @@ try{
 <body>
     <div class="baggat">
         <?php
+        var_dump($_COOKIE["myCookie"]);
+        var_dump($cookie_rem);
             require_once(FILE_HEADER);
         ?>
 
@@ -103,8 +118,18 @@ try{
                 </table>
 
                 <div>
-                    <a href="#">수정</a>
-                    <a href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>">취소</a>
+                    <?php
+                    if($ip==$item["ip"]){
+                    ?>
+                        <a href="/mini_board/src/update.php/?id=<?php echo $id; ?>&page=<?php echo $page_num; ?>">수정</a>
+                    <?php
+                    } else {
+                    ?>
+                        <a href="" onclick="alert('url','name','width=100','height=100')">수정</a>
+                    <?php
+                    }
+                    ?>
+                    <a href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>">목록</a>
                     <a href="#">삭제</a>
                 </div>
             </div>

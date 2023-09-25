@@ -11,4 +11,8 @@ CREATE TABLE boards(
 	,delete_at DATETIME DEFAULT NULL 
 );
 
--- DROP TABLE boards;
+DROP TABLE board;
+
+ALTER TABLE boards ADD view_cnt INT NOt NULL DEFAULT '0';
+ALTER TABLE boards DROP COLUMN view_cnt;
+COMMIT;

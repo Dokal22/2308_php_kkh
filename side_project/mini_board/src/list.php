@@ -15,13 +15,17 @@ require_once(ROOT."lib/lib_db.php");
 $list_cnt=5; // 한 페이지 최대 표시 수
 $page_num=1; // 페이지 번호 초기화
 $page_list=10; // 밑에 페이지이동버튼 개수
+$ip = $_SERVER['REMOTE_ADDR'];// ip
 
-
+$page_name=$_SERVER["PHP_SELF"];
+$chk_detail=isset($_GET["test"]) ? $_GET["test"] : "update";
 
 if(isset($_GET['gaeshick'])){
     $list_cnt = $_GET['gaeshick'];
 }
 
+setcookie("myCookie", "", time()+60, "/mini_board/src/");
+// cookie.setDomain("192.168.0.157");
 
 
 try{
@@ -96,6 +100,7 @@ try{
 <body>
     <div class="baggat">
         <?php
+        echo $ip;
             require_once(FILE_HEADER);
         ?>
 
@@ -176,7 +181,7 @@ try{
                                 <a href="/mini_board/src/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
                                 <?php echo $item["title"]; ?></a>
                             </td>
-                            <td>ip</td>
+                            <td><?php echo $item["ip"]; ?></td>
                             <td>
                                 <?php
                                      if(date("Y-m-d") == substr($item["create_at"],0,10)){
@@ -185,7 +190,11 @@ try{
                                      else {echo substr($item["create_at"],0,10);}
                                  ?>
                             </td>
-                            <td>0</td>
+                            <td>
+                                <?php
+                                    echo $item["view_cnt"] ;
+                                ?>
+                            </td>
                             <td>0</td>
                         </tr>
 
@@ -199,7 +208,7 @@ try{
                 <section>
                     <div class="page_buts">
                         <?php if($page_num>10){ ?>
-                                   <div class="sero"></div><a class="page-btn" href="http://localhost/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><div class="arrow_L"></div>이전</a>
+                                   <div class="sero"></div><a class="page-btn" href="http://192.168.0.157/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><div class="arrow_L"></div><span>이전</span></a>
                         <?php } ?>
                         <?php
                             $culc=((ceil($page_num/$page_list))*$page_list);
@@ -207,11 +216,16 @@ try{
                                     for($i;$i<=$culc;$i++){
                                         if($i>$max_page_num){   
                                         break;}
+                                        if($i==$page_num){
                         ?>
-                                        <a class="page-btn" id="page-btn" href="http://localhost/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                        <?php       } ?>
+                                            <a class="page-btn_now" id="page-btn" href="http://192.168.0.157/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>    
+                        <?php
+                                        } else {
+                        ?>
+                                        <a class="page-btn" id="page-btn" href="http://192.168.0.157/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                        <?php       }} ?>
                         <?php if($culc<$max_page_num){ ?>
-                                   <div class="sero"></div><a class="page-btn" href="http://localhost/mini_board/src/list.php/?page=<?php echo $next_page_num ?>"><div class="arrow_R"></div>다음</a>
+                                   <div class="sero"></div><a class="page-btn" href="http://192.168.0.157/mini_board/src/list.php/?page=<?php echo $next_page_num ?>"><span>다음</span><div class="arrow_R"></div></a>
                         <?php } ?>         
                     </div>  
 

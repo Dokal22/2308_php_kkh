@@ -11,6 +11,7 @@ require_once(ROOT."lib/lib_db.php");
 
 //post로 리퀘스트가 왔을 때 처리
 $http_method=$_SERVER["REQUEST_METHOD"];
+$ip = $_SERVER['REMOTE_ADDR'];// ip
 // var_dump($http_method);
 
 if($http_method === "POST"){
@@ -32,8 +33,8 @@ if($http_method === "POST"){
 
 
         // 값넣기
-        if(!db_insert_boards($conn, $arr_post)){
-            throw new Exception("인서트화긴");
+        if(!db_insert_boards($conn, $arr_post, $ip)){
+            throw new Exception("인서트화긴좀");
         }
 
 
@@ -75,7 +76,7 @@ if($http_method === "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/mini_board/src/css/common.css">
 
-    <title>작성페이지</title>
+    <title>작성 페이지</title>
 </head>
 <body>
     <div class="baggat">
@@ -106,6 +107,9 @@ if($http_method === "POST"){
             </div>
             
         </form>
+        <?php
+            require_once(FILE_FOOTER);
+        ?> 
     </div>
 </body>
 </html>
