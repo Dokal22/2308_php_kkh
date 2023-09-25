@@ -23,20 +23,20 @@
         <a href="">카페 글쓰기</a><!-- 5 (from css child-->
         <a href="">카페 채팅</a>
     </div>
-    <div>
+    <div class="gesipan_list">
         <div><span>★</span><b>즐겨찾는 게시판</b></div>
         <ul>
-            <li>전체글보기</li>
+            <li>📄 전체글보기</li>
         </ul>
         <div><b>공지사항</b></div>
         <ul>
-            <li>공지사항</li>
+            <li>📄 공지사항</li>
         </ul>
         <div>일반</div>
         <ul>
-            <li>자유게시판</li>
+            <li>📄 자유게시판</li>
         </ul>                    
     </div>
-    <div>카페탈퇴하기</div>
-    <div>궁금하면 구글링</div>
+    <div><a href="">카페탈퇴하기</a></div>
+    <div></div>
 </aside>

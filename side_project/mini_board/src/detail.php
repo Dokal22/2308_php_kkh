@@ -46,15 +46,19 @@ try{
     $item=$result[0];
 
     
-    if($_COOKIE["myCookie"]!=$id){
-        $_COOKIE["myCookie"]=$id;
-        $conn->beginTransaction();
-        if(!db_update_view_cnt($conn, $id)){
-            throw new Exception("DB error : 업데이트 안됐음");
-        }
-        $conn->commit();
+    // if($_COOKIE["myCookie"]!=$id){
+    //     $_COOKIE["myCookie"]=$id;
+    //     $conn->beginTransaction();
+    //     if(!db_update_view_cnt($conn, $id)){
+    //         throw new Exception("DB error : 업데이트 안됐음");
+    //     }
+    //     $conn->commit();
+    // }
+    $conn->beginTransaction();
+    if(!db_update_view_cnt($conn, $id)){
+        throw new Exception("DB error : 업데이트 안됐음");
     }
-    
+    $conn->commit();
     
     
 
@@ -78,8 +82,8 @@ try{
 <body>
     <div class="baggat">
         <?php
-        var_dump($_COOKIE["myCookie"]);
-        var_dump($cookie_rem);
+        // var_dump($_COOKIE["myCookie"]);
+        // var_dump($cookie_rem);
             require_once(FILE_HEADER);
         ?>
 
@@ -125,7 +129,7 @@ try{
                     <?php
                     } else {
                     ?>
-                        <a href="" onclick="alert('url','name','width=100','height=100')">수정</a>
+                        <a href="" onclick="alert('같은 아이피가 아니면 수정할 수 없습니다!','아이피다름','width=100','height=100')">수정</a>
                     <?php
                     }
                     ?>

@@ -24,8 +24,9 @@ if(isset($_GET['gaeshick'])){
     $list_cnt = $_GET['gaeshick'];
 }
 
-setcookie("myCookie", "", time()+60, "/mini_board/src/");
+// setcookie("myCookie", "", time()+60, "/mini_board/src/");
 // cookie.setDomain("192.168.0.157");
+setcookie("myCookie", "", time()+1);
 
 
 try{
@@ -70,6 +71,14 @@ try{
     if($next_page_num > $max_page_num){
         $next_page_num = $max_page_num;
     }
+
+    // if(){
+    //     $conn->beginTransaction();
+    //     if(!db_update_view_cnt($conn, $id)){
+    //         throw new Exception("DB error : 업데이트 안됐음");
+    //     }
+    //     $conn->commit();
+    // }
 
 
 } catch(Exception $e) {
@@ -208,7 +217,7 @@ try{
                 <section>
                     <div class="page_buts">
                         <?php if($page_num>10){ ?>
-                                   <div class="sero"></div><a class="page-btn" href="http://192.168.0.157/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><div class="arrow_L"></div><span>이전</span></a>
+                                   <a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><div class="arrow_L"></div><span>이전</span></a><div class="sero"></div>
                         <?php } ?>
                         <?php
                             $culc=((ceil($page_num/$page_list))*$page_list);
@@ -218,14 +227,14 @@ try{
                                         break;}
                                         if($i==$page_num){
                         ?>
-                                            <a class="page-btn_now" id="page-btn" href="http://192.168.0.157/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>    
+                                            <a class="page-btn_now" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>    
                         <?php
                                         } else {
                         ?>
-                                        <a class="page-btn" id="page-btn" href="http://192.168.0.157/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                        <a class="page-btn" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
                         <?php       }} ?>
                         <?php if($culc<$max_page_num){ ?>
-                                   <div class="sero"></div><a class="page-btn" href="http://192.168.0.157/mini_board/src/list.php/?page=<?php echo $next_page_num ?>"><span>다음</span><div class="arrow_R"></div></a>
+                                   <div class="sero"></div><a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>"><span>다음</span><div class="arrow_R"></div></a>
                         <?php } ?>         
                     </div>  
 

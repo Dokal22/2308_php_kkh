@@ -19,10 +19,34 @@ body {
 .baggat {
     width: 1080px;
     margin: auto;
+    position: relative;
 }
 
 .never_img{
     position: absolute;
+    left: 10px;
+    top: 5px;
+}
+
+.never_img:hover{
+    animation-name: move;
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes move {
+    /* keyframe */
+    from {
+      transform: scale(1);
+    }
+    /* keyframe */
+    to {
+        transform: scale(1.4);
+    }
+}
+
+.never_img>a{
+    color: #03c75a;
 }
 
 .header_flex{
@@ -262,12 +286,59 @@ li:first-child{
     width: 100%;
     text-align: center;
     line-height: 34px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .cafe_jeongbo>a:nth-child(5){
     background-color: #5A5A5A;
     color: white;
+}
+
+aside>*{
+    font-size: 14px;
+}
+
+.gesipan_list>div{
+    border-top: 2px solid #e4e4e4;
+    height: 41;
+    padding: 10px 10px 12px;
+}
+
+.gesipan_list>div:first-child{
+    border-top: 2px solid black;
+}
+
+.gesipan_list>ul{
+    border-top: 1px solid #e4e4e4;
+    height: 37px;
+    margin: 0;
+}
+
+.gesipan_list>ul:last-child{
+    border-bottom: 2px solid black;
+}
+
+.gesipan_list>ul>li{
+    line-height: 37px;
+}
+
+aside>div:nth-child(3){
+    line-height: 70px;
+    padding: 0px 12px;
+    background-color: #f8f8f8;
+    margin: 10px 0px;
+}
+
+aside>div:nth-child(3)>a{
+    color: #666666;
+}
+
+aside>div:nth-child(4){
+    height: 64px;
+    background-color: #f8f8f8;
+    background-image: url("../../doc/banner_chatbot.png");
+    background-position: center;
+    background-size: cover;
 }
 
 /* .menu_space{
@@ -442,7 +513,13 @@ a:hover{
 
 .search_detail{
     height: 35px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search_detail>*:not(button){    
+    margin-left: 10px;
 }
 
 input::placeholder, textarea::placeholder{

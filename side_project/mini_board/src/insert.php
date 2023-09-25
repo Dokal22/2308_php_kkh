@@ -60,14 +60,6 @@ if($http_method === "POST"){
 
 
 
-
-
-
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="ko">
