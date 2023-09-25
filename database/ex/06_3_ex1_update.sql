@@ -37,6 +37,6 @@ WHERE emp_no = 500000;
 
 UPDATE salaries
 SET
-	salary = 25000
+	salary = salary + 1
 WHERE emp_no = 500000;
 
