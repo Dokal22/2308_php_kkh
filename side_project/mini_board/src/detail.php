@@ -87,10 +87,6 @@ try{
             require_once(FILE_HEADER);
         ?>
 
-        <?php
-            require_once(FILE_SEARCH);
-        ?>
-
         <main>
             <?php
                 require_once(FILE_ASIDE);

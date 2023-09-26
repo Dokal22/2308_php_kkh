@@ -528,6 +528,7 @@ a:hover{
 
 input::placeholder, textarea::placeholder{
     color: #d1d1d1;
+    padding: 5px;
 }
 
 .super_ad{
