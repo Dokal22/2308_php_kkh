@@ -384,6 +384,10 @@ table {
     position: relative;
 }
 
+#title{
+    text-align: left;
+}
+
 colgroup{
     /* position: relative; */
 }

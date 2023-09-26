@@ -26,7 +26,7 @@
     <div class="gesipan_list">
         <div><span>★</span><b>즐겨찾는 게시판</b></div>
         <ul>
-            <li>📄 전체글보기</li>
+            <li><a href="/mini_board/src/list.php">📄 전체글보기</a></li>
         </ul>
         <div><b>공지사항</b></div>
         <ul>
@@ -34,7 +34,7 @@
         </ul>
         <div>일반</div>
         <ul>
-            <li>📄 자유게시판</li>
+            <li><a href="/mini_board/src/list.php">📄 자유게시판</a></li>
         </ul>                    
     </div>
     <div><a href="">카페탈퇴하기</a></div>

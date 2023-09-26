@@ -109,11 +109,7 @@ try{
 <body>
     <div class="baggat">
         <?php
-        echo $ip;
             require_once(FILE_HEADER);
-        ?>
-
-        <?php
             require_once(FILE_SEARCH);
         ?>
 
@@ -186,7 +182,7 @@ try{
 
                         <tr>
                             <td><?php echo $item["id"]; ?></td>
-                            <td>
+                            <td id="title">
                                 <a href="/mini_board/src/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
                                 <?php echo $item["title"]; ?></a>
                             </td>

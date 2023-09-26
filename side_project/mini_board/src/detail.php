@@ -36,9 +36,9 @@ try{
     // 게시글 리스트 조회
     $result = db_select_boards_id($conn, $id);
     if($result === false){
-        throw new Exception("DB error : 아예 못불러왓음");
+        throw new Exception("DB error : SQL 확인점여");
     } else if(!(count($result) === 1)) {
-        throw new Exception("DB error : 먼가 불러오는 데이터 몇 개 빠진거 아임?");
+        throw new Exception("DB error : 읎엉");
     }
     $conn->commit();
 
@@ -134,7 +134,17 @@ try{
                     }
                     ?>
                     <a href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>">목록</a>
-                    <a href="#">삭제</a>
+                    <?php
+                    if($ip==$item["ip"]){
+                    ?>
+                    <a href="/mini_board/src/delete.php/?page=<?php echo $page_num; ?>&id=<?php echo $id; ?>">삭제</a>
+                    <?php
+                    } else {
+                    ?>
+                    <a href="" onclick="alert('같은 아이피가 아니면 삭제할 수 없습니다!','아이피다름','width=100','height=100')">삭제</a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </main>

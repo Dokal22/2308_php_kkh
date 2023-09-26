@@ -44,15 +44,19 @@ function db_select_boards_paging(&$conn, &$arr_param){
 		$sql="
 		 select
 			 id
-			,title
-			,create_at
-			,ip
-			,view_cnt
-			,favorate
+			 ,title
+			 ,create_at
+			 ,ip
+			 ,view_cnt
+			 ,favorate
 		 from 
-			boards
+			 boards
+			 ";
+		$a="			 
+		 where
+		 	 delete_flg = 0
 		 order by 
-			id desc
+			 id desc
 		 limit :list_cnt offset :offset
 	   ";	
 		$arr_ps=[
@@ -60,7 +64,7 @@ function db_select_boards_paging(&$conn, &$arr_param){
 			,":offset" => $arr_param["offset"]
 		];
 
-		$stmt=$conn->prepare($sql);
+		$stmt=$conn->prepare($sql.$a);
 		$stmt->execute($arr_ps);
 		$result=$stmt->fetchAll();
 
@@ -81,7 +85,12 @@ function db_select_boards_cnt(&$conn){
 
 	
 	$sql="
-	SELECT COUNT(id) cnt FROM boards
+	 SELECT 
+	 	 COUNT(id) cnt 
+	 FROM 
+	 	 boards
+	 where
+		 delete_flg = 0
 	";	
 
 	try{
@@ -163,7 +172,8 @@ function db_select_boards_id(&$conn, $id){
 	 from
 		 boards
 	 where
-	 	 id = :id		 	
+	 	 id = :id
+	 and delete_flg = 0		 	
 	";	
 	
 	$arr_ps=[
@@ -266,6 +276,87 @@ function db_update_view_cnt(&$conn, &$id){
 		return false;
 	}
 }
+
+
+// -----------------------------------------------------------
+// 함수명 : db_delete_boards_id
+// 기능 : 삭제
+// 파라미터 : PDO   &$conn   
+//			 배열  &$어레파라   쿼리용 
+// 리턴 : 불린
+// -----------------------------------------------------------
+function db_delete_boards_id(&$conn, &$id){
+
+	
+	$sql="
+		 UPDATE boards					
+		 SET					
+			 delete_at = now()				
+			 ,delete_flg = 1				
+		 WHERE					
+			 id = :id	
+	 ";	
+	
+	$arr_ps=[
+		":id" => $id
+	];
+
+	try{
+
+		$stmt=$conn->prepare($sql);
+		$result=$stmt->execute($arr_ps);
+
+		return $result;
+
+	} catch(Exception $e){
+		echo $e->getMessage(); // Exception 메세지 출력
+		return false;
+	}
+}
+
+
+
+
+// -----------------------------------------------------------
+// 함수명 : db_delete_boards_id
+// 기능 : 검색
+// 파라미터 : PDO   &$conn   
+//			 배열  &$어레파라   쿼리용 
+// 리턴 : 불린
+// -----------------------------------------------------------
+// function db_delete_boards_id(&$conn, &$id){
+
+	
+// 	$sql="
+// 		 select
+// 		 	 count(id) as cnt					
+// 		 from					
+// 			 boards							 				
+// 		 WHERE					
+// 			 delete_flg = '0'	
+// 	 ";	
+// 	 $where="";
+// 	foreach($arr_param as $key => $val){
+// 		$where .= " AND ".$key. "like '%'" .$val;
+// 	}
+// 	// $str=strlen($where)>=1?$where
+
+// 	$arr_ps=[
+// 		":id" => $id
+// 	];
+
+// 	try{
+
+// 		$stmt=$conn->prepare($sql);
+// 		$result=$stmt->execute($arr_ps);
+
+// 		return $result;
+
+// 	} catch(Exception $e){
+// 		echo $e->getMessage(); // Exception 메세지 출력
+// 		return false;
+// 	}
+// }
 
 
 ?>

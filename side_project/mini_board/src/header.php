@@ -1,4 +1,3 @@
-
 <div class="never_img"><a href="http://192.168.50.110/mini_board/src/list.php/"><b>NEVER</b></a></div>
 <div class="header_flex">
         <a class="header_a" href="#">카페홈</a>
