@@ -252,31 +252,36 @@ if($next_page_num > $max_page_num){
                 
                 <a href="/mini_board/src/insert.php" id="insert" class="jagseong"><div class="pen">✏</div>글쓰기</a>
 
-                <section>
-                    <div class="page_buts">
-                        <?php if($page_num>10){ ?>
-                                   <a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><div class="arrow_L"></div><span>이전</span></a><div class="sero"></div>
-                        <?php } ?>
-                        <?php
-                            $culc=((ceil($page_num/$page_list))*$page_list);
-                            $i=$culc-($page_list-1);
-                                    for($i;$i<=$culc;$i++){
-                                        if($i>$max_page_num){   
-                                        break;}
-                                        if($i==$page_num){
-                        ?>
-                                            <a class="page-btn_now" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>    
-                        <?php
-                                        } else {
-                        ?>
-                                        <a class="page-btn" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                        <?php       }} ?>
-                        <?php if($culc<$max_page_num){ ?>
-                                   <div class="sero"></div><a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>"><span>다음</span><div class="arrow_R"></div></a>
-                        <?php } ?>         
-                    </div>  
+                <form action="/mini_board/src/list.php" method="post">
+                    <input type="hidden" name="create_at" value="<?php echo $arr_post["create_at"]; ?>">
+                    <input type="hidden" name="search_titcon" value="<?php echo $arr_post["search_titcon"]; ?>">
+                    <input type="hidden" name="search" value="<?php echo $arr_post["search"]; ?>">
+                    <section>
+                        <div class="page_buts">
+                            <?php if($page_num>10){ ?>
+                                    <button type=submit><a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><div class="arrow_L"></div><span>이전</span></a></button><div class="sero"></div>
+                            <?php } ?>
+                            <?php
+                                $culc=((ceil($page_num/$page_list))*$page_list);
+                                $i=$culc-($page_list-1);
+                                        for($i;$i<=$culc;$i++){
+                                            if($i>$max_page_num){   
+                                            break;}
+                                            if($i==$page_num){
+                            ?>
+                                                <button type=submit><a class="page-btn_now" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a></button>
+                            <?php
+                                            } else {
+                            ?>
+                                            <button type=submit><a class="page-btn" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a></button>
+                            <?php       }} ?>
+                            <?php if($culc<$max_page_num){ ?>
+                                    <div class="sero"></div><button type=submit><a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>"><span>다음</span><div class="arrow_R"></div></a></button>
+                            <?php } ?>         
+                        </div>  
 
-                </section>       
+                    </section>
+                </form>       
                 <div class="whspac">               
                     <?php
                         require_once(FILE_SEARCH);              
