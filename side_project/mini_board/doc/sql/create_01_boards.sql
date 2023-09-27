@@ -13,6 +13,6 @@ CREATE TABLE boards(
 
 DROP TABLE board;
 
-ALTER TABLE boards ADD view_cnt INT NOt NULL DEFAULT '0';
+ALTER TABLE boards ADD favorate INT NOt NULL DEFAULT '0';
 ALTER TABLE boards DROP COLUMN view_cnt;
 COMMIT;

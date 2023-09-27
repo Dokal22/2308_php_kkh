@@ -14,7 +14,7 @@ INSERT INTO employees (
 VALUES (
 	500001
 	,20020329
-	,'gneenart'
+	,'greenart'
 	,'haakwon'
 	,'M'
 	,20021222
