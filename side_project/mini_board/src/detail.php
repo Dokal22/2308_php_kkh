@@ -86,7 +86,13 @@ try{
         // var_dump($cookie_rem);
             require_once(FILE_HEADER);
         ?>
-
+        
+        <form class="search" method="post" action="/mini_board/src/list.php">
+        <!-- <form class="search" method="post" action="search.php"> -->
+            <input type="text" name="search" id="search">
+            <button type="submit" class="search">검색</button>
+        </form>
+        
         <main>
             <?php
                 require_once(FILE_ASIDE);
@@ -98,24 +104,33 @@ try{
                     <col width=90%>
                 </colgroup> -->
 
-                <table>
-                    <tr>
-                        <th>글 번호</th>
-                        <td><?php echo $item["id"]; ?></td>
-                    </tr>
-                    <tr>
-                        <th>제목</th>
-                        <td><?php echo $item["title"]; ?></td>
-                    </tr>
-                    <tr>
-                        <th>내용</th>
-                        <td><?php echo $item["content"]; ?></td>
-                    </tr>
-                    <tr>
-                        <th>작성일자</th>
-                        <td><?php echo $item["create_at"]; ?></td>
-                    </tr>
-                </table>
+                <div>
+                    <div>
+                        <a href="/mini_board/src/list.php">자유게시판 ></a>
+                        <br>
+                        <h3><?php echo $item["title"]; ?></h3>   
+                    </div>
+                    <div>
+                        <a class="profile_detail" href=""></a>
+                        <div class="after_profile_detail">
+                            <div>
+                                <span><?php echo $item["ip"]; ?></span> 
+                                <span>수강생</span>
+                                <a>+ 구독</a>
+                                <a>1:1 채팅</a>
+                            </div>
+                            <div>
+                                <span><?php echo substr($item["create_at"],0,16); ?></span>
+                                <span>조회 <?php echo $item["view_cnt"]; ?></span>
+                            </div>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <p><?php echo $item["content"]; ?></p>
+                </div>
+                    
 
                 <div>
                     <?php
@@ -142,6 +157,14 @@ try{
                     }
                     ?>
                 </div>
+
+                <div class="super_ad">
+                    파워링크 광고입니다.
+                    <a href="">광고안내</a>
+                    <p></p>
+                    광고
+                </div>
+
             </div>
         </main>
         <?php

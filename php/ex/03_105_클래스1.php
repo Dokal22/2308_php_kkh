@@ -66,3 +66,11 @@ class ClassRoom{
 // 스태틱 쓰는법 ::
 ClassRoom::static_test();
 echo ClassRoom::$static;
+
+
+// 상수 선언
+
+class NOTPDO{
+	const SANGSU=1;
+	const SANGSU_2=2;
+}

@@ -125,10 +125,17 @@ form.search{
     border: 0px solid black;
 }
 
-.insert_form>label{
+.insert_form>h2{
     position: absolute;
-    top: 10px;
-    left: 40px;
+    top: -10px;
+    left: 0px;
+    line-height: 30px;
+    font-size: 25px;    
+}
+
+.jaksung{
+    border-top: 2px solid black;
+    margin-top: 10px;
 }
 
 .insert_form>div>input, .insert_form>div>textarea{
@@ -166,6 +173,32 @@ main {
     gap: 20px;
 }
 
+.detail_con>div:first-child{
+    border: 1px solid #ebecef;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.detail_con>div:first-child>div{
+    /* height: 58px; */
+}
+
+.detail_con>div:first-child>div:nth-child(2){
+    position: relative;
+    display: flex;
+}
+
+.detail_con>div:first-child>div>a{
+    font-size: 13px;
+    color: #03c75a;
+}
+
+.detail_con>div:first-child>div>h3{
+    line-height: 50px;
+    font-size: 26px;
+    font-weight: 500;
+}
+
 .detail_con tr{
     width: 100%;
     height: 80px;
@@ -175,15 +208,19 @@ main {
     width: 100%;
 }
 
-.detail_con>div>a{
+.detail_con>div:nth-child(2)>a{
     background-color: #EFF0FE;
     padding: 5px 12px;
     border-radius: 15%;
     margin: 10px 5px;
 }
-.detail_con>div{
+.detail_con>div:nth-child(2){
     display: flex;
     justify-content: end;
+}
+
+.detail_con>div>div:nth-child(2){
+    border-bottom: 1px solid #ebecef;
 }
 
 .insert_top{
@@ -191,6 +228,14 @@ main {
     margin: 10px 0px;
     width: 100%;
     padding: 14px 24px;
+}
+
+.insert_top>*{
+    font-size: 13px;
+}
+
+.insert_top>span{
+    margin: 0px 5px;
 }
 
 aside{
@@ -225,6 +270,10 @@ li:first-child{
     padding: 10px;
 }
 
+.cafe_jeongbo>div:nth-child(2){
+    height: 77px;
+}
+
 .cafe_jeongbo>div:nth-child(2)>*{
     margin-left: 65px;
 }
@@ -247,20 +296,67 @@ li:first-child{
     background-position: center;
 }
 
+.profile_detail{
+    display: inline-block;
+    border: 0px solid black;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    /* background-color: black; */
+    background-image: url(../../doc/NoNameProfile.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.after_profile_detail{
+    display: flex;
+    flex-flow: column wrap;
+    margin-left: 12px;
+    font-size: 15px;
+    padding-bottom: 15px;
+}
+
+.after_profile_detail>div:first-child>span:first-child{
+    font-weight: 600;
+}
+
+.after_profile_detail>div>a{
+    border-radius: 12%;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 5px;
+    font-weight: 600;
+}
+
+.after_profile_detail>div>a:nth-child(3){
+    background-color: rgba(0, 159, 72, 0.11);
+    color: #009f47;
+}
+
+.after_profile_detail>div>a:nth-child(4){
+    background-color: rgba(71, 71, 71, 0.11);
+}
+
+.after_profile_detail>div:nth-child(2)>*{
+    font-size: 12px;
+    color: #979797;
+}
+
 .cafe_jeongbo>div>p{
     display: inline-block;
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
-.cafe_jeongbo>div>p:nth-child(2){
+.cafe_jeongbo>div>p:nth-child(3){
     padding: 0px 3px;
     border: 1px solid #e4e4e4;
     font-size: 9px;
+    margin-left: 0px;
 }
 
-.cafe_jeongbo>div>p:nth-child(3){
-    margin-left: 0px;
+.cafe_jeongbo>div>p:nth-child(2){
+    margin-left: 65px;
 }
 
 .cafe_jeongbo>div>a{
@@ -492,7 +588,7 @@ a:hover{
     color: #03c75a;
 }
 
-.arrow_R{
+/* .arrow_R{
     content: '';
     top: 5px;
     left: -16px;
@@ -501,8 +597,8 @@ a:hover{
     background-color: rgb(0, 0, 0);
     clip-path: polygon(100% 0%, 100% 100%, 0% 0%);
     position: absolute;
-    /* transform: rotate(45deg); */
-}
+    transform: rotate(45deg);
+} */
 
 #page-btn{
     width: 24px;

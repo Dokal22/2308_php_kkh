@@ -67,24 +67,24 @@ try{
     //     throw new Exception("DB error : 셀렉트보드");
     // }
 
-    if($http_method === "POST"){
+    // if($http_method === "POST"){
 
-        $arr_post= $_POST;
-        // if($arr_post === false || count($arr_post) != 3){
-        //     throw new Exception("DB error : 검색오류");
-        // }
-        $result = db_search_boards_paging($conn, $arr_param, $arr_post);
-        // if(!$result){
-        //     throw new Exception("DB error : 서치보드");
-        // }
+    //     $arr_post= $_POST;
+    //     // if($arr_post === false || count($arr_post) != 3){
+    //     //     throw new Exception("DB error : 검색오류");
+    //     // }
+    //     $result = db_search_boards_paging($conn, $arr_param, $arr_post);
+    //     // if(!$result){
+    //     //     throw new Exception("DB error : 서치보드");
+    //     // }
 
-        $boards_cnt = db_search_boards_cnt($conn, $arr_param, $arr_post);
-        if($boards_cnt === false){
-            throw new Exception("DB Error : select count");
-        }
+    //     $boards_cnt = db_search_boards_cnt($conn, $arr_param, $arr_post);
+    //     if($boards_cnt === false){
+    //         throw new Exception("DB Error : select count");
+    //     }
 
-        $max_page_num = ceil($boards_cnt / $list_cnt);
-    }
+    //     $max_page_num = ceil($boards_cnt / $list_cnt);
+    // }
     
 
     // if(){
@@ -135,8 +135,8 @@ if($next_page_num > $max_page_num){
 <body>
     <div class="baggat">
         <?php
-        var_dump($_POST);
-        var_dump($arr_post);
+        // var_dump($_POST);
+        // var_dump($arr_post);
             require_once(FILE_HEADER);
         ?>
 
@@ -253,13 +253,13 @@ if($next_page_num > $max_page_num){
                 <a href="/mini_board/src/insert.php" id="insert" class="jagseong"><div class="pen">✏</div>글쓰기</a>
 
                 <form action="/mini_board/src/list.php" method="post">
-                    <input type="hidden" name="create_at" value="<?php echo $arr_post["create_at"]; ?>">
+                    <!-- <input type="hidden" name="create_at" value="<?php echo $arr_post["create_at"]; ?>">
                     <input type="hidden" name="search_titcon" value="<?php echo $arr_post["search_titcon"]; ?>">
-                    <input type="hidden" name="search" value="<?php echo $arr_post["search"]; ?>">
+                    <input type="hidden" name="search" value="<?php echo $arr_post["search"]; ?>"> -->
                     <section>
                         <div class="page_buts">
                             <?php if($page_num>10){ ?>
-                                    <button type=submit><a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><div class="arrow_L"></div><span>이전</span></a></button><div class="sero"></div>
+                                    <a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><div class="arrow_L"></div><span>이전</span></a><div class="sero"></div>
                             <?php } ?>
                             <?php
                                 $culc=((ceil($page_num/$page_list))*$page_list);
@@ -269,14 +269,14 @@ if($next_page_num > $max_page_num){
                                             break;}
                                             if($i==$page_num){
                             ?>
-                                                <button type=submit><a class="page-btn_now" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a></button>
+                                                <a class="page-btn_now" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
                             <?php
-                                            } else {
+                                            } else { // <button type=submit></button>
                             ?>
-                                            <button type=submit><a class="page-btn" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a></button>
+                                            <a class="page-btn" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
                             <?php       }} ?>
                             <?php if($culc<$max_page_num){ ?>
-                                    <div class="sero"></div><button type=submit><a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>"><span>다음</span><div class="arrow_R"></div></a></button>
+                                    <div class="sero"></div><a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>"><span>다음</span><div class="arrow_R"></div></a>
                             <?php } ?>         
                         </div>  
 

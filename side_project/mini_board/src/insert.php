@@ -14,7 +14,7 @@ $http_method=$_SERVER["REQUEST_METHOD"];
 $ip = $_SERVER['REMOTE_ADDR'];// ip
 // var_dump($http_method);
 
-if($http_method === "POST"){
+if($http_method === "POST"){ // !is_numeric(변수) : 변수가 숫자가 아니면 참 (sql인셉션? 방어) 
 
     try{
 
@@ -79,23 +79,33 @@ if($http_method === "POST"){
 
         <div class="insert_top">
             <a href="">전체글보기</a>
+            <span>·</span>
             <a href="">이미지모아보기</a>
-            <a href=""></a>
+            <span>·</span>
+            <a href="">카페태그보기</a>
         </div>
 
         <form class="insert_form" action="/mini_board/src/insert.php" method="post">
 
             <div>
+                <a href="">임시등록 | 0</a>
                 <button type="submit">작성</button>
                 <a href="/mini_board/src/list.php">취소</a>
             </div>
 
-            <label for="title">제목</label>
+            <h2>카페 글쓰기</h2>
 
-            <div>
+            <div class="jaksung">
+                <select name="" id="">
+                    <option value="">자유게시판</option>
+                </select>
+                <select name="" id="">
+                    <option value="">말머리선택</option>
+                </select>
+                <br>
                 <input type="text" name="title" id="title" size="30" placeholder="제목을 입력해주세요" required>
                 <br>
-                <textarea type="txta" name="content" id="content" cols="32" rows="10" placeholder="내용을 입력해주세요" required></textarea>
+                <textarea name="content" id="content" cols="32" rows="10" placeholder="내용을 입력해주세요" required></textarea>
             </div>
             
         </form>

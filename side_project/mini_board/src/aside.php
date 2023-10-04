@@ -7,14 +7,14 @@
         </ul>              
         <div><!-- 2 -->
             <a class="profile" href=""></a>
-            <p>학생</p>
             <p>김관호</p>
+            <p>학생</p>
             <a href="">since 2023.08.17</a>
             <a href="">카페소개</a>
         </div>  
         <div><!-- 3 -->
-            <a href=""><span></span>아메바1단계</a>
-            <a href=""><span></span>1</a>
+            <a href=""><span></span>🦠아메바1단계</a>
+            <a href=""><span></span>🙍‍♂️1</a>
             <a href="">초대하기</a>
         </div>  
         <div><!-- 4 -->
