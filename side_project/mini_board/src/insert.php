@@ -88,27 +88,57 @@ if($http_method === "POST"){ // !is_numeric(변수) : 변수가 숫자가 아니
         <form class="insert_form" action="/mini_board/src/insert.php" method="post">
 
             <div>
-                <a href="">임시등록 | 0</a>
-                <button type="submit">작성</button>
+                <a href=""><b>임시등록</b> | <b>0</b></a>
+                <button type="submit"><b>등록</b></button>
                 <a href="/mini_board/src/list.php">취소</a>
             </div>
 
             <h2>카페 글쓰기</h2>
-
-            <div class="jaksung">
-                <select name="" id="">
-                    <option value="">자유게시판</option>
-                </select>
-                <select name="" id="">
-                    <option value="">말머리선택</option>
-                </select>
-                <br>
-                <input type="text" name="title" id="title" size="30" placeholder="제목을 입력해주세요" required>
-                <br>
-                <textarea name="content" id="content" cols="32" rows="10" placeholder="내용을 입력해주세요" required></textarea>
+            
+            <div class="jaksung_up">
+                <div class="jaksung">
+                    <select name="" id="">
+                        <option value="">자유게시판</option>
+                    </select>
+                    <select name="" id="" disabled='disabled'>
+                        <option value="">말머리선택</option>
+                    </select>
+                    <br>
+                    <input type="text" name="title" id="title" size="30" placeholder="제목을 입력해주세요" required>
+                    <br>
+                    <textarea name="content" id="content" cols="32" rows="10" placeholder="내용을 입력해주세요" required></textarea>
+                </div>
+                <div class="jaksung_inside">
+                    <div>
+                        <p>공개설정<span>></span></p>
+                        <p>└  멤버공개</p>
+                        <p>└  검색·네에버 서비스 공개</p>
+                    </div>
+                    <div>
+                        <input type="checkbox" id=""  name="" checked="checked">
+                        <label for="">댓글허용</label>
+                        <br>
+                        <input type="checkbox" id=""  name="" checked="checked">
+                        <label for="">블로그·카페 공유 허용<span>?</span></label>
+                        <br>
+                        <input type="checkbox" id=""  name="" checked="checked">
+                        <label for="">외부 공유 허용<span>?</span></label>
+                        <br>
+                        <input type="checkbox" id=""  name="" checked="checked">
+                        <label for="">복사·저장 허용<span>?</span></label>
+                        <br>
+                        <input type="checkbox" id=""  name="">
+                        <label for="">자동출처 사용<span>?</span></label>
+                        <br>
+                        <input type="checkbox" id=""  name="">
+                        <label for="">CCL 사용<span>?</span></label>
+                    </div>
+                </div>
             </div>
             
+            
         </form>
+        
         <?php
             require_once(FILE_FOOTER);
         ?> 

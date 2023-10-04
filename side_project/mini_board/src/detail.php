@@ -5,6 +5,7 @@ define("FILE_HEADER", ROOT."header.php");
 define("FILE_ASIDE", ROOT."aside.php");
 define("FILE_FOOTER", ROOT."footer.php");
 define("FILE_SEARCH", ROOT."search.php");
+define("FILE_BOTTOM_LIST", ROOT."bottom_list.php");
 require_once(ROOT."lib/lib_db.php");
 
 $id="";
@@ -97,13 +98,13 @@ try{
             <?php
                 require_once(FILE_ASIDE);
             ?>
-
+            
             <div class="detail_con">
                 <!-- <colgroup>
                     <col width=10%>
                     <col width=90%>
                 </colgroup> -->
-
+                
                 <div>
                     <div>
                         <a href="/mini_board/src/list.php">자유게시판 ></a>
@@ -164,6 +165,10 @@ try{
                     <p></p>
                     광고
                 </div>
+
+                <?php
+                // require_once(FILE_BOTTOM_LIST);
+                ?>
 
             </div>
         </main>

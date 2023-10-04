@@ -85,34 +85,65 @@ try{
             require_once(FILE_HEADER);
         ?>
 
+        <div class="insert_top">
+            <a href="">전체글보기</a>
+            <span>·</span>
+            <a href="">이미지모아보기</a>
+            <span>·</span>
+            <a href="">카페태그보기</a>
+        </div>
+
         <form class="insert_form" action="/mini_board/src/update.php" method="post">
+
+            <div>
+                <button type="submit" href="/mini_board/src/detail.php/?page=<?php echo $page_num; ?>&id=<?php echo $id; ?>"><b>등록</b></button>
+                <a href="/mini_board/src/detail.php/?page=<?php echo $page_num; ?>&id=<?php echo $id; ?>">취소</a>
+            </div>
+
+            <h2>카페 글쓰기</h2>
+            
+            <div class="jaksung_up">
+                <div class="jaksung">
+                    <select name="" id="">
+                        <option value="">자유게시판</option>
+                    </select>
+                    <select name="" id="" disabled='disabled'>
+                        <option value="">말머리선택</option>
+                    </select>
+                    <br>
+                    <input type="text" name="title" id="title" size="30" value="<?php echo $item["title"] ?>" required>
+                    <br>
+                    <textarea name="content" id="content" cols="32" rows="10" required><?php echo $item["content"] ?></textarea>
+                </div>
+                <div class="jaksung_inside">
+                    <div>
+                        <p>공개설정<span>></span></p>
+                        <p>└  멤버공개</p>
+                        <p>└  검색·네에버 서비스 공개</p>
+                    </div>
+                    <div>
+                        <input type="checkbox" id=""  name="" checked="checked">
+                        <label for="">댓글허용</label>
+                        <br>
+                        <input type="checkbox" id=""  name="" checked="checked">
+                        <label for="">블로그·카페 공유 허용<span>?</span></label>
+                        <br>
+                        <input type="checkbox" id=""  name="" checked="checked">
+                        <label for="">외부 공유 허용<span>?</span></label>
+                        <br>
+                        <input type="checkbox" id=""  name="" checked="checked">
+                        <label for="">복사·저장 허용<span>?</span></label>
+                        <br>
+                        <input type="checkbox" id=""  name="">
+                        <label for="">자동출처 사용<span>?</span></label>
+                        <br>
+                        <input type="checkbox" id=""  name="">
+                        <label for="">CCL 사용<span>?</span></label>
+                    </div>
+                </div>
+            </div>
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <input type="hidden" name="page" value="<?php echo $page_num; ?>">
-            <div>
-                <button type="submit" href="/mini_board/src/detail.php/?page=<?php echo $page_num; ?>&id=<?php echo $id; ?>">수정확인</button>
-                <a href="/mini_board/src/detail.php/?page=<?php echo $page_num; ?>&id=<?php echo $id; ?>">취소</a>
-            </div>    
-        
-            <table>
-                <tr>
-                    <th>글 번호</th>
-                    <td><?php echo $item["id"]; ?></td>
-                </tr>
-                <tr>
-                    <th>제목</th>
-                    <input type="text" name="title" value="<?php echo $item["title"] ?>">
-                </tr>
-                <tr>
-                    <th>내용</th>
-                    <textarea name="content" id="content" cols="30" rows="10"><?php echo $item["content"] ?></textarea>
-                </tr>
-                <tr>
-                    <th>작성일자</th>
-                    <td><?php echo $item["create_at"]; ?></td>
-                </tr>
-            </table>
-
-            
         </form>
 
         <?php

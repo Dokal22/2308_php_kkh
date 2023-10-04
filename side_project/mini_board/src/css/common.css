@@ -133,9 +133,102 @@ form.search{
     font-size: 25px;    
 }
 
-.jaksung{
+.jaksung_up{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
     border-top: 2px solid black;
+}
+
+.jaksung{
     margin-top: 10px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: repeat(auto-fit,50px);
+    gap: 0px 12px;
+}
+
+.jaksung>*{
+    margin: 10px 0px;
+    border: none;
+    border: 1px solid #e7e7e7;
+    padding: 5px;
+}
+
+.jaksung>div:first-child{
+    /* border: 1px solid rgb(196, 196, 196); */
+}
+
+.jaksung select{
+    height: 80%;
+}
+
+.jaksung select:disabled{
+    background-color: rgb(240, 240, 240);
+    color: rgb(148, 148, 148);
+}
+
+.jaksung_inside{
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+.jaksung_inside>*{
+    font-size: 12.5px;
+}
+
+.jaksung_inside>div{
+    margin-bottom: 15px;
+    background-color: #f9f9fa;
+    padding: 20px;
+}
+
+.jaksung_inside>div:first-child>p:first-child{
+    position: relative;
+    margin-top: 0;
+}
+
+.jaksung_inside>div:first-child>p:last-child{
+    /* position: relative; */
+    margin-bottom: 0;
+}
+
+.jaksung_inside>div:first-child>p>span{
+    position: absolute;
+    left: 57px; 
+    top: 2px; 
+    transform: rotate(90deg); /* 각도 */
+}
+
+.jaksung_inside>div>ul>li{
+    list-style-type: armenian;
+    position: static;
+}
+
+.jaksung_inside>div:nth-child(2)>input{
+    margin-bottom: 10px;
+}
+
+.jaksung_inside>div:nth-child(2) span{
+    display: inline-block;
+    margin-left: 3px;
+    font-size: 8px;
+    text-align: center;
+    border-radius: 10%;
+    background-color: #dbdbdb;
+    width: 12px;
+    height: 12px;
+}
+
+.insert_form>div:first-child>a:first-child{
+    font-size: 12px;
+    border: 1px solid rgb(197, 197, 197);
+    background-color: white;
+    border-radius: 5px;
+}
+
+.insert_form>div:first-child>button{
+    background-color: #03c75A1F;
+    color: #009f47;
 }
 
 .insert_form>div>input, .insert_form>div>textarea{
@@ -246,7 +339,7 @@ aside{
     border-top: 2px solid black;
 }
 
-ul{
+.cafe_jeongbo ul, .gesipan_list ul{
     list-style:none;
     position: relative;
     display: flex;
@@ -254,12 +347,12 @@ ul{
     justify-content: space-around;
 }
 
-ul>li>p{
+.cafe_jeongbo ul>li>p, .gesipan_list ul>li>p{
     margin: 5px 0px;
     line-height: 7px;
 }
 
-li:first-child{
+.cafe_jeongbo li:first-child, .gesipan_list li:first-child{
     position: absolute;
     left: 10px;
 }
@@ -449,7 +542,60 @@ h3{
     margin: 0;
 }
 
-.contents{
+.contents_delete{
+    background-color: rgb(153, 0, 0);
+    background-image: url("../../doc/delete3.png");
+    background-size: cover;
+    background-position: center;
+    font-family: "궁서";
+    color: rgb(163, 163, 163);
+}
+
+.contents_delete caption{
+    line-height: 70px;
+    font-size: 35px;
+}
+
+.contents_delete table{
+    margin: 0px auto;
+    width: 700px;
+}
+
+.contents_delete tr{
+    height: 50px;
+}
+
+.contents_delete form{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+    margin-top: 50px;
+}
+
+.contents_delete>form>*{
+    width: 200px;
+    height: 200px;
+    border: none;
+    background: url("../../doc/button2.png");
+    background-position: center;
+    background-size: cover;
+    color: white;
+    font-size: 20px;
+
+}
+
+.contents_delete input.img-button{
+    background: url("../../doc/button1.png");
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    font-family: "궁서";
+}
+
+.contents_delete a{
+    line-height: 200px;
+    text-align: center;
 }
 
 .sort{
@@ -482,6 +628,17 @@ table {
 
 #title{
     text-align: left;
+    /* width: 100%; */
+    height: 80%;
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
+
+#content{
+    height: 450px;
+    grid-column: 1/3;
+    grid-row: 3/4;
+    padding: 30px 20px;
 }
 
 colgroup{

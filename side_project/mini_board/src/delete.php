@@ -103,13 +103,9 @@ try{
             <?php
                 require_once(FILE_ASIDE);
             ?>
-            <div class="contents">
+            <div class="contents_delete">
                 <table>
-                    <colgroup>
-                        <col width=20%>
-                        <col width=80%>
-                    </colgroup>
-                    <caption>삭제 시 영구 복구 불가<br>진심 삭제?</caption>
+                    <caption>삭제 시 영구 복구 불가<br>정말로 삭제?</caption>
                     <tr>
                         <th>게시글 번호</th>
                         <td><?php echo $item["id"]; ?></td>
@@ -127,14 +123,12 @@ try{
                         <td><?php echo $item["content"]; ?></td>
                     </tr>
                 </table>
-                <section>
-                    <form action="/mini_board/src/delete.php" method="post">
-                        <input type="hidden" name="id" value="<?php echo $id ?>">
-                        <input type="hidden" name="page" value="<?php echo $page_num ?>">
-                        <button type="submit">동의</button>
-                        <a href="/mini_board/src/detail.php/?page=<?php echo $page_num; ?>&id=<?php echo $id; ?>">취소</a>
-                    </form>
-                </section>
+                <form action="/mini_board/src/delete.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $id ?>">
+                    <input type="hidden" name="page" value="<?php echo $page_num ?>">
+                    <input type="submit" class="img-button" value="동의">
+                    <a href="/mini_board/src/detail.php/?page=<?php echo $page_num; ?>&id=<?php echo $id; ?>">취소</a>
+                </form>
             </div>
         </main>
         
