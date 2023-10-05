@@ -13,7 +13,7 @@ $result=[];
 $conn=null;
 $ip = $_SERVER['REMOTE_ADDR'];
 $page_num=isset($_GET["page"]) ? $_GET["page"] : $_POST["page"];
-
+$list_cnt=5;
 
 
 try{
@@ -46,7 +46,41 @@ try{
 
     $item=$result[0];
 
+
     
+    // 바텀 리스트
+    $conn->beginTransaction();
+    $boards_cnt = db_select_boards_cnt($conn);
+    $now_boards_cnt = $boards_cnt - db_more_than_me($conn, $id);
+    var_dump($now_boards_cnt);
+    if($boards_cnt === false){
+        throw new Exception("DB Error : select count");
+    }
+
+    $max_page_num = ceil($boards_cnt / $list_cnt);
+    // 오프셋 계산    
+    if($now_boards_cnt<=$boards_cnt-2){ // && $now_boards_cnt>=3
+        $offset=-($now_boards_cnt - $boards_cnt) - 2;
+    }else{
+        $offset = ($page_num-1) * $list_cnt;
+    }
+    var_dump($offset);
+    // DB 조회시 사용할 데이터 배열
+    $arr_param=[
+        "list_cnt"=>$list_cnt
+        ,"offset"=>$offset
+        ,"now_boards_cnt"=>$now_boards_cnt
+    ];
+
+    
+
+    // 바텀 리스트 조회
+    $result_bottom = db_select_bottom_list($conn, $arr_param);
+    $conn->commit();
+    // 바텀 리스트 끗
+
+
+
     // if($_COOKIE["myCookie"]!=$id){
     //     $_COOKIE["myCookie"]=$id;
     //     $conn->beginTransaction();
@@ -64,7 +98,8 @@ try{
     
 
 } catch(Exception $e) {
-    echo $e->getMessage(); // 예외발생 메세지 출력
+    // echo $e->getMessage(); // 예외발생 메세지 출력
+    header("Location: error.php/?err_msg={$e->getMessage()}");
     exit;
 } finally {
     PDO_del($conn);
@@ -167,7 +202,7 @@ try{
                 </div>
 
                 <?php
-                // require_once(FILE_BOTTOM_LIST);
+                require_once(FILE_BOTTOM_LIST);
                 ?>
 
             </div>

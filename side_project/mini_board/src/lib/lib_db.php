@@ -75,6 +75,54 @@ function db_select_boards_paging(&$conn, &$arr_param){
 	}
 }
 
+
+// -----------------------------------------------------------
+// 함수명 : db_select_bottom_list
+// 기능 : boards paging 조회
+// 파라미터 : PDO   &$conn
+//			 array &$arr_param 쿼리 작성용 배열
+// 리턴 : array / false
+// -----------------------------------------------------------
+function db_select_bottom_list(&$conn, &$arr_param){
+
+	try{
+		$sql="
+		 select
+			 id
+			 ,title
+			 ,create_at
+			 ,ip
+			 ,view_cnt
+			 ,favorate
+		 from 
+			 boards
+			 ";
+		$a="			 
+		 where
+		 	 delete_flg = 0
+		 order by 
+			 id desc
+		 limit :list_cnt offset :offset
+	   ";	
+		$arr_ps=[
+			":list_cnt" => $arr_param["list_cnt"]
+			,":offset" => $arr_param["offset"]
+		];
+
+		$stmt=$conn->prepare($sql.$a);
+		$stmt->execute($arr_ps);
+		$result=$stmt->fetchAll();
+
+		return $result;
+
+	} catch(Exception $e){
+		return false;
+	}
+}
+
+
+
+
 // -----------------------------------------------------------
 // 함수명 : db_select_boards_cnt
 // 기능 : boards paging 조회
@@ -104,6 +152,47 @@ function db_select_boards_cnt(&$conn){
 		return false;
 	}
 }
+
+
+
+// -----------------------------------------------------------
+// 함수명 : db_select_boards_cnt
+// 기능 : boards paging 조회
+// 파라미터 : PDO   &$conn
+// 리턴 : int / false
+// -----------------------------------------------------------
+function db_more_than_me(&$conn, $id){
+
+	
+	$sql="
+	 SELECT 
+	 	 COUNT(id) cnt 
+	 FROM 
+	 	 boards
+	 where
+		 delete_flg = 0
+		 and id > :id
+	";	
+
+	$arr_ps=[
+		":id" => $id
+	];
+
+	try{
+
+		$stmt=$conn->prepare($sql);
+		$stmt->execute($arr_ps);
+		$result=$stmt->fetchAll();
+
+		return (int)$result[0]["cnt"];
+
+	} catch(Exception $e){
+		return false;
+	}
+}
+
+
+
 
 
 // -----------------------------------------------------------

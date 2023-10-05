@@ -6,6 +6,7 @@ define("FILE_HEADER", ROOT."header.php");
 define("FILE_ASIDE", ROOT."aside.php");
 define("FILE_FOOTER", ROOT."footer.php");
 define("FILE_SEARCH", ROOT."search.php");
+define("FILE_SECTION", ROOT."section.php");
 require_once(ROOT."lib/lib_db.php");
 // var_dump($_SERVER);
 
@@ -63,28 +64,28 @@ try{
 
     // 게시글 리스트 조회
     $result = db_select_boards_paging($conn, $arr_param);
-    // if(!$result){
-    //     throw new Exception("DB error : 셀렉트보드");
-    // }
+    if($result === false){
+        throw new Exception("DB error : 셀렉트보드");
+    }
 
-    // if($http_method === "POST"){
+    if($http_method === "POST"){
 
-    //     $arr_post= $_POST;
-    //     // if($arr_post === false || count($arr_post) != 3){
-    //     //     throw new Exception("DB error : 검색오류");
-    //     // }
-    //     $result = db_search_boards_paging($conn, $arr_param, $arr_post);
-    //     // if(!$result){
-    //     //     throw new Exception("DB error : 서치보드");
-    //     // }
+        $arr_post= $_POST;
+        if($arr_post === false || count($arr_post) != 3){
+            throw new Exception("DB error : 검색오류");
+        }
+        $result = db_search_boards_paging($conn, $arr_param, $arr_post);
+        if(!$result){
+            throw new Exception("DB error : 서치보드");
+        }
 
-    //     $boards_cnt = db_search_boards_cnt($conn, $arr_param, $arr_post);
-    //     if($boards_cnt === false){
-    //         throw new Exception("DB Error : select count");
-    //     }
+        $boards_cnt = db_search_boards_cnt($conn, $arr_param, $arr_post);
+        if($boards_cnt === false){
+            throw new Exception("DB Error : select count");
+        }
 
-    //     $max_page_num = ceil($boards_cnt / $list_cnt);
-    // }
+        $max_page_num = ceil($boards_cnt / $list_cnt);
+    }
     
 
     // if(){
@@ -97,7 +98,8 @@ try{
 
 
 } catch(Exception $e) {
-    echo $e->getMessage(); // 예외발생 메세지 출력
+    // echo $e->getMessage(); // 예외발생 메세지 출력
+    header("Location: error.php/?err_msg={$e->getMessage()}");
     exit;
 } finally {
     PDO_del($conn);
@@ -154,17 +156,17 @@ if($next_page_num > $max_page_num){
             <div class="contents">
 
                 <h3>자유게시판</h3>
-                <a href="#" class="favorate">★</a>
+                <a href="" class="favorate">★</a>
 
                 <form class="sort" method="post" action="list.php">
-                    <a href="#" class="sort_a">새글 구독</a>
+                    <a href="" class="sort_a">새글 구독</a>
                     <div class="slider"></div>
                     <!-- <input type="range" id="gudok" name="gudok" min="0" max="1" step="1" style="width:25px;"> -->
-                    <a href="#" class="sort_a">□ 공지 숨기기</a>
+                    <a href="" class="sort_a">□ 공지 숨기기</a>
                     <div class="sero"></div>
-                    <a href="#" class="sort_a">▤</a>
-                    <a href="#" class="sort_a">▦</a>
-                    <a href="#" class="sort_a">📄</a>
+                    <a href="" class="sort_a">▤</a>
+                    <a href="" class="sort_a">▦</a>
+                    <a href="" class="sort_a">📄</a>
                     <select name="gaeshick" id="gaeshick">
                         <button type="submit" value="" class="gaeshick"><option value="5">5개씩</option></button>
                         <button type="submit" value="" class="gaeshick"><option value="10">10개씩</option></button>
@@ -251,36 +253,9 @@ if($next_page_num > $max_page_num){
                 </table>
                 
                 <a href="/mini_board/src/insert.php" id="insert" class="jagseong"><div class="pen">✏</div>글쓰기</a>
-
-                <form action="/mini_board/src/list.php" method="post">
-                    <!-- <input type="hidden" name="create_at" value="<?php echo $arr_post["create_at"]; ?>">
-                    <input type="hidden" name="search_titcon" value="<?php echo $arr_post["search_titcon"]; ?>">
-                    <input type="hidden" name="search" value="<?php echo $arr_post["search"]; ?>"> -->
-                    <section>
-                        <div class="page_buts">
-                            <?php if($page_num>10){ ?>
-                                    <a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><div class="arrow_L"></div><span>이전</span></a><div class="sero"></div>
-                            <?php } ?>
-                            <?php
-                                $culc=((ceil($page_num/$page_list))*$page_list);
-                                $i=$culc-($page_list-1);
-                                        for($i;$i<=$culc;$i++){
-                                            if($i>$max_page_num){   
-                                            break;}
-                                            if($i==$page_num){
-                            ?>
-                                                <a class="page-btn_now" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                            <?php
-                                            } else { // <button type=submit></button>
-                            ?>
-                                            <a class="page-btn" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                            <?php       }} ?>
-                            <?php if($culc<$max_page_num){ ?>
-                                    <div class="sero"></div><a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>"><span>다음</span><div class="arrow_R"></div></a>
-                            <?php } ?>         
-                        </div>  
-
-                    </section>
+                <?php
+                    require_once(FILE_SECTION);
+                ?>
                 </form>       
                 <div class="whspac">               
                     <?php

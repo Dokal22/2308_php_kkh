@@ -1,0 +1,60 @@
+<!-- 
+// if($http_method === "POST"){
+
+<form action="/mini_board/src/list.php" method="post">
+    <input type="hidden" name="create_at" value="<?php echo $arr_post["create_at"]; ?>">
+    <input type="hidden" name="search_titcon" value="<?php echo $arr_post["search_titcon"]; ?>">
+    <input type="hidden" name="search" value="<?php echo $arr_post["search"]; ?>">
+    <section>
+        <div class="page_buts">
+            <?php if($page_num>10){ ?>
+                    <button type="submit" class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><div class="arrow_L"></div><span>이전</span></button><div class="sero"></div>
+            <?php } ?>
+            <?php
+                $culc=((ceil($page_num/$page_list))*$page_list);
+                $i=$culc-($page_list-1);
+                        for($i;$i<=$culc;$i++){
+                            if($i>$max_page_num){   
+                            break;}
+                            if($i==$page_num){
+            ?>
+                                <button type="submit" class="page-btn_now" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></button>
+            <?php
+                            } else { // <button type=submit></button>
+            ?>
+                            <button type="submit" class="page-btn" id="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></button>
+            <?php       }} ?>
+            <?php if($culc<$max_page_num){ ?>
+                    <div class="sero"></div><button type="submit" class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>"><span>다음</span><div class="arrow_R"></div></button>
+            <?php } ?>         
+        </div>  
+
+    </section>
+</form> -->
+
+
+서치 페이지 이동 구현
+디테일에 바텀리스트 구현
+디테일 바텀리스트 가운데로 오프셋 설정
+조건 id가 max-2보다 같거나 작다, 3보다 같거나 크다 일 때
+어떻게 자신의 가운트를 아나?
+변수선언
+오프셋이 자신보다 -2이고 리미트가 5이면 자신이 중심에 온다
+데이터베이스로 계산해야하나?
+아이디와 카운트 수의 연관은 무엇인가?
+id = 게시글 + 삭제글
+카운트 = id - 삭제글
+
+select 카운트 넘버를 선언해서 하면 됨
+
+이동할 땐 아이디를 따라가야하지만 게시글 표시는 삭제한 글을 제거해줘야한다 -> 출력할 때 이미 리미트와 오프셋의 
+아이디를 재부여하는 방법은 효율적인가?
+$id가 아닌 새로운 데이터컬럼?
+
+
+전체 카운트 - 자기보다 큰 애들을 카운트 = 자기의 카운트 값
+
+이걸 리스트로 뽑으려면 각자의 값이 있어야 함.
+select *
+from boards
+where 여기에 각자의 값이 있어야 하는데 그러면 이걸 다시 넣어줘야 함(파라미터)_

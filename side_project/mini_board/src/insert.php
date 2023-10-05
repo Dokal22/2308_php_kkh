@@ -1,6 +1,7 @@
 <?php
 
 define("ROOT",$_SERVER["DOCUMENT_ROOT"]."/mini_board/src/");
+define("ERROR_MSG_PARAM","%s은 필수사항입니다");
 define("FILE_HEADER", ROOT."header.php");
 define("FILE_ASIDE", ROOT."aside.php");
 define("FILE_FOOTER", ROOT."footer.php");
@@ -12,6 +13,10 @@ require_once(ROOT."lib/lib_db.php");
 //post로 리퀘스트가 왔을 때 처리
 $http_method=$_SERVER["REQUEST_METHOD"];
 $ip = $_SERVER['REMOTE_ADDR'];// ip
+$conn=null;
+$arr_err_msg=[];
+$title="";
+$content="";
 // var_dump($http_method);
 
 if($http_method === "POST"){ // !is_numeric(변수) : 변수가 숫자가 아니면 참 (sql인셉션? 방어) 
@@ -20,35 +25,50 @@ if($http_method === "POST"){ // !is_numeric(변수) : 변수가 숫자가 아니
 
 
         $arr_post = $_POST;
-        $conn=null;
 
+        //파라미터 획득
+        $title=isset($_POST["title"])?trim($_POST["title"]):"";
+        $content=isset($_POST["content"])?trim($_POST["content"]):"";
 
-
-        if(!PDO_set($conn)){
-            throw new Exception("DB error : PDO instance");
+        if($title === ""){
+            $arr_err_msg[]=sprintf(ERROR_MSG_PARAM,"제목");
         }
-
-        
-        $conn->beginTransaction();
-
-
-        // 값넣기
-        if(!db_insert_boards($conn, $arr_post, $ip)){
-            throw new Exception("인서트화긴좀");
+        if($content === ""){
+            $arr_err_msg[]=sprintf(ERROR_MSG_PARAM,"내용");
         }
+        // if(count($arr_err_msg) >= 1){
+        //     throw new Exception(implode("<br>",$arr_err_msg));
+        // }
 
-
-        $conn->commit(); // 잘 되믄 커밋
-
-
-        header("Location: list.php"); // 다시 ~하는 명령어 주셈~
-        exit; // 어차피 finally는 실행이 된다????
-
+        if(count($arr_err_msg) === 0){
+            if(!PDO_set($conn)){
+                throw new Exception("DB error : PDO instance");
+            }
+    
+            
+            $conn->beginTransaction();
+    
+    
+            // 값넣기
+            if(!db_insert_boards($conn, $arr_post, $ip)){
+                throw new Exception("인서트화긴좀");
+            }
+    
+    
+            $conn->commit(); // 잘 되믄 커밋
+    
+    
+            header("Location: list.php"); // 다시 ~하는 명령어 주셈~
+            exit; // 어차피 finally는 실행이 된다????
+        }
 
     } catch(Exception $e){
 
-        $conn->rollback(); // 오류 복구야~
-        echo $e->getMessage();
+        // if($conn !== null){
+            $conn->rollback(); // 오류 복구야~
+        // }
+        // echo $e->getMessage(); // 예외발생 메세지 출력
+        header("Location: error.php/?err_msg={$e->getMessage()}");
         exit;
 
     } finally {
@@ -84,7 +104,13 @@ if($http_method === "POST"){ // !is_numeric(변수) : 변수가 숫자가 아니
             <span>·</span>
             <a href="">카페태그보기</a>
         </div>
-
+        <?php
+            foreach($arr_err_msg as $val){
+        ?>
+                <p><?php echo $val ?></p>
+        <?php
+            }
+        ?>
         <form class="insert_form" action="/mini_board/src/insert.php" method="post">
 
             <div>
@@ -104,9 +130,9 @@ if($http_method === "POST"){ // !is_numeric(변수) : 변수가 숫자가 아니
                         <option value="">말머리선택</option>
                     </select>
                     <br>
-                    <input type="text" name="title" id="title" size="30" placeholder="제목을 입력해주세요" required>
+                    <input type="text" name="title" id="title" size="30" placeholder="제목을 입력해주세요" value=""<?php echo $title; ?>>
                     <br>
-                    <textarea name="content" id="content" cols="32" rows="10" placeholder="내용을 입력해주세요" required></textarea>
+                    <textarea name="content" id="content" cols="32" rows="10" placeholder="내용을 입력해주세요" ><?php echo $content; ?></textarea>
                 </div>
                 <div class="jaksung_inside">
                     <div>

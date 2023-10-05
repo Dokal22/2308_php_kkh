@@ -82,6 +82,10 @@ header {
     display: flex;
 }
 
+.error{
+    background-image: url(../../doc/임시배너.jpg);
+}
+
 .never_img>b{
     font-size: 22px;
     color: #03c75a;
@@ -229,6 +233,7 @@ form.search{
 .insert_form>div:first-child>button{
     background-color: #03c75A1F;
     color: #009f47;
+    cursor: pointer;
 }
 
 .insert_form>div>input, .insert_form>div>textarea{
@@ -542,6 +547,18 @@ h3{
     margin: 0;
 }
 
+.favorate{
+    color: #c7c7c7;
+    border: 1px solid #c7c7c7;
+    border-radius: 50%;
+    line-height: 13px;
+    text-align: center;
+    height: 17px;
+    width: 17px;
+    /* padding: 0px 1.5px; */
+    font-size: 12px;
+}
+
 .contents_delete{
     background-color: rgb(153, 0, 0);
     background-image: url("../../doc/delete3.png");
@@ -799,6 +816,41 @@ input::placeholder, textarea::placeholder{
     height: 1px;
     width: 100%;
 }
+
+.bottom_list{
+    padding: 30px 12px;
+}
+
+.bottom_list>table{
+    /* width: 100%; */
+    border-top: 1px solid rgb(206, 206, 206);
+}
+
+.bottom_list *{
+    font-size: 15px;
+}
+
+.bottom_list tr{
+    height: 36px;
+}
+
+.bottom_list td{
+    text-align: left;
+    padding-left: 5px;
+}
+
+.bottom_list td:first-child{
+    height: 36px;
+}
+
+.now_bottom_list{
+    background-color: #f9f9fa;
+}
+
+.now_bottom_list td:first-child{
+    font-weight: 600;
+}
+
 
 footer{
     /* position: absolute; */
