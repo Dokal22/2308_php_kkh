@@ -70,7 +70,8 @@ SELECT
 		 set 
 		 finished = '0' 
 		  	,finished_at = null 
-
+		wherejang
+			id = 35
 		;
 		 SELECT 
 			j.id 
@@ -94,6 +95,12 @@ SELECT
 select timestamp(NOW());
 		
 		ALTER TABLE jang modify COLUMN finished_at timestamp;
+		
+		UPDATE tag_type
+		SET 
+			tag_img = 'animal.png'
+		WHERE tag_id = 5
+		;
 		
 		COMMIT;
 		FLUSH PRIVILEGES;
