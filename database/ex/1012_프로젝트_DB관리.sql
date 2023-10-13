@@ -52,7 +52,7 @@ SELECT
 		  	VALUES (
 		  		'오토커밋을 php로'
 		  		,1
-		  		,20231010
+		  		,20231020
 		  		,0
 		  		,'해보자'
 		  	);
@@ -65,5 +65,35 @@ SELECT
 		 where 
 		  	date(NOW()) > d_day 
 		;
+		 update 
+			jang 
+		 set 
+		 finished = '0' 
+		  	,finished_at = null 
+
+		;
+		 SELECT 
+			j.id 
+			,j.item_name 
+			,j.amount 
+			,j.d_day 
+			,j.finished_at 
+			,t.tag_img 
+		 FROM
+			 jang j 
+		 	join 
+			  tag_type t 
+		   on 
+		     j.tag_id = t.tag_id 
+		 where 
+		     j.finished = 1 
+		 order by 
+		     j.d_day 
+		     .j.id desc 
+		     ;
+select timestamp(NOW());
+		
+		ALTER TABLE jang modify COLUMN finished_at timestamp;
 		
 		COMMIT;
+		FLUSH PRIVILEGES;
