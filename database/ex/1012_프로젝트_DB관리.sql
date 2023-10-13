@@ -50,11 +50,11 @@ SELECT
 		  		,memo
 		  	)
 		  	VALUES (
-		  		'오토업뎃테스트'
+		  		'오토커밋을 php로'
 		  		,1
-		  		,20231011
+		  		,20231010
 		  		,0
-		  		,'테슷후'
+		  		,'해보자'
 		  	);
 		  	
 		 update 
@@ -65,3 +65,5 @@ SELECT
 		 where 
 		  	date(NOW()) > d_day 
 		;
+		
+		COMMIT;
