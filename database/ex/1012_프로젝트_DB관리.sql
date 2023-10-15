@@ -94,13 +94,24 @@ SELECT
 		     ;
 select timestamp(NOW());
 		
-		ALTER TABLE jang modify COLUMN finished_at timestamp;
+		ALTER TABLE jangboja RENAME jang;
 		
 		UPDATE tag_type
 		SET 
-			tag_img = 'animal.png'
-		WHERE tag_id = 5
+			tag_img = 'chair.png'
+		WHERE tag_id = 3
 		;
+		
+		INSERT INTO tag_type(
+			tag_id
+			,tag_name
+			,tag_img
+		)
+		VALUES(
+			5
+			,'반려동물/취미'
+			,'animal.png'
+		);
 		
 		COMMIT;
 		FLUSH PRIVILEGES;
