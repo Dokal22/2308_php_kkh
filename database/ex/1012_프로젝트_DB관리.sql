@@ -94,7 +94,7 @@ SELECT
 		     ;
 select timestamp(NOW());
 		
-		ALTER TABLE jangboja RENAME jang;
+		ALTER TABLE jang modify finished CHAR(1) NOT NULL DEFAULT '0';
 		
 		UPDATE tag_type
 		SET 
