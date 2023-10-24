@@ -1,4 +1,4 @@
-트리거(Trigger
+트리거(Trigger)
 이벤트(update, insert, delete)가 발생했을 때 발동
 (자기가 직접 실행 불가)
  IN, OUT 매개 변수 없음
