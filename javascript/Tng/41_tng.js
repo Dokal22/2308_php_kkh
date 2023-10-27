@@ -59,24 +59,40 @@
 
 // 쌤꺼
     const PRINTTIME = document.getElementById('clock');
-    let date;
-    const NOW = () => date = new Date();
-    const NOWUSA = () => date = new Date();
-    date.setTime( date - (1000*60*60*13));
+    
+    // let interval;
+    // startTime();
+    
+    // let date;
+    // const NOW = new Date();
+    // let NOWUSA =  new Date();
+    // NOWUSA.setTime( NOW - (1000*60*60*13));
+    // let now_usa = NOWUSA.toLocaleTimeString();
+    // PRINTTIME.innerHTML = now_usa;
 
-    const TIME = () => { // USA타임 집가서 보자 ㅋㅋ
-        NOW();
-        PRINTTIME.innerHTML = date.toLocaleTimeString();
+    function TIME(){
+        const NOW = new Date(); 
+        // const는 값을 재지정은 못하지만 
+        // 애초에 선언한걸 다시실행하는 건 상관 없는듯(선언값 다시 받아들이기)
+        PRINTTIME.innerHTML = NOW.toLocaleTimeString();
+        let NOWUSA =  new Date();
+        NOWUSA.setTime( NOW - (1000*60*60*13));
+        let now_usa = NOWUSA.toLocaleTimeString();
+        PRINTTIME.innerHTML = now_usa;
     } 
 
-    let interval = setInterval(TIME,1000); 
+    interval = setInterval(TIME,1000); 
 
-    let stopTime = () => clearInterval(interval); // 클리어는 또 setInterval 그대로 보내야 함
+    function stopTime(){
+        clearInterval(interval); // 클리어는 또 setInterval 그대로 보내야 함
+    }
 
     const BTNSTOP = document.getElementById('btn-stop');
     BTNSTOP.addEventListener('click', stopTime);
 
-    let startTime = () => interval = setInterval(TIME,1000); 
+    function startTime(){
+        interval = setInterval(TIME,1000); 
+    }
 
     const BTNRESTART = document.getElementById('btn-restart');
     BTNRESTART.addEventListener('click', startTime);
