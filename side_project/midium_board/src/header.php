@@ -1,4 +1,4 @@
-<div>
+<div class="header_div">
     <div>
         <span></span>
         <span>Obsidian</span>

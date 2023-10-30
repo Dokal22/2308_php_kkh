@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+.header_div {
+    background-color: #171717;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_div >  {
+
+}
