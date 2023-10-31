@@ -42,3 +42,13 @@
 
 */
 
+const MY_URL = "https://picsum.photos/v2/list?page=2&limit=100";
+
+fetch(MY_URL) // (url(get값?), post값?)
+.then( response => console.log(response) )
+.catch( error => console.log(error) )
+
+// response {status} : 
+	// 200번대 => 정상
+	// 300번대 => 서버에서 오류
+	// 400번대 => 통신에서 오류
