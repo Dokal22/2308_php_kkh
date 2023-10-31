@@ -52,7 +52,6 @@ BTN_DEL.addEventListener('click', del);
 // function del() { // ****************선생님과 오류 탐색******************231031
 // 	const OLD_IMG = document.querySelectorAll('#div-img > img');
 // 	// const OLD_IMG = document.getElementsbyTagName('img'); // 1. OLD_IMG => {0~4, entries, keys, values, forEach, length, item} 프로토타입까지 가져옴
-// 	// const OLD_IMG2 = document.getElementById('div-img');
 // 	for ( let item in OLD_IMG ) { // 2. for in으로 하면 entries, keys 등등을 지우려해서 오류.
 // 								  // 3. for of로 하면 하나를 지울 때마다 순서가 당겨져서 절반정도만 삭제.
 // 		OLD_IMG[item].remove();
@@ -62,13 +61,17 @@ BTN_DEL.addEventListener('click', del);
 
 function del() {
 	const OLD_IMG = document.querySelector('#div-img');
-	OLD_IMG.replaceChildren();
+	OLD_IMG.replaceChildren(); // 배열(객체) 안 자식 삭제
 }
+
+// del 다른방법
+// const OLD_IMG = document.querySelector('#div-img');
+// OLD_IMG.innerHTML = ""; // 배열(객체) 안 자식 삭제
 
 function my_fetch() {
 	const INPUT_URL = document.querySelector('#input-url');
 
-	fetch(INPUT_URL.value.trim()) // (url(get값?), post값?)
+	fetch(INPUT_URL.value.trim()) // (url(get값?), post값?) / fetch => 받은 데이터를 컨트롤?
 	.then( response => {
 		//if
 		// 오류처리는 response.json()을 반환할지 말지 분기
