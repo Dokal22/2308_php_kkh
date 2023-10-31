@@ -42,13 +42,54 @@
 
 */
 
-const MY_URL = "https://picsum.photos/v2/list?page=2&limit=100";
+const MY_URL = "https://picsum.photos/v2/list?page=2&limit=5";
+// const INPUT = document.querySelector('#btn-api');
+const BTN_API = document.querySelector('#btn-api');
+const BTN_DEL = document.querySelector('#btn-del');
+BTN_API.addEventListener('click', my_fetch);
+BTN_DEL.addEventListener('click', del);
 
-fetch(MY_URL) // (url(get값?), post값?)
-.then( response => console.log(response) )
-.catch( error => console.log(error) )
+// function del() { // ****************선생님과 오류 탐색******************231031
+// 	const OLD_IMG = document.querySelectorAll('#div-img > img');
+// 	// const OLD_IMG = document.getElementsbyTagName('img'); // 1. OLD_IMG => {0~4, entries, keys, values, forEach, length, item} 프로토타입까지 가져옴
+// 	// const OLD_IMG2 = document.getElementById('div-img');
+// 	for ( let item in OLD_IMG ) { // 2. for in으로 하면 entries, keys 등등을 지우려해서 오류.
+// 								  // 3. for of로 하면 하나를 지울 때마다 순서가 당겨져서 절반정도만 삭제.
+// 		OLD_IMG[item].remove();
+// 	}
+// 	// OLD_IMG2.remove();
+// }
+
+function del() {
+	const OLD_IMG = document.querySelector('#div-img');
+	OLD_IMG.replaceChildren();
+}
+
+function my_fetch() {
+	const INPUT_URL = document.querySelector('#input-url');
+
+	fetch(INPUT_URL.value.trim()) // (url(get값?), post값?)
+	.then( response => {
+		//if
+		// 오류처리는 response.json()을 반환할지 말지 분기
+		return response.json();
+	} ) // MY_URL을 response값으로 받고, json():배열로 만든 다음(원래 str?) then(data)로
+	.then( data => makeImg(data) )
+	.catch( error => console.log(error) )
+}
 
 // response {status} : 
 	// 200번대 => 정상
 	// 300번대 => 서버에서 오류
 	// 400번대 => 통신에서 오류
+
+function makeImg(data) {
+	data.forEach( item => {
+		const NEW_IMG = document.createElement('img');
+		const DIV_IMG = document.querySelector('#div-img');
+		NEW_IMG.setAttribute('src', item.download_url);
+		NEW_IMG.style.width = '200px';
+		NEW_IMG.style.height = '200px';
+		DIV_IMG.appendChild(NEW_IMG);
+	}) 
+}

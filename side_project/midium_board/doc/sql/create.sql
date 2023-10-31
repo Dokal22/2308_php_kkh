@@ -25,7 +25,7 @@ ALTER table board DROP COLUMN delete_at;
 -- 보기
 	-- 딜리트 값이 없는 친구들
 	SELECT * FROM board 
-	WHERE delete_at IS NULL;
+	WHERE deleted_at IS NULL;
 
 -- 입력하기
 -- 값 생성
@@ -51,4 +51,5 @@ DELETE FROM board
 WHERE id = 0;
 
 COMMIT;
+FLUSH PRIVILEGES;
 ROLLBACK;
