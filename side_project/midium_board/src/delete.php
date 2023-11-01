@@ -4,6 +4,7 @@ define("FILE_HEADER", ROOT."/header.php");
 require_once(ROOT."/lib/lib.php");
 
 $conn = null;
+$page = isset($_GET["page"]) ? $_GET["page"] : $_POST["page"];
 $id = isset($_GET["id"]) ? $_GET["id"] : "";
 $param["id"] = $id;
 
@@ -15,7 +16,7 @@ try {
             $result = update_delete($conn, $param);
         $conn->commit();
 
-        header("Location: list.php");
+        header("Location: list.php/?page=".$page);
         exit;
     } else {
         $result = select_detail($conn, $param);
@@ -39,10 +40,12 @@ var_dump($_POST);
 </head>
 <body>
     <p>삭제?</p>
-    <form action="/midium_board/src/delete.php/?id=<?php echo $id; ?>" method="post">
+    <form action="/midium_board/src/delete.php" method="post">
+        <input type="text" name="page" value="<?php echo $page ?>" hidden>
+        <input type="text" name="id" value="<?php echo $id ?>" hidden>
         <input type="text" name="deleted_at" value="1" hidden>
         <button type="submit">삭제</button>
-        <a href="/midium_board/src/detail.php/?id=<?php echo $id; ?>">취소</a>
+        <a href="/midium_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">취소</a>
     </form>
 </body>
 </html>

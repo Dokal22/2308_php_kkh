@@ -6,6 +6,9 @@ require_once(ROOT."/lib/lib.php");
 $conn = null;
 $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 $one_page_cnt = 5;
+$pl_cnt = 5;
+$half_pl_offset = ceil($page / $pl_cnt);
+$pl_offset = ($half_pl_offset - 1) * $pl_cnt;
 $param_list = [
     "offset" => ($page - 1) * $one_page_cnt
     ,"limit" => $one_page_cnt
@@ -23,8 +26,7 @@ try {
 } finally {
     PDO_out($conn);
 }
-// var_dump($result);
-// var_dump($page_cnt);
+var_dump($result);
 ?>
 
 <!DOCTYPE html>
@@ -39,27 +41,22 @@ try {
     <?php require_once(FILE_HEADER); ?>
 
     <?php foreach( $result as $item ) { ?>
-              <a href="/midium_board/src/detail.php/?id=<?php echo $item["id"] ?>"><?php echo $item["id"] ?>번</a>
+              <a href="/midium_board/src/detail.php/?id=<?php echo $item["id"] ?>&page=<?php echo $page ?>"><?php echo $item["id"] ?>번</a>
     <?php } ?>
-    
-    <?php $half_pl_offset = ceil($page / $one_page_cnt); ?>
-    <?php $pl_offset = ($half_pl_offset - 1) * $one_page_cnt; ?>
     
     <?php if($half_pl_offset > 1){ ?>
-        <a href="/midium_board/src/list.php/?page=<?php echo $pl_offset; ?>">이전</a>
+              <a href="/midium_board/src/list.php/?page=<?php echo $pl_offset; ?>">이전</a>
     <?php } ?>
 
-    <?php for($i=1;$i<=$one_page_cnt;$i++){ ?>
+    <?php for($i=1;$i<=$pl_cnt;$i++){ ?>
     <?php     if($pl_offset + $i > $page_cnt) { break; } ?>
               <a href="/midium_board/src/list.php/?page=<?php echo $pl_offset + $i; ?>"><?php echo $pl_offset + $i; ?></a>
     <?php } ?>
 
-    <?php if($pl_offset + $one_page_cnt < $page_cnt){ ?>
-    <a href="/midium_board/src/list.php/?page=<?php echo $pl_offset + 6; ?>">다음</a>
+    <?php if($pl_offset + $pl_cnt < $page_cnt){ ?>
+              <a href="/midium_board/src/list.php/?page=<?php echo $pl_offset + 6; ?>">다음</a>
     <?php } ?>
 
-    <a href="/midium_board/src/insert.php">작성</a>
-    <?php var_dump($half_pl_offset); ?>
-    <?php var_dump($pl_offset); ?>
+    <a href="/midium_board/src/insert.php/?page=<?php echo $page ?>">작성</a>
 </body>
 </html>

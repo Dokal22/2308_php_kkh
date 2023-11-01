@@ -4,6 +4,7 @@ define("FILE_HEADER", ROOT."/header.php");
 require_once(ROOT."/lib/lib.php");
 
 $conn = null;
+$page = isset($_GET["page"]) ? $_GET["page"] : 1;
 $id = isset($_GET["id"]) ? $_GET["id"] : "";
 $param["id"] = $id;
 
@@ -28,8 +29,8 @@ var_dump($result);
     <title>상세</title>
 </head>
 <body>
-    <a href="/midium_board/src/update.php/?id=<?php echo $id; ?>">수정</a>
-    <a href="/midium_board/src/delete.php/?id=<?php echo $id; ?>">삭제</a>
-    <a href="/midium_board/src/list.php">취소</a>
+    <a href="/midium_board/src/update.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정</a>
+    <a href="/midium_board/src/delete.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">삭제</a>
+    <a href="/midium_board/src/list.php/?page=<?php echo $page; ?>">취소</a>
 </body>
 </html>

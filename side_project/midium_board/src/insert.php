@@ -5,6 +5,7 @@ require_once(ROOT."/lib/lib.php");
 
 $conn = null;
 $method = isset($_SERVER["REQUEST_METHOD"]) ? $_SERVER["REQUEST_METHOD"] : "";
+$page = isset($_GET["page"]) ? $_GET["page"] : $_POST["page"];
 
 if($method === "POST"){
     $title = isset($_POST["title"]) ? trim($_POST["title"]) : "";
@@ -33,10 +34,6 @@ if($method === "POST"){
         PDO_out($conn);
     }
 }
-
-// var_dump($result);
-// var_dump($_POST);
-var_dump($param);
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -48,10 +45,11 @@ var_dump($param);
 </head>
 <body>
     <form action="/midium_board/src/insert.php" method="post">
+        <input type="text" name="page" value="<?php $page ?>" hidden>
         <input type="text" name="title" placeholder="제목">
         <textarea name="contents" cols="30" rows="10" placeholder="내용"></textarea>
         <button type="submit">완료</button>
-        <a href="/midium_board/src/list.php">취소</a>
+        <a href="/midium_board/src/list.php/?page=<?php echo $page; ?>">취소</a>
     </form>
 </body>
 </html>

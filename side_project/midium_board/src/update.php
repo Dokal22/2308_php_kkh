@@ -5,6 +5,7 @@ require_once(ROOT."/lib/lib.php");
 
 $conn = null;
 $method = isset($_SERVER["REQUEST_METHOD"]) ? $_SERVER["REQUEST_METHOD"] : "";
+$page = isset($_GET["page"]) ? $_GET["page"] : $_POST["page"];
 $id = isset($_GET["id"]) ? $_GET["id"] : "";
 $param_select["id"] = $id;
 
@@ -26,7 +27,8 @@ try {
             update($conn, $param_update);
         $conn->commit();
 
-        header("Location: list.php");
+        header("Location: list.php/?page=".$page);
+        exit;   
     } else {
         $result = select_detail($conn, $param_select);
         $item = $result[0];
@@ -37,10 +39,6 @@ try {
 } finally {
     PDO_out($conn);
 }
-
-// var_dump($result);
-// var_dump($_POST);
-var_dump($param_update);
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -51,13 +49,15 @@ var_dump($param_update);
     <title>수정</title>
 </head>
 <body>
-    <form action="/midium_board/src/update.php/?id=<?php echo $id; ?>" method="post">
+    <form action="/midium_board/src/update.php" method="post">
+        <input type="text" name="page" value="<?php $page ?>" hidden>
+        <input type="text" name="id" value="<?php $id ?>" hidden>
         <input type="text" name="title" <?php if($method === "GET"){ ?>
             value="<?php echo $item["title"]; ?>"
             <?php } ?>>
         <textarea name="contents" cols="30" rows="10"><?php if($method === "GET"){echo $item["contents"];} ?></textarea>
         <button type="submit">완료</button>
-        <a href="/midium_board/src/detail.php/?id=<?php echo $id; ?>">취소</a>
+        <a href="/midium_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">취소</a>
     </form>
 </body>
 </html>
