@@ -1,11 +1,9 @@
 <div class="header_div">
     <div>
         <span></span>
-        <span>Obsidian</span>
+        <span>Midium Board</span>
     </div>
     <div>
-        <span>Sign Up</span>
-        <span>Log In</span>
         <span></span>
         <span></span>
     </div>
