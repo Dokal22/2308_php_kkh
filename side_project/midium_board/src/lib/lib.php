@@ -28,7 +28,7 @@ function PDO_out(&$conn) {
     $conn = null;
 }
 
-function select_list($conn) {
+function select_list($conn, $param) {
     $sql =
     " SELECT "
     ."     * "
@@ -36,10 +36,22 @@ function select_list($conn) {
     ."     board "
     ." WHERE "
     ."     deleted_at IS NULL "
+    ." ORDER BY "
+    ."     id DESC "
+    ." LIMIT "
+    ."     :limit "
+    ." OFFSET "
+    ."     :offset "
     ;
 
+    $execute = [
+        ":limit" => $param["limit"]
+        ,":offset" => $param["offset"]
+    ];
+
     try {
-        $stmt = $conn->query($sql);
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($execute);
         $result = $stmt->fetchAll();
         
         return $result;

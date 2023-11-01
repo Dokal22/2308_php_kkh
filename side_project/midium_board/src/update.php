@@ -51,13 +51,13 @@ var_dump($param_update);
     <title>수정</title>
 </head>
 <body>
-    <form action="../update.php/?id=<?php echo $id; ?>" method="post">
+    <form action="/midium_board/src/update.php/?id=<?php echo $id; ?>" method="post">
         <input type="text" name="title" <?php if($method === "GET"){ ?>
             value="<?php echo $item["title"]; ?>"
             <?php } ?>>
         <textarea name="contents" cols="30" rows="10"><?php if($method === "GET"){echo $item["contents"];} ?></textarea>
         <button type="submit">완료</button>
-        <a href="../detail.php/?id=<?php echo $id; ?>">취소</a>
+        <a href="/midium_board/src/detail.php/?id=<?php echo $id; ?>">취소</a>
     </form>
 </body>
 </html>

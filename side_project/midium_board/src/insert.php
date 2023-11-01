@@ -47,11 +47,11 @@ var_dump($param);
     <title>수정</title>
 </head>
 <body>
-    <form action="./insert.php" method="post">
+    <form action="/midium_board/src/insert.php" method="post">
         <input type="text" name="title" placeholder="제목">
         <textarea name="contents" cols="30" rows="10" placeholder="내용"></textarea>
         <button type="submit">완료</button>
-        <a href="./list.php">취소</a>
+        <a href="/midium_board/src/list.php">취소</a>
     </form>
 </body>
 </html>

@@ -39,10 +39,10 @@ var_dump($_POST);
 </head>
 <body>
     <p>삭제?</p>
-    <form action="../delete.php/?id=<?php echo $id; ?>" method="post">
+    <form action="/midium_board/src/delete.php/?id=<?php echo $id; ?>" method="post">
         <input type="text" name="deleted_at" value="1" hidden>
         <button type="submit">삭제</button>
-        <a href="../detail.php/?id=<?php echo $id; ?>">취소</a>
+        <a href="/midium_board/src/detail.php/?id=<?php echo $id; ?>">취소</a>
     </form>
 </body>
 </html>

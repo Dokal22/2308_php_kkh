@@ -28,8 +28,8 @@ var_dump($result);
     <title>상세</title>
 </head>
 <body>
-    <a href="../update.php/?id=<?php echo $id; ?>">수정</a>
-    <a href="../delete.php/?id=<?php echo $id; ?>">삭제</a>
-    <a href="../list.php">취소</a>
+    <a href="/midium_board/src/update.php/?id=<?php echo $id; ?>">수정</a>
+    <a href="/midium_board/src/delete.php/?id=<?php echo $id; ?>">삭제</a>
+    <a href="/midium_board/src/list.php">취소</a>
 </body>
 </html>
