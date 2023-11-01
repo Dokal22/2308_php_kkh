@@ -96,3 +96,27 @@ function makeImg(data) {
 		DIV_IMG.appendChild(NEW_IMG);
 	}) 
 }
+
+// fetch 두번째 아규먼트 셋팅 방법 *************이해못함**************
+function infinityLoop() {
+	let apiUrl = '1차프로젝트주소'
+	let init = {
+		method: 'POST' // 설정 안하면 default "GET"
+		// headers: {
+		// 	Access-Control-Allow-Origin
+		// 	json이다~
+		// 	xml이다 등등
+		// }
+		,body: {
+			title: '머ㅕㅇ'
+			,contents: '테스트'
+			,em_id: '2'
+		}
+	};
+
+	fetch(apiUrl, init)
+	.then( indata => console.log(indata) )
+	.catch( error => console.log(error) )
+}
+
+// fetch도 보내놓고 다른거 하다가 어 데이터 왔다 하는 애라 비동기?

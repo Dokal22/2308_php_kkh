@@ -15,6 +15,20 @@
         await PRO2('B', 2000);
         await PRO2('C', 1000);
     }
+
+    // fetch하고 나서 또 fetch하는 거 있으면
+    // await를 준다?
+    //     fetch()
+    //     .then(fetch())
+
+    //         =>  function 페치반복() {
+    //                 return fetch();
+    //             }
+    //             async function 전체컨트롤() {
+    //                 await 페치반복; <= 비동기가 있는 애들(페치반복 안에 fetch) 기다려주기
+    //                 await 페치반복;
+    //                 await 페치반복;
+    //             }
     
     // 병렬처리 하는 방법 : Promise.all()
         function PRO3() {

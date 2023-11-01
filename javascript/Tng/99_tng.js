@@ -33,3 +33,10 @@ function addImg(data) {
         ADD_DIV.appendChild(ADD_IMG);
     })
 }
+
+// 요소지정.className = "main test"
+// 요소지정.classList = [main, test]
+// gap VS grid-gap 뭐지
+// 이미지 크기 width만 95%로 주셨구나
+//     => 그리드 따라 가로
+//         => 세로는 자동으로 비율유지

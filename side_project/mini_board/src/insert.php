@@ -130,7 +130,7 @@ if($http_method === "POST"){ // !is_numeric(변수) : 변수가 숫자가 아니
                         <option value="">말머리선택</option>
                     </select>
                     <br>
-                    <input type="text" name="title" id="title" size="30" placeholder="제목을 입력해주세요" value=""<?php echo $title; ?>>
+                    <input type="text" name="title" id="title" size="30" placeholder="제목을 입력해주세요" value="<?php echo $title; ?>">
                     <br>
                     <textarea name="content" id="content" cols="32" rows="10" placeholder="내용을 입력해주세요" ><?php echo $content; ?></textarea>
                 </div>

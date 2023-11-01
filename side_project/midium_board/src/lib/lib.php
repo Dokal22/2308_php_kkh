@@ -34,13 +34,149 @@ function select_list($conn) {
     ."     * "
     ." FROM "
     ."     board "
-    // ." WHERE "
-    // ."     deleted_at IS NULL "
+    ." WHERE "
+    ."     deleted_at IS NULL "
     ;
 
     try {
         $stmt = $conn->query($sql);
         $result = $stmt->fetchAll();
+        
+        return $result;
+    } catch(Exception $e) {
+        echo $e->getMessage();
+        return false;
+    }
+}
+
+function count_list($conn) {
+    $sql =
+    " SELECT "
+    ."     COUNT(id) cnt "
+    ." FROM "
+    ."     board "
+    ." WHERE "
+    ."     deleted_at IS NULL "
+    ;
+
+    try {
+        $stmt = $conn->query($sql);
+        $result = $stmt->fetchAll();
+        
+        return (int)$result[0]["cnt"];
+    } catch(Exception $e) {
+        echo $e->getMessage();
+        return false;
+    }
+}
+
+function select_detail($conn, $param) {
+    $sql =
+    " SELECT "
+    ."     * "
+    ." FROM "
+    ."     board "
+    ." WHERE "
+    ."     deleted_at IS NULL "
+    ."   and "
+    ."     id = :id "
+    ;
+
+    $execute = [
+        ":id" => $param["id"]
+    ];
+
+    try {
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($execute);
+        $result = $stmt->fetchAll();
+        
+        return $result;
+    } catch(Exception $e) {
+        echo $e->getMessage();
+        return false;
+    }
+}
+
+function update($conn, $param) {
+    $sql =
+    " UPDATE "
+    ."     board "
+    ." SET "
+    ."     title = :title "
+    ."     ,contents = :contents "
+    ."     ,modified_at = NOW() "
+    ." WHERE "
+    ."     deleted_at IS NULL "
+    ."   and "
+    ."     id = :id "
+    ;
+
+    $execute = [
+        ":title" => $param["title"]
+        ,":contents" => $param["contents"]
+        ,":id" => $param["id"]
+    ];
+
+    try {
+        $stmt = $conn->prepare($sql);
+        $result = $stmt->execute($execute);
+        
+        return $result;
+    } catch(Exception $e) {
+        echo $e->getMessage();
+        return false;
+    }
+}
+
+function update_delete($conn, $param) {
+    $sql =
+    " UPDATE "
+    ."     board "
+    ." SET "
+    ."     deleted_at = NOW() "
+    ." WHERE "
+    ."     deleted_at IS NULL "
+    ."   and "
+    ."     id = :id "
+    ;
+
+    $execute = [
+        ":id" => $param["id"]
+    ];
+
+    try {
+        $stmt = $conn->prepare($sql);
+        $result = $stmt->execute($execute);
+        
+        return $result;
+    } catch(Exception $e) {
+        echo $e->getMessage();
+        return false;
+    }
+}
+
+function insert($conn, $param) {
+    $sql =
+    " INSERT INTO board ( "
+    ."     title "
+    ."     ,contents "
+    ."     ,created_at "
+    ." ) VALUES ( "
+    ."     :title "
+    ."     ,:contents "
+    ."     ,NOW() "
+    ." ) "
+    ;
+
+    $execute = [
+        ":title" => $param["title"]
+        ,":contents" => $param["contents"]
+    ];
+
+    try {
+        $stmt = $conn->prepare($sql);
+        $result = $stmt->execute($execute);
         
         return $result;
     } catch(Exception $e) {
