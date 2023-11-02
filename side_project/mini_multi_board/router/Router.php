@@ -3,6 +3,7 @@ namespace router; // 다른 클래스랑 다르게 주는거
 
 // 사용할 컨트롤러들 지정
 use controller\UserController as UC;
+use controller\BoardController as BC;
 
 // 라우터 : 유저의 요청을 분석해서 해당 컨트롤러로 연결해주는 클래스
 class Router {
@@ -35,9 +36,13 @@ class Router {
             if($method === "GET") {
                 new UC("registGet");
             } 
-        } else { 
-            echo "이상한url : ".$url; 
+        } else if($url === "board/list") {
+            if($method === "GET") {
+                new BC("listGet");
+            } 
         }
+
+        echo "이상한url : ".$url; 
         exit();
     }
 }
