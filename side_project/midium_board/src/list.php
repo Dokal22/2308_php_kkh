@@ -3,6 +3,7 @@ define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/midium_board/src");
 define("FILE_HEADER", ROOT."/header.php");
 require_once(ROOT."/lib/lib.php");
 
+$imList = 1;
 $conn = null;
 $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 $one_page_cnt = 10;
@@ -38,7 +39,7 @@ try {
     <!-- <link rel="stylesheet" href="/midium_board/src/css/common.css"> -->
     <title>리스트</title>
 </head>
-<body>
+<body class="vh-100 position-relative">
     <?php require_once(FILE_HEADER); ?>
 
     <table class="table table-striped w-75 mx-auto mt-5">
@@ -50,7 +51,7 @@ try {
         </colgroup>
     <thead>
         <tr>
-        <th scope="col">id</th>
+        <th scope="col">글번호</th>
         <th scope="col">제목</th>
         <th scope="col">작성일</th>
         <th scope="col">수정일</th>
