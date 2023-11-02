@@ -18,19 +18,71 @@ try {
 } finally {
     PDO_out($conn);
 }
-var_dump($result);
+// var_dump($result);
 ?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/midium_board/src/css/common.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/midium_board/src/css/common.css"> -->
     <title>상세</title>
 </head>
 <body>
+    <?php require_once(FILE_HEADER); ?>
+
+    <div class="container-md Light h-75"> <!--여기하다 말음-->
+        <table class="table">
+            <colgroup>
+                <col width="12.5%"/>
+                <col width="27.5%"/>
+                <col width="12.5%"/>
+                <col width="27.5%"/>
+            </colgroup>
+        <thead>
+            <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th class="table-secondary text-center" scope="row">title</th>
+            <td><?php echo $result[0]["title"]; ?></td>
+            <th class="table-secondary text-center">id</th>
+            <td><?php echo $result[0]["id"]; ?></td>
+            </tr>
+            <tr>
+            <th class="table-secondary text-center" scope="row">created date</th>
+            <td><?php echo $result[0]["created_at"]; ?></td>
+            <th class="table-secondary text-center">modified date</th>
+            <td><?php echo $result[0]["modified_at"]; ?></td>
+            </tr>
+            <tr>
+            <th class="table-secondary text-center" scope="row">contents</th>
+            <td colspan="3"><?php echo $result[0]["contents"]; ?></td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    
+
+    <div class="container-md Light">
+        <?php echo $result[0]["id"]; ?>
+        <?php echo $result[0]["title"]; ?>
+        <?php echo $result[0]["contents"]; ?>
+        <?php echo $result[0]["created_at"]; ?>
+        <?php echo $result[0]["modified_at"]; ?>
+    </div>
+    
+
     <a href="/midium_board/src/update.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정</a>
     <a href="/midium_board/src/delete.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">삭제</a>
     <a href="/midium_board/src/list.php/?page=<?php echo $page; ?>">취소</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
