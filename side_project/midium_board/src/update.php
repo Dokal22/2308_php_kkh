@@ -77,7 +77,7 @@ try {
                         <tr>
                         <th class="table-secondary text-center" scope="row">제목</th>
                         <td>
-                            <input type="text" name="title" 
+                            <input type="text" name="title" require 
                             <?php if($method === "GET"){ ?>
                                     value="<?php echo $item["title"]; ?>"
                             <?php } ?>>
@@ -94,7 +94,7 @@ try {
                         <tr>
                         <th class="table-secondary text-center" scope="row">내용</th>
                         <td colspan="3">
-                        <textarea name="contents" cols="80" rows="4"><?php if($method === "GET"){echo $item["contents"];} ?></textarea>
+                        <textarea name="contents" cols="80" rows="4" require><?php if($method === "GET"){echo $item["contents"];} ?></textarea>
                         </td>
                         </tr>
                     </tbody>

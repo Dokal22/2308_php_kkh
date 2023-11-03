@@ -10,15 +10,17 @@
     <?php require_once("view/inc/header.php"); ?>
     
     <main class="d-flex justify-content-center align-items-center h-75"><!--display: flex => d-flex -->
-        <form action="/board/list" style="width: 300px"> <!--'폼'/'개요'에서 첫번째-->
-            <div id="errorMsg" class="form-text text-danger">에러에러에러</div><!--아이디 박스 밑에서 올라옴-->
+        <form action="/user/login" method="POST" style="width: 300px"> <!--'폼'/'개요'에서 첫번째-->
+            <div id="errorMsg" class="form-text text-danger"><!--아이디 박스 밑에서 올라옴-->
+              <?php echo count($this->arrErrorMsg) > 0 ? implode("<br>", $this->arrErrorMsg) : "" ?>
+            </div>
             <div class="mb-3">
               <label for="u_id" class="form-label">아이디</label>
-              <input type="text" class="form-control" id="u_id"> <!--type="email" => "text" | input태그 속성에서 aria-describedby="emailHelp" 삭제-->
+              <input type="text" name="u_id" class="form-control" id="u_id"> <!--type="email" => "text" | input태그 속성에서 aria-describedby="emailHelp" 삭제-->
             </div>
             <div class="mb-3">
               <label for="u_pw" class="form-label">비밀번호</label>
-              <input type="password" class="form-control" id="u_pw">
+              <input type="password" name="u_pw" class="form-control" id="u_pw">
             </div>
             <button type="submit" class="btn btn-dark">로그인</button><!--class="btn-primary" => "btn-dark"-->
           </form>

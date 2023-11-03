@@ -26,11 +26,11 @@ class Router {
                 new UC("loginGet"); // new 클래스 뒤에 빈괄호는 construct 실행?
                         // 만일 자식에게 construct가 있을 경우 자식 먼저-> 부모
             } else {
-                // new UserController("loginPost");
+                new UC("loginPost");
             }
         } else if($url === "user/logout") {
             if($method === "GET") {
-                // new UserController("logoutGet");
+                new UC("logoutGet");
             } 
         } else if($url === "user/regist") {
             if($method === "GET") {
