@@ -8,7 +8,7 @@
 
 // DocumentRoot "${SRVROOT}/htdocs/mini_multi_board"
 // <Directory "${SRVROOT}/htdocs/mini_multi_board">
-// => 이러면 ROOT기분이 바뀜
+// => 이러면 ROOT기분이 바뀜 on conf
 
 require_once("config.php"); // 설정파일 불러오기
 require_once("autoload.php"); // 오토로드 파일 불러오기
