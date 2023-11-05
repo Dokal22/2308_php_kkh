@@ -52,7 +52,7 @@ class UserController extends ParentsController {
         return base64_encode($pw);
     }
 
-    // 비밀번호
+    // 비밀번호 머시기 할 예정
     private function encrrd($pw) {
         return base64_encode($pw);
     }

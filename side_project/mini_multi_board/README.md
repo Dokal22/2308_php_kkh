@@ -5,12 +5,12 @@
 모뷰컨 = MVC
 
 
-Options -MultiViews 
-RewriteEngine On <= host 뒤에 있는 애들을 읽어서 사용
-Options -Indexes <= 폴더 구성을 보는 거 끄기
-RewriteCond %{REQUEST_FILENAME} !-d <= 아마도 파일이랑 폴더 지정할 것이라는 뜻?
+Options -MultiViews // <= 확장자 없어도 찾아가는거 끄기(있었나?).231105
+RewriteEngine On <= 이 기능을 쓸 것이다
+Options -Indexes <= 폴더 구성을 보는 거 끄기 // 그 폴더 입력하면 화면에 폴더 뜨는 것들 얘기.231105
+RewriteCond %{REQUEST_FILENAME} !-d <= 아마도 파일이랑 폴더 지정할 것이라는 뜻? // -f,-d 폴더랑 파일 없는 것들만 적용된다는거 같은데 그러면 실제 퍼블리싱할 때는 다르게 주나.231105
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.+)$ index.php?url=$1 [QSA,L] <= 호스트 뒤에꺼 읽어서 계산하고?   어디로 보내겠다???
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L] <= 호스트 뒤에꺼 읽어서 계산하고?   어디로 보내겠다??? // => [$url = $_GET["url"];] 이거 쓸라고 넣은거.231105
 
 localhost/user/login
 => url="user/login"
