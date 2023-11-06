@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/view/css/common.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>자유 게시판</title> <!--link와 script를 무조건 부트스트랩꺼를 가져와야 적용됨-->
+    <title><?php echo $this->titleBoardName ?></title> <!--link와 script를 무조건 부트스트랩꺼를 가져와야 적용됨-->
 </head>
 <body>
     <?php require_once("view/inc/header.php"); ?>
 
     <div class="text-center mt-5 mb-5">
-        <h1>자유게시판</h1>
+        <h1><?php echo $this->titleBoardName ?></h1>
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
           width="50" 
@@ -32,11 +32,12 @@
     </div> id="btnDetail"-->
 
     <main>
-        <div class="card">
-            <img src="https://picsum.photos/200/300.jpg" class="card-img-top" alt="...">
+        <?php foreach($this->arrBoardInfo as $item) { ?>
+          <div class="card">
+            <img src="<?php echo isset($item["b_img"]) ? "/"._PATH_USERIMG.$item["b_img"] : ""; ?>" class="card-img-top" alt="이미지 없음">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title"><?php echo $item["b_title"]; ?></h5>
+              <p class="card-text" ><?php echo mb_strlen($item["b_content"]) > 20 ? mb_substr($item["b_content"], 0, 10)."..." : $item["b_content"]; ?></p> <!--어차피 width 달라지는데 css가 맞지 않나-->
               <button 
                 class="btn btn-primary" 
                 data-bs-toggle="modal" 
@@ -45,128 +46,9 @@
               </button>
             </div>
           </div>
-        <div class="card">
-            <img src="https://picsum.photos/200/300.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button 
-              class="btn btn-primary" 
-              data-bs-toggle="modal" 
-              data-bs-target="#modalDetail"
-              >상세
-            </button>            </div>
-          </div>
-        <div class="card">
-            <img src="https://picsum.photos/200/300.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button 
-                class="btn btn-primary" 
-                data-bs-toggle="modal" 
-                data-bs-target="#modalDetail"
-                >상세
-              </button>
-            </div>
-          </div>
-        <div class="card">
-            <img src="https://picsum.photos/200/300.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button 
-                class="btn btn-primary" 
-                data-bs-toggle="modal" 
-                data-bs-target="#modalDetail"
-                >상세
-              </button>
-            </div>
-          </div>
-        <div class="card">
-            <img src="https://picsum.photos/200/300.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button 
-                class="btn btn-primary" 
-                data-bs-toggle="modal" 
-                data-bs-target="#modalDetail"
-                >상세
-              </button>
-            </div>
-          </div>
-        <div class="card">
-            <img src="https://picsum.photos/200/300.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button 
-                class="btn btn-primary" 
-                data-bs-toggle="modal" 
-                data-bs-target="#modalDetail"
-                >상세
-              </button>
-            </div>
-          </div>
-        <div class="card">
-            <img src="https://picsum.photos/200/300.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button 
-                class="btn btn-primary" 
-                data-bs-toggle="modal" 
-                data-bs-target="#modalDetail"
-                >상세
-              </button>
-            </div>
-          </div>
-        <div class="card">
-            <img src="https://picsum.photos/200/300.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button 
-                class="btn btn-primary" 
-                data-bs-toggle="modal" 
-                data-bs-target="#modalDetail"
-                >상세
-              </button>
-            </div>
-          </div>
-        <div class="card">
-            <img src="https://picsum.photos/200/300.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button 
-                class="btn btn-primary" 
-                data-bs-toggle="modal" 
-                data-bs-target="#modalDetail"
-                >상세
-              </button>
-            </div>
-          </div>
-        <div class="card">
-            <img src="https://picsum.photos/200/300.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button 
-                class="btn btn-primary" 
-                data-bs-toggle="modal" 
-                data-bs-target="#modalDetail"
-                >상세
-              </button>
-            </div>
-          </div>
+        <?php } ?>
+        
     </main>
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
-    </button>
 
     <!-- detail Modal -->
     <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -191,18 +73,19 @@
     <div class="modal fade" id="modalInsert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <form action="">
+          <form action="/board/add" method="post" enctype="multipart/form-data">
+            <input type="text" name="b_type" value="<?php echo $this->boardType ?>" hidden>
             <div class="modal-header">
-              <input type="text" class="form-control" placeholder="제목을 입력하세요">
+              <input type="text" name="b_title" class="form-control" placeholder="제목을 입력하세요">
             </div>
             <div class="modal-body">
-              <textarea class="form-control" cols="30" rows="10" placeholder="내용을 입력하세요"></textarea>
+              <textarea name="b_content" class="form-control" cols="30" rows="10" placeholder="내용을 입력하세요"></textarea>
               <br><br>
-              <input type="file" accept="image/*">
+              <input type="file" name="b_img" accept="image/*">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">작성</button> <!--submit 변경-->
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">작성</button> <!--submit 변경-->
             </div>
           </form>
         </div>

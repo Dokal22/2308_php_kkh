@@ -41,11 +41,11 @@ class ParentsModel {
 
     // commit
     public function commit() {
-        $this->conn-commit();
+        $this->conn->commit();
     }
 
     // rollBack
     public function rollBack() {
-        $this->conn-rollBack();
+        $this->conn->rollBack();
     }
 }
