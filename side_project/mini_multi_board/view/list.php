@@ -33,15 +33,20 @@
 
     <main>
         <?php foreach($this->arrBoardInfo as $item) { ?>
-          <div class="card">
+          <div class="card" id="card<?php echo $item["id"]; ?>">
             <img src="<?php echo isset($item["b_img"]) ? "/"._PATH_USERIMG.$item["b_img"] : ""; ?>" class="card-img-top" alt="이미지 없음">
             <div class="card-body">
               <h5 class="card-title"><?php echo $item["b_title"]; ?></h5>
               <p class="card-text" ><?php echo mb_strlen($item["b_content"]) > 20 ? mb_substr($item["b_content"], 0, 10)."..." : $item["b_content"]; ?></p> <!--어차피 width 달라지는데 css가 맞지 않나-->
-              <button 
+              <!-- <button 
                 class="btn btn-primary" 
                 data-bs-toggle="modal" 
                 data-bs-target="#modalDetail"
+                >상세
+              </button> -->
+              <button 
+                class="btn btn-primary" 
+                onclick="openDetail(<?php echo $item['id']; ?>); return false;" 
                 >상세
               </button>
             </div>
@@ -51,19 +56,21 @@
     </main>
 
     <!-- detail Modal -->
-    <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade"  id="modalDetail" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">제목 바꾸기</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="b_title">제목 바꾸기</h5>
+            <button type="button" onclick="closeDetailModal(<?php echo $item['id']; ?>); return false;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트p태그 넣기 테스트</p>            
+            <p id="b_date" style="font-size: 0.7rem; text-align: right;"></p>
+            <p id="b_content"></p>            
+            <br><br>
+            <img id="b_img" src="" class="card-img-top" alt="">
           </div>
           <div class="modal-footer">
-            <p>정렬있나</p>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            <button type="button" onclick="closeDetailModal(<?php echo $item['id']; ?>); return false;" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
           </div>
         </div>
       </div>

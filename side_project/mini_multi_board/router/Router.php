@@ -35,7 +35,9 @@ class Router {
         } else if($url === "user/regist") {
             if($method === "GET") {
                 new UC("registGet");
-            } 
+            } else {
+                new UC("registPost");
+            }
         } else if($url === "board/list") {
             if($method === "GET") {
                 new BC("listGet");
@@ -45,6 +47,10 @@ class Router {
                 // 처리 없음
             } else {
                 new BC("addPost");
+            }
+        } else if($url === "board/detail") {
+            if($method === "GET") {
+                new BC("detailGet");
             }
         }
 

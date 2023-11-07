@@ -12,6 +12,8 @@ class ParentsController {
     // 로그인 안하면 못가는 곳
     private $arrNeedAuth = [
         "board/list"
+        ,"board/add"
+        ,"board/detail"
     ];
 
     public function __construct($action) { // 클래스 호출시 넣은 파라미터는 construct로
