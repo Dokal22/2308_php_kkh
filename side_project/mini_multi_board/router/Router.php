@@ -38,6 +38,10 @@ class Router {
             } else {
                 new UC("registPost");
             }
+        } else if($url === "user/idchk") {
+            if($method === "GET") {
+                new UC("idChkGet");
+            }
         } else if($url === "board/list") {
             if($method === "GET") {
                 new BC("listGet");

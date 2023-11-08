@@ -49,10 +49,16 @@ INSERT INTO boardname(
 VALUES (
 	'3'
 	,'상담게시판'
-)
+);
 -- ,(
 -- 	'1'
 -- 	,'질문게시판'
 -- );
 -- 
-COMMIT;
+
+-- 검색
+ SELECT 
+     count(u_id) AS cnt
+ FROM user 
+ WHERE 
+     u_id = 'user1';

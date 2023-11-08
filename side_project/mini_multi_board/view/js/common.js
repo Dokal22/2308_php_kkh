@@ -63,3 +63,49 @@ function updateBoard(id) { // id는 우리 서버내부로 쓰이는 무의미�
     // MODAL.classList.remove('show');
     // MODAL.style = 'display: none;';
 }
+
+//아이디 중복 체크
+function idChk() {
+    const U_ID = document.querySelector('#u_id').value;
+    const ERRMSG = document.querySelector('#idChkMsg');
+    ERRMSG.innerHTML = ""; // 리셋
+
+    const URL = '/user/idchk?u_id=' + U_ID;
+    // const HEADER_GET = { // fetch를 post로 갔다오게 하는 법(정해져있음)
+    //     method: 'GET'
+    //     , body: {
+    //         "u_id": U_ID.value
+    //     }
+    // }
+    // fetch POST 인터넷 방식
+    // const HEADER_POST = { // fetch를 post로 갔다오게 하는 법(정해져있음)
+    //     method: 'POST',
+    //     body: JSON.stringify({
+    //         email: id,
+    //         password: pw,
+    //     })
+    // }
+
+    // fetch POST 쌤 방식
+    // const formData = new FormData();
+    // formData.append("u_id", U_ID.value);
+
+    // const HEADER_POST = { 
+    //     method: 'POST'
+    //     , body: formData
+    // };
+
+
+    fetch(URL)
+        .then(res => res.json())
+        .then(arr => {
+            if (arr.errflg === '0') {
+                ERRMSG.innerHTML = '사용 가능한 아이디입니다.';
+                ERRMSG.classList = 'text-success';
+            } else {
+                ERRMSG.innerHTML = '사용할 수 없는 아이디입니다.';
+                ERRMSG.classList = 'text-danger';
+            }
+        })
+        .catch(err => console.log(err))
+}

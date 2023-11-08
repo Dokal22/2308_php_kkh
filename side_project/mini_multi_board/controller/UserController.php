@@ -2,7 +2,9 @@
 
 namespace controller;
 
+use lib\Validation;
 use model\UserModel as UM;
+use lib\Validation as VD;
 
 class UserController extends ParentsController
 {
@@ -15,11 +17,24 @@ class UserController extends ParentsController
     // 로그인 처리 : 원래세션(관리자쿠키같은거)에서 처리한나봄
     protected function loginPost()
     { // 상속가능
+        $inputData = [
+            "u_id" => $_POST["u_id"]
+            ,
+            "u_pw" => $_POST["u_pw"]
+        ];
+
+        // 유효성 체크
+        if (!VD::userChk($inputData)) {
+            $this->arrErrorMsg = VD::getArrErrorMsg();
+            return "view/login" . _EXTENSION_PHP;
+        }
+
         // ID, PW 설정(DB에서 사용할 데이터 가공)
         $arrInput = [];
         $arrInput["u_id"] = $_POST["u_id"];
         $arrInput["u_pw"] = $this->encryptionPassword($_POST["u_pw"]);
 
+        //유저 정보 획득
         $userModel = new UM();
         $resultUserInfo = $userModel->getUserInfo($arrInput, true);
 
@@ -54,37 +69,28 @@ class UserController extends ParentsController
 
     protected function registPost()
     { // 상속가능
-        $u_id = $_POST["u_id"];
-        $u_pw = $_POST["u_pw"];
-        $u_name = $_POST["u_name"];
-        $arrAddUserInfo = [
-            "u_id" => $u_id
+        $inputData = [
+            "u_id" => $_POST["u_id"]
             ,
-            "u_pw" => $this->encryptionPassword($u_pw)
+            "u_pw" => $_POST["u_pw"]
             ,
-            "u_name" => $u_name
+            "u_name" => $_POST["u_name"]
         ];
 
-        $patternId = "/^[a-zA-Z0-9]{8,20}$/";
-        $patternPw = "/^[a-zA-Z0-9!@]{8,20}$/";
-        $patternName = "/^[a-zA-Z가-힣]{2,20}$/u";
-
-        if (preg_match($patternId, $u_id, $match) === 0) {
-            $this->arrErrorMsg[] = "아이디는 숫자, 영어 대소문자를 포함하여 8~20자로 입력해주세요";
-        }
-        if (preg_match($patternPw, $u_pw, $match) === 0) {
-            $this->arrErrorMsg[] = "비밀번호는 숫자, 영어 대소문자, !, @를 포함하여 8~20자로 입력해주세요";
-        }
-        if (preg_match($patternName, $u_name, $match) === 0) {
-            $this->arrErrorMsg[] = "이름은 한글, 영어 대소문자를 포함하여 2~50자로 입력해주세요";
-        }
+        $arrAddUserInfo = [
+            "u_id" => $_POST["u_id"]
+            ,
+            "u_pw" => $this->encryptionPassword($_POST["u_pw"])
+            ,
+            "u_name" => $_POST["u_name"]
+        ];
 
         // TODO: 아이디 중복 체크 필요
 
         // 유효성 체크
-        if (count($this->arrErrorMsg) > 0) {
+        if (!VD::userChk($inputData)) {
+            $this->arrErrorMsg = VD::getArrErrorMsg();
             return "view/regist" . _EXTENSION_PHP;
-            exit();
         }
 
         //인서트 처리
@@ -92,7 +98,7 @@ class UserController extends ParentsController
         $userModel->beginTransaction();
         $result = $userModel->addUserInfo($arrAddUserInfo);
 
-        if($result !== true){
+        if ($result !== true) {
             $userModel->rollBack();
         } else {
             $userModel->commit();
@@ -100,6 +106,45 @@ class UserController extends ParentsController
         $userModel->destroy();
 
         return "Location: /user/login";
+    }
+
+    protected function idChkGet()
+    {
+        $errFlg = "0";
+        $errMsg = "";
+        $u_id = $_GET["u_id"];
+
+        $inputData["u_id"] = $u_id;
+
+        // 유효성 체크
+        if (!VD::userChk($inputData)) {
+            $errFlg = "1";
+            $errMsg = VD::getArrErrorMsg()[0];
+        }
+
+        // 모델 인스턴스
+        $userModel = new UM();
+        
+        // idChk 결과 획득
+        $result = $userModel->getUserInfo($inputData);
+        
+        // 사용 모델 파기
+        $userModel->destroy();
+
+        if(count($result) > 0) {
+            $errFlg = "1";
+            $errMsg = "중복된 아이디입니다.";
+        }
+
+        $response = [
+            "errflg" => $errFlg
+            ,"msg" => $errMsg
+        ];
+
+        // response 처리
+        header('Content-type: application/json');
+        echo json_encode($response); // 값을 출력해서 그냥 주는 듯
+        exit();
     }
 
     // 비밀번호 암호화
