@@ -36,7 +36,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="/midium_board/src/css/common.css"> -->
+    <link rel="stylesheet" href="/midium_board/src/css/common.css">
     <title>리스트</title>
 </head>
 <body class="vh-100 position-relative">
@@ -63,7 +63,7 @@ try {
               <th scope="row">
                 <?php echo $item["id"] ?>
               </th>
-              <td><a href="/midium_board/src/detail.php/?id=<?php echo $item["id"] ?>&page=<?php echo $page ?>">
+              <td><a class="text-decoration-none text-reset" href="/midium_board/src/detail.php/?id=<?php echo $item["id"] ?>&page=<?php echo $page ?>">
               <?php echo $item["title"]; ?>
               </a></td>
               <td><?php echo $item["created_at"]; ?></td>
