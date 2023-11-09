@@ -60,8 +60,8 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="b_title">제목 바꾸기</h5>
-            <button type="button" onclick="closeDetailModal(<?php echo $item['id']; ?>); return false;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="b_title"></h5>
+            <button type="button" onclick="closeDetailModal(); return false;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <p id="b_date" style="font-size: 0.7rem; text-align: right;"></p>
@@ -70,7 +70,12 @@
             <img id="b_img" src="" class="card-img-top" alt="">
           </div>
           <div class="modal-footer">
-            <button type="button" onclick="closeDetailModal(<?php echo $item['id']; ?>); return false;" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            <!-- <span id="del_id" class="d-none"></span> 또는-->
+            <input type="hidden" id="del_id" value="">
+            <button type="button" id="btn_del" onclick="deleteCard(); return false;" class="btn btn-danger me-auto" data-bs-dismiss="modal">삭제</button>
+            <!-- <a href="" id="btn-delete" class="btn btn-danger" data-bs-dismiss="modal">삭제</a> -->
+            <a href="" id="btn-update" class="btn btn-primary" data-bs-dismiss="modal">수정</a>
+            <button type="button" onclick="closeDetailModal(); return false;" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
           </div>
         </div>
       </div>

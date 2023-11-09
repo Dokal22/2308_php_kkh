@@ -56,6 +56,10 @@ class Router {
             if($method === "GET") {
                 new BC("detailGet");
             }
+        } else if($url === "board/remove") {
+            if($method === "GET") {
+                new BC("removeGet");
+            }
         }
 
         echo "이상한url : ".$url; 

@@ -13,11 +13,10 @@
 //     MODAL.classList.add('displayNone'); // 클래스 넣기 빼기?
 // });
 
-let test;
 
 // 상세 모달 제어
-function openDetail(id) { // id는 우리 서버내부로 쓰이는 무의미한거라 겟으로 ㄱ~
-    const URL = '/board/detail?id=' + id; // localhost생략
+function openDetail(open_id) { // id는 우리 서버내부로 쓰이는 무의미한거라 겟으로 ㄱ~
+    const URL = '/board/detail?id=' + open_id; // localhost생략
 
     fetch(URL)
         .then(res => res.json())
@@ -27,11 +26,24 @@ function openDetail(id) { // id는 우리 서버내부로 쓰이는 무의미한
             const CONTENT = document.querySelector('#b_content');
             const IMG = document.querySelector('#b_img');
             const DATE = document.querySelector('#b_date');
+            // const DELETE =document.querySelector('#btn-delete');
+            const DEL_INPUT = document.querySelector('#del_id');
+            const BTN_DEL = document.querySelector('#btn_del');
+
 
             TITLE.innerHTML = arr.data.b_title;
             CONTENT.innerHTML = arr.data.b_content;
             IMG.setAttribute('src', arr.data.b_img);
             DATE.innerHTML = '작성일: ' + arr.data.created_at + ' / 수정일: ' + arr.data.updated_at;
+            // DELETE.setAttribute('href', '/board/delete?b_id=' + arr.data.id + '&b_type=' + arr.data.b_type);
+            DEL_INPUT.value = arr.data.id;
+
+            // 삭제 버튼 표시
+            if (arr.data.uflg === "1") {
+                BTN_DEL.classList.remove('d-none');
+            } else {
+                BTN_DEL.classList.add('d-none');
+            }
 
             // 모달 오픈
             openModal();
@@ -46,19 +58,35 @@ function openModal() {
 }
 
 // 모달 닫기 함수
-function closeDetailModal(id) { // id는 우리 서버내부로 쓰이는 무의미한거라 겟으로 ㄱ~
+function closeDetailModal() { // id는 우리 서버내부로 쓰이는 무의미한거라 겟으로 ㄱ~
     const MODAL = document.querySelector('#modalDetail');
     MODAL.classList.remove('show');
     MODAL.style = 'display: none;';
 }
 
-function removeBoard(id) { // id는 우리 서버내부로 쓰이는 무의미한거라 겟으로 ㄱ~
-    // const MODAL = document.querySelector('#modalDetail');
-    // MODAL.classList.remove('show');
-    // MODAL.style = 'display: none;';
-}
+function deleteCard() {
+    const B_PK = document.querySelector('#del_id').value;
+    const URL = '/board/remove?id=' + B_PK;
 
-function updateBoard(id) { // id는 우리 서버내부로 쓰이는 무의미한거라 겟으로 ㄱ~
+    fetch(URL)
+        .then(res => res.json())
+        .then(arr => {
+            if (arr.errflg === "0") {
+                // 모달 닫기
+                closeDetailModal();
+
+                // 카드 삭제
+                const MAIN = document.querySelector('main');
+                const DEL_CARD = document.querySelector('#card' + arr.id)
+                MAIN.removeChild(DEL_CARD);
+            } else {
+                alert(arr.msg);
+            }
+        })
+        .catch(err => console.log(err))
+}// spa 싱글페이지: js로 바로바로 동적페이지 해주는거, 싱글페이지 어플리케이션
+
+function updateBoard() { // id는 우리 서버내부로 쓰이는 무의미한거라 겟으로 ㄱ~
     // const MODAL = document.querySelector('#modalDetail');
     // MODAL.classList.remove('show');
     // MODAL.style = 'display: none;';

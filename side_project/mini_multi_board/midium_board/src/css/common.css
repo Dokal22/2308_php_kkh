@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: rgb(169, 169, 169);
+}
+
+.header_div {
+    background-color: #501498;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_div > div > span:nth-child(2) {
+    color: white;
+}
