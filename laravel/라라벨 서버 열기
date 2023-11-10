@@ -1,0 +1,13 @@
+PS D:\workspace\2308_php_kkh\laravel\laravel_edu> php artisan serve  
+
+   INFO  Server running on [http://127.0.0.1:8000].  
+
+  Press Ctrl+C to stop the server
+
+  2023-11-10 15:42:23 ................................................................................ ~ 1s
+  2023-11-10 15:42:23 /favicon.ico ................................................................... ~ 1s
+
+
+
+// 참고
+php artisan route:list

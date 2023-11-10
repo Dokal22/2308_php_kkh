@@ -107,3 +107,25 @@ Route::get('/name/home/php504/root', function () {
 Route::get('/name/home/php504/user', function () {
     return '어느 유명의 라우트...';
 })->name('name.user'); // 체이닝 기법 [참고: in JS|promise .then() .catch() <= 체이닝임]
+
+// ------------------
+// 컨트롤러
+// ------------------
+// 커맨드로 컨트롤러 생성 : php artisan make:controller 컨트롤러명
+use App\Http\Controllers\TestController;
+Route::get('/test', [TestController::class, 'index'])->name('test.index'); // 우리는 컨트롤러의 메소드를 부르고, 컨트롤러가 페이지 부르고
+
+// 자동생성 명령어?
+// php artisan make:controller 컴트롤명 --resource
+use App\Http\Controllers\TaskController;
+Route::resource('/task', TaskController::class); // 이거 하고 php artisan route:list이거 찍으면 ↓
+//   GET|HEAD        task ..................................................... task.index › TaskController@index  
+//   POST            task ..................................................... task.store › TaskController@store  
+//   GET|HEAD        task/create ............................................ task.create › TaskController@create  
+//   GET|HEAD        task/{task} ................................................ task.show › TaskController@show  
+//   PUT|PATCH       task/{task} ............................................ task.update › TaskController@update  
+//   DELETE          task/{task} .......................................... task.destroy › TaskController@destroy  
+//   GET|HEAD        task/{task}/edit ........................................... task.edit › TaskController@edit  
+//   GET|HEAD        test ..................................................... test.index › TestController@index
+                                                                                                        // ↑옛날에 Route::get('/test', TestController@index) 일케 썼다고 함
+//                                                                                                                                                                                                                
