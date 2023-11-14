@@ -7,7 +7,6 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    // 단체 실행은 여기 모아서
     /**
      * Seed the application's database.
      *
@@ -16,12 +15,5 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-
-        // 더미 데이터 삽입용 팩토리 호출
-        $cnt=0;
-        while ($cnt<60) { // 한번에 많이 처리하면 메모리가 못견딤
-            \App\Models\Board::factory(10)->create();
-            $cnt++;
-        }
     }
 }
