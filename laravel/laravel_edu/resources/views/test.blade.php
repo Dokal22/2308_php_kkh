@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h1>test.index</h1>
-	<h3>name: {{$name}}</h3>
+	{{-- <h3>name: {{$name}}</h3> --}}
+	{{$correct}}
 </body>
 </html>
