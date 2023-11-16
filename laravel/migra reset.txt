@@ -1,0 +1,14 @@
+api를 쓸 데도 있고 아닐 때도 있고 아닌 곳도 있다.
+
+---
+
+migration reset하면 drop table처럼 떨어져나가고 롤백불가
+->with('변수명','변수값');
+
+echo $변수명
+
+echo $this->변수서언한거;
+
+// {'email':['not invalid'],'email':['not invalid'],'email':['not invalid']}
+이걸 왜 all하면 배열?
+
