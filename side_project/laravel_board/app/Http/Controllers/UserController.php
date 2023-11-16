@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function loginget()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             return redirect()->route("board.index");
         }
         return view("login");
@@ -24,6 +24,7 @@ class UserController extends Controller
         // $result=User::find(1); // 이게 ORM이드아
         // var_dump($result);
 
+        /* 231116 수업중 MyUserValidation로 이동
         // 유효성 검사
         $validator = Validator::make(
             $request->only('email', 'password')
@@ -38,6 +39,7 @@ class UserController extends Controller
         if ($validator->fails()) { //실패시 true
             return view('login')->withErrors($validator->errors());
         }
+        */
 
         // 유저 정보 습득
         $result = User::where('email', $request->email)->first();
@@ -73,6 +75,7 @@ class UserController extends Controller
 
     public function registrationpost(Request $request)
     {
+        /* 231116 수업중 MyUserValidation로 이동
         // 유효성 검사
         $validator = Validator::make(
             $request->only('email', 'password', 'passwordchk', 'name')
@@ -105,6 +108,7 @@ class UserController extends Controller
         if ($validator->fails()) { //실패시 true
             return view('registration')->withErrors($validator->errors());
         }
+        */
 
         // 저장할 데이터 가져오기
         $data = $request->only(['email', 'password', 'name', 'passwordchk']);

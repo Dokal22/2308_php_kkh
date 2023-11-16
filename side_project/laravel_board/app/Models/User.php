@@ -19,6 +19,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         // 화이트 리스트였나? : 변경가능?
+    // protected $guarded??? = [
+        // 블랙 리스트(철자몰루) : 변경불가
         'name',
         'email',
         'password',
