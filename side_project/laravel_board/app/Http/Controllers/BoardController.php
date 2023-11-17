@@ -51,7 +51,7 @@ class BoardController extends Controller
         // var_dump($request->all());
         // 작성 처리
         $arrInputData = $request->only('b_title', 'b_content');
-        $result = Board::create($arrInputData);
+        Board::create($arrInputData);
         // Board : 엘로퀀트라서 작성일, 수정일 자동 넣음
         // only : 배열로 입력
 
@@ -107,7 +107,8 @@ class BoardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $result = Board::find($id);
+        return view("edit")->with("data", $result);
     }
 
     /**
@@ -119,7 +120,15 @@ class BoardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // var_dump($request);
+        // var_dump($id);
+        // Board::find($id)->update($request->only("b_title","b_content"));
+        $result = Board::find($id);
+        $result->b_title = $request->b_title;
+        $result->b_content = $request->b_content;
+        $result->save(); // update랑 호환 안됨, 아마 '='이걸로 처리하면 save하는듯
+
+        return redirect()->route("board.show", $id);
     }
 
     /**

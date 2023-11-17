@@ -33,9 +33,8 @@
 <form action="{{route('board.destroy',['board'=>$result->b_id])}}" method="POST">
 	@csrf
 	@method('DELETE')
-	<button type="submit" class="btn btn-danger float-end">삭제</button>
+	<button type="submit" class="btn btn-danger">삭제</button>
+	<a class="btn btn-primary" href="{{route('board.edit',['board'=>$result->b_id])}}">수정</a><!--class="btn-primary" => "btn-dark"-->
+	<a class="btn btn-secondary float-end" href="{{route('board.index')}}">취소</a><!--class="btn-primary" => "btn-dark"-->
 </form>
-<button type="button" class="btn btn-dark float-end">수정</button><!--class="btn-primary" => "btn-dark"-->
-<a class="btn btn-secondary" href="{{route('board.index')}}">취소</a><!--class="btn-primary" => "btn-dark"-->
 @endsection
-	
