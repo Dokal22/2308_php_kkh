@@ -57,3 +57,11 @@ img {
 .modalAni-leave-to {
 	opacity: 0;
 }
+
+.discount{
+	background-color: #ffe64133;
+	padding: 20px;
+	margin: 20px auto;
+	border-radius: 10px;
+	font-size: 1.5rem;
+}
