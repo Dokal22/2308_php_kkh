@@ -30,15 +30,12 @@ export default {
 	watch: { // data를 감시하는 함수를 정의하는 영역
 		// 함수명은 감시하고 싶은 데이터 바인딩명과 동일해야함
 		productCnt(input) {
-			if (0>input.indexOf('0','1','2','3','4','5','6','7','8','9','10')) {
-				alert('문자 뭐여');
-				this.productCnt = 0;
+			if (input > 10) {
+				alert('않되!');
+				this.productCnt = 10;
 			} else if (input < 0) {
 				alert('얹뒈!');
 				this.productCnt = 0;
-			} else if (input > 10) {
-				alert('않되!');
-				this.productCnt = 10;
 			}
 		},
 	},

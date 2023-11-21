@@ -18,7 +18,7 @@ export default {
 	mounted() { // 라이프 사이클 훅->mounted단계에서 실행
 		this.saleTime = setInterval(() => {
 			this.discountNum--;
-		}, 1000);
+		}, 100);
 	},
 
 	updated() {
