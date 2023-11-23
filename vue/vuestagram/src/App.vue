@@ -22,7 +22,7 @@
   <ContainerComponent />
   
   <!-- 더보기버튼 -->
-  <button v-if="$store.state.PushFlg === 0" @click="moreView()">더보기</button>
+  <button v-if="$store.state.PushFlg === true && $store.state.flgTapUI === 0" @click="moreView()">더보기</button>
 
   <!-- 푸타 -->
   <div class="footer">

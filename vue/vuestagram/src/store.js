@@ -9,14 +9,16 @@ const store = createStore({
 			imgURL: '', // 작성탭 표시용 이미지 URL 저장용
 			postFileData: null, // 글작성용 파일데이터 저장용
 			lastBoardId: 0, // 가장 마지막 로드 된 게시글 번호 저장용
-			PushFlg: 0, // 더보기 플래그
+			PushFlg: true, // 더보기 플래그
 		}
 	},
 	mutations: { // 데이터 수정용 함수 저장 영역
 		// state는 자동 세팅되어 옴(문법)
 		setBoardList(state, data) {
 			state.boardData = data;
-			state.lastBoardId = data[data.length - 1].id;
+			state.lastBoardId = data[data.length - 1].id; 
+			// 원래 여기도 commit 호출해서
+			// 작업 하나 당 한 mutation으로 분리해놓고 쓰는걸 추천
 		},
 		// flgTapUI 세팅용
 		setFlgTabUI(state, num) {
@@ -36,11 +38,13 @@ const store = createStore({
 		},
 		// 더보기
 		setPushBoard(state, data) {
-			if(typeof data.id !== 'undefined'){
+			if(typeof data.id !== 'undefined'){ 
+				// ^ 그냥 data일 때는 왜 안걸리지
 				state.boardData.push(data);
 				state.lastBoardId = state.boardData[state.boardData.length - 1].id;	
 			} else {
-				state.PushFlg = 1;
+				alert('끗');
+				state.PushFlg = false;
 			}
 		},
 		// 작성후 초기화 처리
@@ -104,10 +108,15 @@ const store = createStore({
 			};
 			axios.get(url, header) // 400번대로 오면 자동catch?
 				.then(res => {
+					// 쌤은 마지막 게시물 분기를 여기다 함
+					// if(res.data) => 게시
+					// else => 버튼flg false
 					context.commit('setPushBoard', res.data);
+					// 원래 여기서 작업이 2개면 commit이 두개 (추천)
 				})
 				.catch(err => {
-					console.log(err);
+					// console.log(err);
+					console.log(err.response.data);
 				})
 		},
 	},
