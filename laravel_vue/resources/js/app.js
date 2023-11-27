@@ -1,12 +1,18 @@
 require('./bootstrap');
 
 import {createApp} from 'vue';
-import Epp from '../components/Epp.vue';
+import router from '../js/router.js'
+import store from '../js/store.js'
+import EppComponent from '../components/EppComponent.vue';
+// import ConnectComponent from '../components/ConnectComponent.vue';
 
-// createApp({ PLAN B
-// 	components: {
-// 		App,
-// 	}
-// })
-createApp(Epp)
-	.mount('#epp'); // id="app" 연결
+createApp({ // PLAN B
+	components: {
+		EppComponent,
+		// ConnectComponent,
+	}
+})
+// createApp(EppComponent)
+	.use(router)
+	.use(store)
+ 	.mount('#epp'); // id="app" 연결

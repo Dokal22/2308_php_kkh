@@ -24,7 +24,7 @@ return new class extends Migration {
 
         Schema::create('boards', function (Blueprint $table) {
             // 글버노, 제목, 내용, 작성일, 수정일, 삭제일
-            $table->id(); //  big_int, ph, auto_incre~, 이름: id
+            $table->id(); //  big_int, pk, auto_incre~, 이름: id
             $table->string('title', 50); // varchar(50), not null
             $table->string('content', 1000); // varchar(1000), not null
             $table->timestamps(); // created_at, updated_at 로 자동 생성, null 허용

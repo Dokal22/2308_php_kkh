@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="epp">
-        {{-- <App></App> PLAN B --}}
+        <Epp-Component :laravel-Data="{{$data}}"/>
     </div>
 </body>
 </html>
