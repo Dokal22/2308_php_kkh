@@ -78,14 +78,14 @@ header {
     height: 340px;
     width: 100%;
     background-color: black;
-    background-image: url('../img/gaecheubi2.jpg');
+    background-image: url('./gaecheubi2.jpg');
     background-position: center;
     background-size: cover;
     display: flex;
 }
 
 .error{
-    background-image: url('../img/임시배너.jpg');
+    background-image: url('./임시배너.jpg');
 }
 
 .never_img>b{
@@ -391,7 +391,7 @@ aside{
     width: 58px;
     height: 58px;
     background-color: black;
-    background-image: url('../img/s.png');
+    background-image: url('./s.png');
     background-size: cover;
     background-position: center;
 }
@@ -403,7 +403,7 @@ aside{
     width: 36px;
     height: 36px;
     /* background-color: black; */
-    background-image: url('../img/NoNameProfile.png');
+    background-image: url('./NoNameProfile.png');
     background-size: cover;
     background-position: center;
 }
@@ -532,7 +532,7 @@ aside>div:nth-child(3)>a{
 aside>div:nth-child(4){
     height: 64px;
     background-color: #f8f8f8;
-    background-image: url("../img/banner_chatbot.png");
+    background-image: url("./banner_chatbot.png");
     background-position: center;
     background-size: cover;
 }
@@ -563,7 +563,7 @@ h3{
 
 .contents_delete{
     background-color: rgb(153, 0, 0);
-    background-image: url("../img/delete3.png");
+    background-image: url("./delete3.png");
     background-size: cover;
     background-position: center;
     font-family: "궁서";
@@ -596,7 +596,7 @@ h3{
     width: 200px;
     height: 200px;
     border: none;
-    background: url("../img/button2.png");
+    background: url("./button2.png");
     background-position: center;
     background-size: cover;
     color: white;
@@ -605,7 +605,7 @@ h3{
 }
 
 .contents_delete input.img-button{
-    background: url("../img/button1.png");
+    background: url("./button1.png");
     background-position: center;
     background-size: cover;
     cursor: pointer;

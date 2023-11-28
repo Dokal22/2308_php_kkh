@@ -19825,14 +19825,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _img_gaecheubi2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/gaecheubi2.jpg */ "./resources/img/gaecheubi2.jpg");
-/* harmony import */ var _img_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../img/임시배너.jpg */ "./resources/img/임시배너.jpg");
-/* harmony import */ var _img_s_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../img/s.png */ "./resources/img/s.png");
-/* harmony import */ var _img_NoNameProfile_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../img/NoNameProfile.png */ "./resources/img/NoNameProfile.png");
-/* harmony import */ var _img_banner_chatbot_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../img/banner_chatbot.png */ "./resources/img/banner_chatbot.png");
-/* harmony import */ var _img_delete3_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../img/delete3.png */ "./resources/img/delete3.png");
-/* harmony import */ var _img_button2_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../img/button2.png */ "./resources/img/button2.png");
-/* harmony import */ var _img_button1_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../img/button1.png */ "./resources/img/button1.png");
+/* harmony import */ var _gaecheubi2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./gaecheubi2.jpg */ "./resources/css/gaecheubi2.jpg");
+/* harmony import */ var _jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./임시배너.jpg */ "./resources/css/임시배너.jpg");
+/* harmony import */ var _s_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./s.png */ "./resources/css/s.png");
+/* harmony import */ var _NoNameProfile_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NoNameProfile.png */ "./resources/css/NoNameProfile.png");
+/* harmony import */ var _banner_chatbot_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./banner_chatbot.png */ "./resources/css/banner_chatbot.png");
+/* harmony import */ var _delete3_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./delete3.png */ "./resources/css/delete3.png");
+/* harmony import */ var _button2_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./button2.png */ "./resources/css/button2.png");
+/* harmony import */ var _button1_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./button1.png */ "./resources/css/button1.png");
 // Imports
 
 
@@ -19845,14 +19845,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_gaecheubi2_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]);
-var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_jpg__WEBPACK_IMPORTED_MODULE_3__["default"]);
-var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_s_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
-var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_NoNameProfile_png__WEBPACK_IMPORTED_MODULE_5__["default"]);
-var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_banner_chatbot_png__WEBPACK_IMPORTED_MODULE_6__["default"]);
-var ___CSS_LOADER_URL_REPLACEMENT_5___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_delete3_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
-var ___CSS_LOADER_URL_REPLACEMENT_6___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_button2_png__WEBPACK_IMPORTED_MODULE_8__["default"]);
-var ___CSS_LOADER_URL_REPLACEMENT_7___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_button1_png__WEBPACK_IMPORTED_MODULE_9__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_gaecheubi2_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_jpg__WEBPACK_IMPORTED_MODULE_3__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_s_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_NoNameProfile_png__WEBPACK_IMPORTED_MODULE_5__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_banner_chatbot_png__WEBPACK_IMPORTED_MODULE_6__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_delete3_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_6___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_button2_png__WEBPACK_IMPORTED_MODULE_8__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_7___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_button1_png__WEBPACK_IMPORTED_MODULE_9__["default"]);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n    box-sizing: border-box;\r\n\tmargin: 0;\r\n    padding: 0;\r\n}\r\n\r\ntextarea{\r\n    resize: none;\r\n}\r\n\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    /* background-image: url(../../doc/줌\\ 이쪼기야.png); */\r\n    /* background-size: cover; */\r\n    /* background-repeat: no-repeat; */\r\n    /* background-position: 0 145px; */\r\n    /* height: 2261px; */\r\n}\r\n\r\n.baggat {\r\n    width: 1080px;\r\n    margin: auto;\r\n    position: relative;\r\n}\r\n\r\n.never_img{\r\n    position: absolute;\r\n    left: 10px;\r\n    top: 5px;\r\n}\r\n\r\n.never_img:hover{\r\n    animation-name: move;\r\n    animation-duration: 0.7s;\r\n    animation-fill-mode: forwards;\r\n}\r\n\r\n@keyframes move {\r\n    /* keyframe */\r\n    from {\r\n      transform: scale(1);\r\n    }\r\n    /* keyframe */\r\n    to {\r\n        transform: scale(1.4);\r\n    }\r\n}\r\n\r\n.never_img>a{\r\n    color: #03c75a;\r\n}\r\n\r\n.header_flex{\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    justify-content: end;\r\n    align-items: center;\r\n    height: 35px;\r\n}\r\n\r\n.header_img{\r\n    position: absolute;\r\n}\r\n\r\n.header_a{\r\n    margin: 0px 10px;\r\n    font-size: 12px;\r\n}\r\n\r\n.sero{\r\n    width: 2px;\r\n    height: 18px;\r\n    background-color: rgb(221, 221, 221);\r\n}\r\n\r\nheader {\r\n    height: 340px;\r\n    width: 100%;\r\n    background-color: black;\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n    background-position: center;\r\n    background-size: cover;\r\n    display: flex;\r\n}\r\n\r\n.error{\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n}\r\n\r\n.never_img>b{\r\n    font-size: 22px;\r\n    color: #03c75a;\r\n}\r\n\r\nheader > h1 {\r\n    color: white;\r\n    /* text-align: center; */\r\n    font-size: 4rem;\r\n    padding: 2rem;\r\n    margin-left: 50px;\r\n}\r\n\r\nform.search{\r\n    width: 290px;\r\n    height: 35px;\r\n    float: right;\r\n    margin-top: 10px;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.insert_form{\r\n    position: relative;\r\n}\r\n\r\n.insert_form>div:first-child{\r\n    display: flex;\r\n    justify-content: end;\r\n}\r\n\r\n.insert_form>div>*{\r\n    margin: 10px 5px;\r\n}\r\n\r\n.insert_form>div:first-child>*{\r\n    background-color: #EFF0FE;\r\n    padding: 5px 12px;\r\n    border-radius: 15%;\r\n    margin: 10px 5px;\r\n    border: 0px solid black;\r\n}\r\n\r\n.insert_form>h2{\r\n    position: absolute;\r\n    top: -10px;\r\n    left: 0px;\r\n    line-height: 30px;\r\n    font-size: 25px;    \r\n}\r\n\r\n.jaksung_up{\r\n    display: grid;\r\n    grid-template-columns: 4fr 1fr;\r\n    border-top: 2px solid black;\r\n}\r\n\r\n.jaksung{\r\n    margin-top: 10px;\r\n    display: grid;\r\n    grid-template-columns: 3fr 1fr;\r\n    grid-template-rows: repeat(auto-fit,50px);\r\n    gap: 0px 12px;\r\n}\r\n\r\n.jaksung>*{\r\n    margin: 10px 0px;\r\n    border: none;\r\n    border: 1px solid #e7e7e7;\r\n    padding: 5px;\r\n}\r\n\r\n.jaksung>div:first-child{\r\n    /* border: 1px solid rgb(196, 196, 196); */\r\n}\r\n\r\n.jaksung select{\r\n    height: 80%;\r\n}\r\n\r\n.jaksung select:disabled{\r\n    background-color: rgb(240, 240, 240);\r\n    color: rgb(148, 148, 148);\r\n}\r\n\r\n.jaksung_inside{\r\n    /* display: flex; */\r\n    /* flex-direction: column; */\r\n}\r\n\r\n.jaksung_inside>*{\r\n    font-size: 12.5px;\r\n}\r\n\r\n.jaksung_inside>div{\r\n    margin-bottom: 15px;\r\n    background-color: #f9f9fa;\r\n    padding: 20px;\r\n}\r\n\r\n.jaksung_inside>div:first-child>p:first-child{\r\n    position: relative;\r\n    margin-top: 0;\r\n}\r\n\r\n.jaksung_inside>div:first-child>p:last-child{\r\n    /* position: relative; */\r\n    margin-bottom: 0;\r\n}\r\n\r\n.jaksung_inside>div:first-child>p>span{\r\n    position: absolute;\r\n    left: 57px; \r\n    top: 2px; \r\n    transform: rotate(90deg); /* 각도 */\r\n}\r\n\r\n.jaksung_inside>div>ul>li{\r\n    list-style-type: armenian;\r\n    position: static;\r\n}\r\n\r\n.jaksung_inside>div:nth-child(2)>input{\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.jaksung_inside>div:nth-child(2) span{\r\n    display: inline-block;\r\n    margin-left: 3px;\r\n    font-size: 8px;\r\n    text-align: center;\r\n    border-radius: 10%;\r\n    background-color: #dbdbdb;\r\n    width: 12px;\r\n    height: 12px;\r\n}\r\n\r\n.insert_form>div:first-child>a:first-child{\r\n    font-size: 12px;\r\n    border: 1px solid rgb(197, 197, 197);\r\n    background-color: white;\r\n    border-radius: 5px;\r\n}\r\n\r\n.insert_form>div:first-child>button{\r\n    background-color: #03c75A1F;\r\n    color: #009f47;\r\n    cursor: pointer;\r\n}\r\n\r\n.insert_form>div>input, .insert_form>div>textarea{\r\n    width: 1000px;\r\n}\r\n\r\n.insert_form>div>input{\r\n    height: 40px;\r\n}\r\n\r\n.insert_form>div>textarea{\r\n    height: 412px;\r\n}\r\n\r\n#search {\r\n    width: 243px;\r\n    height: 100%;\r\n    border: 1px solid #d3d3d3;\r\n}\r\n\r\nbutton.search{\r\n    border: 0px;\r\n    width: 53px;\r\n    height: 100%;\r\n    background-color: #03c75a;\r\n    color: white;\r\n    margin-left: -6px;\r\n}\r\n\r\nmain {\r\n    margin-top: 50px;\r\n    font-size: 1rem;\r\n    display: grid;\r\n    grid-template-columns: 200px 860px;\r\n    gap: 20px;\r\n}\r\n\r\n.detail_con>div:first-child{\r\n    border: 1px solid #ebecef;\r\n    border-radius: 5px;\r\n    padding: 30px;\r\n}\r\n\r\n.detail_con>div:first-child>div{\r\n    /* height: 58px; */\r\n}\r\n\r\n.detail_con>div:first-child>div:nth-child(2){\r\n    position: relative;\r\n    display: flex;\r\n}\r\n\r\n.detail_con>div:first-child>div>a{\r\n    font-size: 13px;\r\n    color: #03c75a;\r\n}\r\n\r\n.detail_con>div:first-child>div>h3{\r\n    line-height: 50px;\r\n    font-size: 26px;\r\n    font-weight: 500;\r\n}\r\n\r\n.detail_con tr{\r\n    width: 100%;\r\n    height: 80px;\r\n}\r\n\r\n.detail_con tr{\r\n    width: 100%;\r\n}\r\n\r\n.detail_con>div:nth-child(2)>a{\r\n    background-color: #EFF0FE;\r\n    padding: 5px 12px;\r\n    border-radius: 15%;\r\n    margin: 10px 5px;\r\n}\r\n.detail_con>div:nth-child(2){\r\n    display: flex;\r\n    justify-content: end;\r\n}\r\n\r\n.detail_con>div>div:nth-child(2){\r\n    border-bottom: 1px solid #ebecef;\r\n}\r\n\r\n.insert_top{\r\n    border: 1px solid #e4e4e4;\r\n    margin: 10px 0px;\r\n    width: 100%;\r\n    padding: 14px 24px;\r\n}\r\n\r\n.insert_top>*{\r\n    font-size: 13px;\r\n}\r\n\r\n.insert_top>span{\r\n    margin: 0px 5px;\r\n}\r\n\r\naside{\r\n    \r\n}\r\n\r\n.cafe_jeongbo{\r\n    border-top: 2px solid black;\r\n}\r\n\r\n.cafe_jeongbo ul, .gesipan_list ul{\r\n    list-style:none;\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-around;\r\n}\r\n\r\n.cafe_jeongbo ul>li>p, .gesipan_list ul>li>p{\r\n    margin: 5px 0px;\r\n    line-height: 7px;\r\n}\r\n\r\n.cafe_jeongbo li:first-child, .gesipan_list li:first-child{\r\n    position: absolute;\r\n    left: 10px;\r\n}\r\n\r\n.cafe_jeongbo>div{\r\n    border-top: 1px solid #e4e4e4;\r\n    position: relative;\r\n    padding: 10px;\r\n}\r\n\r\n.cafe_jeongbo>div:nth-child(2){\r\n    height: 77px;\r\n}\r\n\r\n.cafe_jeongbo>div:nth-child(2)>*{\r\n    margin-left: 65px;\r\n}\r\n\r\n.cafe_jeongbo{\r\n    font-size: 12px;\r\n}\r\n\r\n.profile{\r\n    margin-left: 0px;\r\n    position: absolute;\r\n    left: -57px;\r\n    border: 0px solid black;\r\n    border-radius: 34%;\r\n    width: 58px;\r\n    height: 58px;\r\n    background-color: black;\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n    background-size: cover;\r\n    background-position: center;\r\n}\r\n\r\n.profile_detail{\r\n    display: inline-block;\r\n    border: 0px solid black;\r\n    border-radius: 50%;\r\n    width: 36px;\r\n    height: 36px;\r\n    /* background-color: black; */\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n    background-size: cover;\r\n    background-position: center;\r\n}\r\n\r\n.after_profile_detail{\r\n    display: flex;\r\n    flex-flow: column wrap;\r\n    margin-left: 12px;\r\n    font-size: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.after_profile_detail>div:first-child>span:first-child{\r\n    font-weight: 600;\r\n}\r\n\r\n.after_profile_detail>div>a{\r\n    border-radius: 12%;\r\n    font-size: 12px;\r\n    line-height: 12px;\r\n    padding: 5px;\r\n    font-weight: 600;\r\n}\r\n\r\n.after_profile_detail>div>a:nth-child(3){\r\n    background-color: rgba(0, 159, 72, 0.11);\r\n    color: #009f47;\r\n}\r\n\r\n.after_profile_detail>div>a:nth-child(4){\r\n    background-color: rgba(71, 71, 71, 0.11);\r\n}\r\n\r\n.after_profile_detail>div:nth-child(2)>*{\r\n    font-size: 12px;\r\n    color: #979797;\r\n}\r\n\r\n.cafe_jeongbo>div>p{\r\n    display: inline-block;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n\r\n.cafe_jeongbo>div>p:nth-child(3){\r\n    padding: 0px 3px;\r\n    border: 1px solid #e4e4e4;\r\n    font-size: 9px;\r\n    margin-left: 0px;\r\n}\r\n\r\n.cafe_jeongbo>div>p:nth-child(2){\r\n    margin-left: 65px;\r\n}\r\n\r\n.cafe_jeongbo>div>a{\r\n    display: block;\r\n}\r\n\r\n.cafe_jeongbo>div:nth-child(3){\r\n    position: relative;\r\n}\r\n\r\n.cafe_jeongbo>div:nth-child(3)>a:nth-child(3){\r\n    position: absolute;\r\n    right: 0px;\r\n    bottom: 10px;\r\n}\r\n\r\n.cafe_jeongbo>div>dt{\r\n    position: absolute;\r\n}\r\n\r\n.cafe_jeongbo>a{\r\n    border: 1px solid #e4e4e4;\r\n    width: 100%;\r\n    text-align: center;\r\n    line-height: 34px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.cafe_jeongbo>a:nth-child(5){\r\n    background-color: #5A5A5A;\r\n    color: white;\r\n}\r\n\r\naside>*{\r\n    font-size: 14px;\r\n}\r\n\r\n.gesipan_list>div{\r\n    border-top: 2px solid #e4e4e4;\r\n    height: 41;\r\n    padding: 10px 10px 12px;\r\n}\r\n\r\n.gesipan_list>div:first-child{\r\n    border-top: 2px solid black;\r\n}\r\n\r\n.gesipan_list>ul{\r\n    border-top: 1px solid #e4e4e4;\r\n    height: 37px;\r\n    margin: 0;\r\n}\r\n\r\n.gesipan_list>ul:last-child{\r\n    border-bottom: 2px solid black;\r\n}\r\n\r\n.gesipan_list>ul>li{\r\n    line-height: 37px;\r\n}\r\n\r\naside>div:nth-child(3){\r\n    line-height: 70px;\r\n    padding: 0px 12px;\r\n    background-color: #f8f8f8;\r\n    margin: 10px 0px;\r\n}\r\n\r\naside>div:nth-child(3)>a{\r\n    color: #666666;\r\n}\r\n\r\naside>div:nth-child(4){\r\n    height: 64px;\r\n    background-color: #f8f8f8;\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n    background-position: center;\r\n    background-size: cover;\r\n}\r\n\r\n/* .menu_space{\r\n    border: 0px solid black;\r\n    width: 100%;\r\n    height: ;\r\n} */\r\n\r\nh3{\r\n    font-size: 22px;\r\n    display: inline-block;\r\n    margin: 0;\r\n}\r\n\r\n.favorate{\r\n    color: #c7c7c7;\r\n    border: 1px solid #c7c7c7;\r\n    border-radius: 50%;\r\n    line-height: 13px;\r\n    text-align: center;\r\n    height: 17px;\r\n    width: 17px;\r\n    /* padding: 0px 1.5px; */\r\n    font-size: 12px;\r\n}\r\n\r\n.contents_delete{\r\n    background-color: rgb(153, 0, 0);\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n    background-size: cover;\r\n    background-position: center;\r\n    font-family: \"궁서\";\r\n    color: rgb(163, 163, 163);\r\n}\r\n\r\n.contents_delete caption{\r\n    line-height: 70px;\r\n    font-size: 35px;\r\n}\r\n\r\n.contents_delete table{\r\n    margin: 0px auto;\r\n    width: 700px;\r\n}\r\n\r\n.contents_delete tr{\r\n    height: 50px;\r\n}\r\n\r\n.contents_delete form{\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    height: 200px;\r\n    margin-top: 50px;\r\n}\r\n\r\n.contents_delete>form>*{\r\n    width: 200px;\r\n    height: 200px;\r\n    border: none;\r\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\r\n    background-position: center;\r\n    background-size: cover;\r\n    color: white;\r\n    font-size: 20px;\r\n\r\n}\r\n\r\n.contents_delete input.img-button{\r\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\r\n    background-position: center;\r\n    background-size: cover;\r\n    cursor: pointer;\r\n    font-family: \"궁서\";\r\n}\r\n\r\n.contents_delete a{\r\n    line-height: 200px;\r\n    text-align: center;\r\n}\r\n\r\n.sort{\r\n    display: flex;\r\n    justify-content: end;\r\n    align-items: center;    \r\n    height: 53px;\r\n}\r\n\r\n.sort_a{\r\n    margin: 0px 10px;\r\n}\r\n\r\n/* summary{text-align: right; outline: none;} */\r\n/* details[open] summary{position:absolute;bottom:-10px;right:0%;} */\r\n/* form{position:relative;}  */\r\n\r\n.gaeshick{\r\n    position: absolute;\r\n}\r\n\r\n\r\n\r\ntable {\r\n    border-collapse: collapse;\r\n    width: 100%;\r\n    font-size: 1.5rem;\r\n    position: relative;\r\n}\r\n\r\n#title{\r\n    text-align: left;\r\n    /* width: 100%; */\r\n    height: 80%;\r\n    grid-column: 1/3;\r\n    grid-row: 2/3;\r\n}\r\n\r\n#content{\r\n    height: 450px;\r\n    grid-column: 1/3;\r\n    grid-row: 3/4;\r\n    padding: 30px 20px;\r\n}\r\n\r\ncolgroup{\r\n    /* position: relative; */\r\n}\r\n\r\ntr {\r\n    height: 38px;\r\n}\r\n\r\nth{\r\n    /* position: relative; */\r\n    font-size: 14px;\r\n}\r\n\r\ntd {\r\n    font-size: 18px;\r\n    text-align: center;\r\n    border-bottom: 1px solid #e4e4e4;\r\n}\r\n\r\n.table-title {\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid rgb(223, 223, 223);\r\n    background-color: rgb(255, 255, 255);\r\n    color: rgb(0, 0, 0);\r\n    height: 46px;\r\n}\r\n\r\n.jagseong {\r\n    text-align: center;\r\n    /* line-height: 36px;\r\n    width: 74px; */\r\n    padding: 9px 5px 9px 22px;\r\n    margin: 5px;\r\n    border: 1px solid #d3d3d3;\r\n    background-color: white;\r\n    font-weight: normal;\r\n    position: relative;\r\n    float: right;\r\n}\r\n\r\n.pen{\r\n    transform: rotate(135deg);\r\n    position: absolute;\r\n    left: 5px;\r\n}\r\n\r\nsection {\r\n    /* display: inline-block; */\r\n    /* float: left; */\r\n    /* position: relative; */\r\n    /* left: 25%; */\r\n    margin-top: 68px;\r\n    background-color: #f9f9f9;\r\n    height: 56px;\r\n    border-bottom: 1px solid #e4e4e4;\r\n}\r\n\r\n.page_buts{\r\n    text-align: center;\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.page_buts>.sero{\r\n    margin: 16px 5px;\r\n}\r\n\r\n.page_buts>a>span{\r\n    margin: 16px 5px;\r\n}\r\n\r\n.tri {\r\n    position: relative;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    color: rgb(0, 0, 0);\r\n}\r\n\r\na:hover{\r\n    text-decoration: underline;\r\n}\r\n\r\n.page-btn{\r\n    font-size: 14px;\r\n    display: block;\r\n    text-align: center;\r\n    position: relative;\r\n}\r\n\r\n.page-btn_now{\r\n    font-size: 14px;\r\n    display: block;\r\n    text-align: center;\r\n\r\n    border: 1px solid #e4e4e4;\r\n    background-color: #FFFFFF;\r\n    color: #03c75a;\r\n}\r\n\r\n/* .arrow_R{\r\n    content: '';\r\n    top: 5px;\r\n    left: -16px;\r\n    width: 30px;\r\n    height: 30px;\r\n    background-color: rgb(0, 0, 0);\r\n    clip-path: polygon(100% 0%, 100% 100%, 0% 0%);\r\n    position: absolute;\r\n    transform: rotate(45deg);\r\n} */\r\n\r\n#page-btn{\r\n    width: 24px;\r\n    height: 24px;\r\n    margin: 16px 5px;\r\n}\r\n\r\n.whspac{\r\n    background-color: #f9f9f9;\r\n    padding: 16px 0px;\r\n}\r\n\r\n.search_detail{\r\n    height: 35px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.search_detail>*:not(button){    \r\n    margin-left: 10px;\r\n}\r\n\r\ninput::placeholder, textarea::placeholder{\r\n    color: #d1d1d1;\r\n    padding: 5px;\r\n}\r\n\r\n.super_ad{\r\n    padding: 20px;\r\n    border: 1px solid #e4e4e4;\r\n    margin-top: 30px;\r\n}\r\n\r\n.super_ad>a{\r\n    float: right;\r\n}\r\n\r\n.super_ad>p{\r\n    background-color: #e7e7e7;\r\n    height: 1px;\r\n    width: 100%;\r\n}\r\n\r\n.bottom_list{\r\n    padding: 30px 12px;\r\n}\r\n\r\n.bottom_list>table{\r\n    /* width: 100%; */\r\n    border-top: 1px solid rgb(206, 206, 206);\r\n}\r\n\r\n.bottom_list *{\r\n    font-size: 15px;\r\n}\r\n\r\n.bottom_list tr{\r\n    height: 36px;\r\n}\r\n\r\n.bottom_list td{\r\n    text-align: left;\r\n    padding-left: 5px;\r\n}\r\n\r\n.bottom_list td:first-child{\r\n    height: 36px;\r\n}\r\n\r\n.now_bottom_list{\r\n    background-color: #f9f9fa;\r\n}\r\n\r\n.now_bottom_list td:first-child{\r\n    font-weight: 600;\r\n}\r\n\r\n\r\nfooter{\r\n    /* position: absolute; */\r\n    /* top: 2200px; */\r\n    display: flex;\r\n    width: 1080px;\r\n    border-top: 2px solid black;\r\n    flex-flow: row wrap;\r\n    justify-content: space-between;\r\n    align-items: end;\r\n    padding: 20px 0px;\r\n    margin-top: 300px;\r\n}\r\n\r\nfooter>*{\r\n    padding: 0px;\r\n}\r\n\r\nfooter>div{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\nfooter>div>*{\r\n    margin: 0px 5px 0px;\r\n}\r\n\r\n", ""]);
 // Exports
@@ -19981,9 +19981,9 @@ module.exports = function (url, options) {
 
 /***/ }),
 
-/***/ "./resources/img/NoNameProfile.png":
+/***/ "./resources/css/NoNameProfile.png":
 /*!*****************************************!*\
-  !*** ./resources/img/NoNameProfile.png ***!
+  !*** ./resources/css/NoNameProfile.png ***!
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -19996,9 +19996,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/img/banner_chatbot.png":
+/***/ "./resources/css/banner_chatbot.png":
 /*!******************************************!*\
-  !*** ./resources/img/banner_chatbot.png ***!
+  !*** ./resources/css/banner_chatbot.png ***!
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -20011,9 +20011,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/img/button1.png":
+/***/ "./resources/css/button1.png":
 /*!***********************************!*\
-  !*** ./resources/img/button1.png ***!
+  !*** ./resources/css/button1.png ***!
   \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -20026,9 +20026,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/img/button2.png":
+/***/ "./resources/css/button2.png":
 /*!***********************************!*\
-  !*** ./resources/img/button2.png ***!
+  !*** ./resources/css/button2.png ***!
   \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -20041,9 +20041,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/img/delete3.png":
+/***/ "./resources/css/delete3.png":
 /*!***********************************!*\
-  !*** ./resources/img/delete3.png ***!
+  !*** ./resources/css/delete3.png ***!
   \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -20056,9 +20056,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/img/gaecheubi2.jpg":
+/***/ "./resources/css/gaecheubi2.jpg":
 /*!**************************************!*\
-  !*** ./resources/img/gaecheubi2.jpg ***!
+  !*** ./resources/css/gaecheubi2.jpg ***!
   \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -20071,9 +20071,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/img/s.png":
+/***/ "./resources/css/s.png":
 /*!*****************************!*\
-  !*** ./resources/img/s.png ***!
+  !*** ./resources/css/s.png ***!
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -20086,9 +20086,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/img/임시배너.jpg":
+/***/ "./resources/css/임시배너.jpg":
 /*!********************************!*\
-  !*** ./resources/img/임시배너.jpg ***!
+  !*** ./resources/css/임시배너.jpg ***!
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
