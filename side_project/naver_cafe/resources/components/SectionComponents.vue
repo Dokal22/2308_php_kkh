@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-	name: 'Section',
+	name: 'SectionComponents',
 }
 </script>
 <style lang="">

@@ -25,7 +25,7 @@
 </template>
 <script>
 export default {
-	name: 'Header',
+	name: 'HeaderComponents',
 }
 </script>
 <style lang="">

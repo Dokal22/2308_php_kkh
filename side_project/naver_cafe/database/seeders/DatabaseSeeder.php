@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use Database\Factories\NcBoardFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\NcBoard;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        $this->call([
-            FileSeeder::class,
-            UserSeeder::class,
-            CafeSeeder::class,
-        ]);
+        for($i=0;$i<1;$i++){
+            NcBoard::factory(5)->create();
+        }
+        // $this->call([ // 시더콜?
+        //     NcBoardFactory::class,
+        // ]);
     }
 }

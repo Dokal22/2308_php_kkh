@@ -1,17 +1,10 @@
 import { createWebHistory, createRouter } from 'vue-router' // 중복할라면 {}열기
+import ListComponents from '../components/ListComponents.vue';
 
-const routes = [ //이름도 규칙
+const routes = [ 
 	{
 		path: "/",
-		redirect: '/login',
-	},
-	{
-		path: "/login",
-		component: LoginComponent,
-	},
-	{
-		path: "/board",
-		component: BoardComponent,
+		component: ListComponents,
 	},
 ];
 
@@ -20,4 +13,4 @@ const router = createRouter({
 	routes,
 });
 
-export default router;
+export default router

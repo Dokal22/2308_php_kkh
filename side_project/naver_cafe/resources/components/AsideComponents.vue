@@ -21,7 +21,7 @@
 			<div><!-- 4 -->
 				<dt><b>주제</b></dt><dd>컴퓨터/통신 > 통신/네트워크</dd>
 			</div>
-			<a href="/mini_board/src/insert.php">카페 글쓰기</a><!-- 5 (from css child-->
+			<a href="/create">카페 글쓰기</a><!-- 5 (from css child-->
 			<a href="">카페 채팅</a>
 		</div>
 		<div class="gesipan_list">
@@ -44,7 +44,7 @@
 </template>
 <script>
 export default {
-	name: 'Aside',
+	name: 'AsideComponents',
 }
 </script>
 <style lang="">

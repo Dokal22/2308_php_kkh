@@ -10,7 +10,7 @@
 </template>
 <script>
 export default {
-	name: 'Footer',
+	name: 'FooterComponents',
 }
 </script>
 <style lang="">

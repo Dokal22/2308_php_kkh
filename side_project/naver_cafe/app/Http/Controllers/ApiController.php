@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\NcBoard;
+use App\Models\User;
 
 class ApiController extends Controller
 {
@@ -13,22 +15,26 @@ class ApiController extends Controller
      */
     public function index()
     {
-        $responseData = [
-            'code' => '0'
-            ,'msg' => ''
-            ,'data' => []
-        ];
-
-        $result = Api::orderBy('created_at', 'desc')->get();
-
-        if($result->count() < 1) {
-            $responseData['code'] = 'E01';
-            $responseData['msg'] = 'No Data.';
-        } else {
-            $responseData['data'] = $result;
-        }
-
-        return $responseData;
+        $result = DB::select("
+            select 
+                b.id
+                ,u.user_name
+                ,b.title
+                ,b.view
+                ,b.like
+                ,b.comment_cnt
+                ,b.created_at
+            from
+                Ncboards b
+              join users u
+                on b.user_number = u.id
+        ");
+        // foreach($result as $item) {
+        //     $item->img = asset($item->img);
+        //     // $item->img = 'data:image/*;base64, '.base64_encode(file_get_contents(public_path($item->img)));
+        // }
+        
+        return $result;
     }
 
     /**

@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class NcBoard extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "title",
+        "content",
+        "view",
+        "like",
+        "comment_cnt"
+    ];
 }

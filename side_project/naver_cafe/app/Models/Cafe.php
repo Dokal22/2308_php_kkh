@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Cafe extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "user_number",
+        "level",
+        "member",
+        "introduct"
+    ];
 }

@@ -21,7 +21,7 @@
 </template>
 <script>
 export default {
-	name: 'Search',
+	name: 'SearchComponents',
 }
 </script>
 <style lang="">
