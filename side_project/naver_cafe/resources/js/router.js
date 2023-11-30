@@ -4,6 +4,14 @@ import ListComponents from '../components/ListComponents.vue';
 const routes = [ 
 	{
 		path: "/",
+		redirect: "/1",
+	},
+	{
+		path: "/:page",
+		component: ListComponents,
+	},
+	{
+		path: "/board",
 		component: ListComponents,
 	},
 ];

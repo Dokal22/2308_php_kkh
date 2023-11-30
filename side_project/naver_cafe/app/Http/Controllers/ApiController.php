@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\NcBoard;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ApiController extends Controller
 {
@@ -16,7 +18,7 @@ class ApiController extends Controller
     public function index()
     {
         $result = DB::select("
-            select 
+            SELECT 
                 b.id
                 ,u.user_name
                 ,b.title
@@ -24,16 +26,38 @@ class ApiController extends Controller
                 ,b.like
                 ,b.comment_cnt
                 ,b.created_at
-            from
-                Ncboards b
-              join users u
-                on b.user_number = u.id
+            FROM
+                nc_boards b
+              JOIN users u
+                ON b.user_number = u.id
+            WHERE
+                b.deleted_at IS NULL
+            ORDER BY 
+                b.created_at DESC
+            LIMIT 15 OFFSET 35
         ");
         // foreach($result as $item) {
         //     $item->img = asset($item->img);
         //     // $item->img = 'data:image/*;base64, '.base64_encode(file_get_contents(public_path($item->img)));
         // }
-        
+
+        return $result;
+    }
+
+    public function index_total($board_type = null)
+    {
+        // Log::debug("***************".$board_type."**************");
+        $result = NcBoard::whereNull("deleted_at")
+                    ->when($board_type !== '0', function ($query, $board_type) {
+                        return $query->where("board_type", $board_type);
+                    })
+                    ->count();
+        // Log::debug("***************".$result."**************");
+        // foreach($result as $item) {
+        //     $item->img = asset($item->img);
+        //     // $item->img = 'data:image/*;base64, '.base64_encode(file_get_contents(public_path($item->img)));
+        // }
+
         return $result;
     }
 

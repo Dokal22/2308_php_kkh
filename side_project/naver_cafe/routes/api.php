@@ -25,3 +25,5 @@ Route::prefix('boards')->group(function () {
     Route::put('/{id}',[ApiController::class,'update']); // 수정
     Route::delete('/{id}',[ApiController::class,'delete']); // 삭제
 });
+Route::get('/total',[ApiController::class,'index_total']); // 전체 조회
+Route::get('/total/{board_type}',[ApiController::class,'index_total']); // 전체 조회

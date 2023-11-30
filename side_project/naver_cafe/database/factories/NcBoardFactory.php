@@ -23,6 +23,7 @@ class NcBoardFactory extends Factory
         $rand = random_int(0,1);
         $date = $rand === 0 ? $faker->dateTimeBetween('-6 months') : null;
         return [
+            'board_type'=>random_int(1,4),
             'user_number' => random_int(1,10),
             'title' => $faker->realText(20),
             'content' => $faker->realText(50),

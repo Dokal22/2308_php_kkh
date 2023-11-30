@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class NcBoardSeeder extends Seeder
+class BoardTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,8 +15,11 @@ class NcBoardSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("nc_boards")->insert([
-            ['user_number'=> 1,'title' => 'test', 'content' => 'test']
+        DB::table("board_types")->insert([
+            ['name' => '공지사항'],
+            ['name'=> '자유게시판'],
+            ['name'=> '질문게시판'],
+            ['name'=> '유머게시판']
         ]);
     }
 }
