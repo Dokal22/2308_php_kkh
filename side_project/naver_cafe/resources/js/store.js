@@ -11,6 +11,12 @@ const store = createStore({
 			page_bt_limit: 10,
 			totalBoard: 0,
 			board_type: null,
+			cafe_number: 1,
+			listFlg: 0,
+			nowPage: 1,
+			start: 0,
+			culc: 0,
+			totalBtLimit: 0,
 		}
 	},
 	mutations: {
@@ -20,10 +26,19 @@ const store = createStore({
 		setTotalBoard(state, data) {
 			state.totalBoard = data;
 		},
+		setListFlg(state, data) {
+			state.listFlg = data;
+		},
+		setNowPage(state, data) {
+			state.nowPage = data;
+		},
 	},
 	actions: {
 		getList(context) {
-			const url = '/api/boards';
+			const url = '/api/boards/' 
+				+ context.state.nowPage 
+				+ context.state.page_bt_limit 
+				+ context.state.page_limit;
 			// const header = {
 			// 	headers: {
 			// 		'Authorization': 'Bearer meerkat'
@@ -38,8 +53,8 @@ const store = createStore({
 					console.log(err);
 				})
 		},
-		getTotalBoard(context, board_type = "0"){
-			const url = '/api/total/' + board_type;
+		getTotalBoard(context, cafe_number, board_type = "0") {
+			const url = '/api/total/' + cafe_number + '/' + board_type;
 			axios.get(url)// +headers // 400번대로 오면 자동catch?
 				.then(res => {
 					context.commit('setTotalBoard', res.data);
@@ -48,7 +63,23 @@ const store = createStore({
 				.catch(err => {
 					console.log(err.response);
 				})
-		}
+		},
+		getLogin(context, data) {
+			const url = '/api/users';
+			const headers = {
+				"Content-Type": "application/json"
+			};
+			console.log(data);
+			// console.log(JSON.stringify(data));
+			axios.post(url, data)
+				.then(res => {
+					// context.commit('setTotalBoard', res.data);
+					console.log(res.data);
+				})
+				.catch(err => {
+					console.log(err.response);
+				})
+		},
 	},
 });
 

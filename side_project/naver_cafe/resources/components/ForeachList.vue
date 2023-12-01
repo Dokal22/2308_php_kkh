@@ -2,7 +2,7 @@
 	<tr v-for="(item) in $store.state.list" :key="item"> 
 		<td>{{item.id}}</td>
 		<td id="title">
-			<a href="">{{item.title}}</a>
+			<a @click="chgListFlg()">{{item.title}}</a>
 		</td>
 		<td>{{item.user_name}}</td>
 		<td>{{item.created_at}}</td>
@@ -12,6 +12,7 @@
 	<!-- {{$route.params.page}} -->
 </template>
 <script>
+
 export default {
 	name: 'ForeachList',
 	beforeUpdate() {
@@ -36,6 +37,11 @@ export default {
 		return {
 			date: null,
 			toDate: null,
+		}
+	},
+	methods: {
+		chgListFlg(){
+			this.$store.commit('setListFlg',1);
 		}
 	},
 }

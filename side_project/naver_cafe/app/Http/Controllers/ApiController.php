@@ -15,27 +15,63 @@ class ApiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($now_page = '1', $page_bt_limit, $page_limit)
     {
-        $result = DB::select("
-            SELECT 
-                b.id
-                ,u.user_name
-                ,b.title
-                ,b.view
-                ,b.like
-                ,b.comment_cnt
-                ,b.created_at
-            FROM
-                nc_boards b
-              JOIN users u
-                ON b.user_number = u.id
-            WHERE
-                b.deleted_at IS NULL
-            ORDER BY 
-                b.created_at DESC
-            LIMIT 15 OFFSET 35
-        ");
+        // $result = DB::select("
+        //     SELECT 
+        //         b.id
+        //         ,u.user_name
+        //         ,b.title
+        //         ,b.view
+        //         ,b.like
+        //         ,b.comment_cnt
+        //         ,b.created_at
+        //     FROM
+        //         nc_boards b
+        //       JOIN users u
+        //         ON b.user_number = u.id
+        //     WHERE
+        //         b.deleted_at IS NULL
+        //     ORDER BY 
+        //         b.created_at DESC
+        //     LIMIT 15 OFFSET 35
+        // ");
+        // foreach($result as $item) {
+        //     $item->img = asset($item->img);
+        //     // $item->img = 'data:image/*;base64, '.base64_encode(file_get_contents(public_path($item->img)));
+        // }
+
+        $result = NcBoard::select(
+            'nc_boards.id',
+            'users.user_name',
+            'nc_boards.title',
+            'nc_boards.view',
+            'nc_boards.like',
+            'nc_boards.comment_cnt',
+            'nc_boards.created_at'
+        )
+            ->join('users', 'nc_boards.user_number', '=', 'users.id')
+            ->whereNull('nc_boards.deleted_at')
+            ->orderByDesc('nc_boards.created_at')
+            ->when($now_page !== '1', function ($query, $now_page) {
+                return $query->take(15)->offset(35);
+            })
+            
+            ->get();
+
+        return $result;
+    }
+
+    public function index_total($cafe_number, $board_type = null)
+    {
+        // Log::debug("***************".$board_type."**************");
+        $result = NcBoard::where('cafe_number', $cafe_number)
+            ->whereNull("deleted_at")
+            ->when($board_type !== '0', function ($query, $board_type) {
+                return $query->where("board_type", $board_type);
+            })
+            ->count();
+        // Log::debug("***************".$result."**************");
         // foreach($result as $item) {
         //     $item->img = asset($item->img);
         //     // $item->img = 'data:image/*;base64, '.base64_encode(file_get_contents(public_path($item->img)));
@@ -44,14 +80,14 @@ class ApiController extends Controller
         return $result;
     }
 
-    public function index_total($board_type = null)
+    public function index_one($cafe_number, $board_type = null, $id)
     {
         // Log::debug("***************".$board_type."**************");
         $result = NcBoard::whereNull("deleted_at")
-                    ->when($board_type !== '0', function ($query, $board_type) {
-                        return $query->where("board_type", $board_type);
-                    })
-                    ->count();
+            ->when($board_type !== '0', function ($query, $board_type) {
+                return $query->where("board_type", $board_type);
+            })
+            ->count();
         // Log::debug("***************".$result."**************");
         // foreach($result as $item) {
         //     $item->img = asset($item->img);

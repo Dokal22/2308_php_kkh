@@ -16,4 +16,10 @@ class NcBoard extends Model
         "like",
         "comment_cnt"
     ];
+
+    protected $foreignKey = "user_number";
+
+    public function BoardUser(){
+        return $this->belongsTo(User::class,"user_number","id");
+    }
 }

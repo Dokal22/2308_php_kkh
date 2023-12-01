@@ -1,4 +1,5 @@
-<template>
+<template lang="">
+	<!-- 카페 -->
 	<div class="baggat">
 		<HeaderComponents />
 		<form class="search" method="post" action="/mini_board/src/list.php">
@@ -9,9 +10,9 @@
 		<main>
 			<AsideComponents />
 			<div class="contents">
-				<router-view />
+				<ListComponents v-if="$store.state.listFlg === 0"/>
+				<DetailComponents v-else/>
 				{{ $store.state.totalBoard }}
-				<SectionComponents />
 				<div class="whspac">
 					<SearchComponents />
 				</div>
@@ -26,29 +27,31 @@
 		<FooterComponents />
 	</div>
 </template>
-
 <script>
-import HeaderComponents from './HeaderComponents.vue';
 import AsideComponents from './AsideComponents.vue';
 import FooterComponents from './FooterComponents.vue';
+import ForeachList from '../ForeachList.vue';
+import HeaderComponents from './HeaderComponents.vue';
+import ListComponents from '../ListComponents.vue';
 import SearchComponents from './SearchComponents.vue';
-import SectionComponents from './SectionComponents.vue';
+import DetailComponents from '../DetailComponents.vue';
 
 export default {
-	name: 'AppComponents',
-	beforeCreate() {
-		this.$store.dispatch('getTotalBoard');//this.$store.state.board_type
-	},
+	name: 'MainComponents',
 	components: {
-		HeaderComponents,
 		AsideComponents,
 		FooterComponents,
+		HeaderComponents,
 		SearchComponents,
-		SectionComponents,
-	}
+		ListComponents,
+		ForeachList,
+		DetailComponents,
+	},
+	beforeCreate() {
+		this.$store.dispatch('getTotalBoard', this.$store.state.cafe_number);//this.$store.state.board_type
+	},
 }
 </script>
-
-<style>
-@import url('../css/app.css');
+<style lang="">
+	
 </style>

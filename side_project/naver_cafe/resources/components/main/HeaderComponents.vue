@@ -1,5 +1,5 @@
 <template lang="">
-	<div class="never_img"><a href="/mini_board/src/list.php/"><b>NEVER</b></a></div>
+	<div class="never_img"><a href="/"><b>NEVER</b></a></div>
 	<div class="header_flex">
 			<a class="header_a" href="#">카페홈</a>
 			<div class="sero"></div>
@@ -13,7 +13,7 @@
 			<div class="sero"></div>
 			<a class="header_a" href="#">채팅</a>
 			<div class="sero"></div>
-			<a class="header_a" href="#">나▼</a>
+			<router-link to="/login">로그인</router-link>
 			<a class="header_a" href="#">💬</a>
 			<a class="header_a" href="#">▦</a>
 	</div>

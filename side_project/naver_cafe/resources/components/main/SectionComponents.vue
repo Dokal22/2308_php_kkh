@@ -22,7 +22,7 @@
 				v-for="(item,i) in $store.state.page_bt_limit" :key="i"
 				class="page-btn" 
 				id="page-btn" 
-				:href="`/${i+1}`"
+				@click="chgNowPage(i+1)"
 			>{{i+1}}</a>
 
 			<div class="sero"/>
@@ -38,26 +38,30 @@
 		</div>  
 
 	</section>
-	<p>page: {{$route.params.page}}</p>
 	<p>page_bt_limit: {{$store.state.page_limit}}</p>
-	<p>culc: {{culc}}</p>
-	<p>start: {{start}}</p>
-	<p>totalBtLimit: {{totalBtLimit}}</p>
+	<p>culc: {{$store.state.culc}}</p>
+	<p>start: {{$store.state.start}}</p>
+	<p>totalBtLimit: {{$store.state.totalBtLimit}}</p>
 </template>
 <script>
 export default {
 	name: 'SectionComponents',
 	data() {
 		return {
-			start: 0,
-			culc: 0,
-			totalBtLimit: 0,
+			// start: 0,
+			// culc: 0,
+			// totalBtLimit: 0,
 		}
 	},
-	beforeUpdate() {
-		this.culc = (Math.ceil(this.$route.params.page / this.$store.state.page_bt_limit)) * this.$store.state.page_bt_limit;
-		this.start = this.culc - (this.$store.state.page_bt_limit - 1);
-		this.totalBtLimit = this.$store.state.totalBoard / this.$store.state.page_limit;
+	created() {
+		this.$store.state.culc = (Math.ceil(this.$store.state.nowPage / this.$store.state.page_bt_limit)) * this.$store.state.page_bt_limit;
+		this.$store.state.start = this.$store.state.culc - (this.$store.state.page_bt_limit - 1);
+		this.$store.state.totalBtLimit = (this.$store.state.totalBoard / this.$store.state.page_limit) * this.$store.state.page_bt_limit;
+	},
+	methods: {
+		chgNowPage(i) {
+			this.$store.commit('setNowPage', i);
+		}
 	},
 }
 </script>

@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        for($i=0;$i<3;$i++){
+        for($i=0;$i<1;$i++){
             NcBoard::factory(5)->create();
         }
         // $this->call([ // 시더콜?

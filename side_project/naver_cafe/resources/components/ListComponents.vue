@@ -40,17 +40,21 @@
 		<ForeachList/>
 	</table>
 	<a href="/mini_board/src/insert.php" id="insert" class="jagseong"><div class="pen">✏</div>글쓰기</a>
+
+	<SectionComponents />
 </template>
 <script>
-import ForeachList from '../components/ForeachList.vue';
+import ForeachList from './ForeachList.vue';
+import SectionComponents from './main/SectionComponents.vue';
 
 export default {
 	name: 'ListComponents',
-	beforeCreate() {
+	updated() {
 		this.$store.dispatch('getList')
 	},
 	components: {
 		ForeachList,
+		SectionComponents,
 	},
 }
 </script>
