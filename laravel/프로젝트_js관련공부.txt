@@ -1,0 +1,12 @@
+js로 그래픽
+- WebGL
+- three.js
+
+js 슬라이드
+- https://github.com/YeoDaSeul4355/web2023/blob/main/javascirpt/slider/sliderEffect01.html
+
+GSAP
+- https://gsap.com/docs/v3/Installation
+
+이런 것들 적용하고 호출하고 머시기 하는 원리?공부
+- https://beomy.github.io/tech/javascript/cjs-amd-umd-esm/

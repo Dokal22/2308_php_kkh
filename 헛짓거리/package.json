@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "angular-gantt-chart": "^1.2.0"
+    "angular-gantt-chart": "^1.2.0",
+    "chart.js": "^4.4.1",
+    "gsap": "^3.12.3"
   }
 }
