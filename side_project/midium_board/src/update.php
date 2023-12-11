@@ -1,4 +1,5 @@
 <?php
+
 define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/midium_board/src");
 define("FILE_HEADER", ROOT."/header.php");
 require_once(ROOT."/lib/lib.php");
