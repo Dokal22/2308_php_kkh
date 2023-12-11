@@ -27,7 +27,6 @@ try {
 } finally {
     PDO_out($conn);
 }
-// var_dump($result);
 ?>
 
 <!DOCTYPE html>
