@@ -7,7 +7,7 @@
 	/* 크기 */
 }
 
-body>div {
+body>.task_modal {
 	background-color: rgb(145, 145, 145);
 	/* 배치 */
 	margin: auto;
@@ -21,17 +21,23 @@ body>div {
 	height: 645px;
 }
 
-body>div>div {
+body>.task_modal>div {
 	background-color: rgb(102, 102, 102);
 	/* 배치 */
 	/* 내부 */
-	padding: 20px;
 	/* 크기 */
 	width: 100%;
 	height: 10%;
 }
 
-body>div>div:nth-child(2) {
+body>.task_modal>div:nth-child(1) {
+	/* 배치 */
+	/* 내부 */
+	padding: 20px;
+	/* 크기 */
+}
+
+body>.task_modal>div:nth-child(2) {
 	background-color: rgb(66, 66, 66);
 	/* 배치 */
 
@@ -43,7 +49,20 @@ body>div>div:nth-child(2) {
 	height: 80%;
 }
 
-body>div>div:nth-child(2)>.content {
+/* 스크롤 */
+body>.task_modal>div:nth-child(2)::-webkit-scrollbar {
+	width: 10px;
+}
+
+body>.task_modal>div:nth-child(2)::-webkit-scrollbar-thumb {
+	background-color: #2f3542;
+}
+
+body>.task_modal>div:nth-child(2)::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+body>.task_modal>div:nth-child(2)>.content {
 	background-color: rgb(140, 140, 140);
 	/* 배치 */
 	/* 내부 */
@@ -51,7 +70,41 @@ body>div>div:nth-child(2)>.content {
 	/* 크기 */
 }
 
-.content>.header {
+.task_modal>.header {
+	/* 배치 */
+	/* 내부 */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* 크기 */
+}
+
+.task_modal>.header>div:nth-child(1) {
+	/* 배치 */
+	/* 내부 */
+	display: flex;
+	/* 크기 */
+}
+
+.task_modal>.header>div:nth-child(2),
+.task_modal>.header>div:nth-child(1)>div:nth-child(1) {
+	background-color: rgb(246, 192, 192);
+	/* 배치 */
+	/* 내부 */
+	/* 크기 */
+	width: 20px;
+	height: 20px;
+}
+
+.task_modal>.header>div:nth-child(1)>div:nth-child(2) {
+	background-color: rgb(169, 126, 126);
+	/* 배치 */
+	margin-left: 15px;
+	/* 내부 */
+	/* 크기 */
+}
+
+.task_modal .content>.header {
 	background-color: rgb(159, 175, 210);
 	/* 배치 */
 	/* 내부 */
@@ -61,16 +114,16 @@ body>div>div:nth-child(2)>.content {
 	/* 크기 */
 }
 
-.content>.header>div:nth-child(1) {
+.task_modal .content>.header>div:nth-child(1) {
 	background-color: rgb(107, 114, 129);
 	/* 배치 */
 	/* 내부 */
 	display: flex;
-	flex-direction: row;
+	align-items: center;
 	/* 크기 */
 }
 
-.content>.header>div:nth-child(1)>div {
+.task_modal .content>.header>div:nth-child(1)>div {
 	background-color: rgb(107, 114, 129);
 	/* 배치 */
 	margin-right: 10px;
@@ -78,7 +131,7 @@ body>div>div:nth-child(2)>.content {
 	/* 크기 */
 }
 
-.user_profile {
+.task_modal .user_profile {
 	background-color: rgb(101, 11, 11);
 	/* 배치 */
 	/* 내부 */
@@ -87,7 +140,7 @@ body>div>div:nth-child(2)>.content {
 	height: 50px;
 }
 
-.more {
+.task_modal .more {
 	background-color: rgb(11, 101, 23);
 	/* 배치 */
 	/* 내부 */
@@ -96,7 +149,7 @@ body>div>div:nth-child(2)>.content {
 	height: 50px;
 }
 
-.content>.property {
+.task_modal .content>.property {
 	background-color: rgb(153, 162, 161);
 	/* 배치 */
 	/* 내부 */
@@ -104,7 +157,7 @@ body>div>div:nth-child(2)>.content {
 	/* 크기 */
 }
 
-.content>.property>div {
+.task_modal .content>.property>div {
 	background-color: rgb(107, 129, 128);
 	/* 배치 */
 	/* 내부 */
@@ -114,14 +167,14 @@ body>div>div:nth-child(2)>.content {
 	/* 크기 */
 }
 
-.content>.property>div:not(:nth-child(1)) {
+.task_modal .content>.property>div:not(:nth-child(1)) {
 	/* 배치 */
 	margin-top: 5px;
 	/* 내부 */
 	/* 크기 */
 }
 
-.content>.property>div>div:nth-child(1) {
+.task_modal .content>.property>div>div:nth-child(1) {
 	background-color: rgb(64, 195, 57);
 	/* 배치 */
 	/* 내부 */
@@ -130,14 +183,14 @@ body>div>div:nth-child(2)>.content {
 	height: 30px;
 }
 
-.content>.property>div>div:not(:nth-child(1)) {
+.task_modal .content>.property>div>div:not(:nth-child(1)) {
 	/* 배치 */
 	margin-left: 5px;
 	/* 내부 */
 	/* 크기 */
 }
 
-.content>.property>.status>div:not(:nth-child(1)) {
+.task_modal .content>.property>.status>div:not(:nth-child(1)) {
 	background-color: rgb(103, 117, 96);
 	/* 배치 */
 	margin-left: 5px;
@@ -150,7 +203,7 @@ body>div>div:nth-child(2)>.content {
 	border-radius: 27px;
 }
 
-.content>.property>.add_box>div:nth-child(2) {
+.task_modal .content>.property>.add_box>div:nth-child(2) {
 	background-color: rgb(156, 166, 151);
 	/* 배치 */
 	/* 내부 */
@@ -160,7 +213,7 @@ body>div>div:nth-child(2)>.content {
 	border-radius: 7px;
 }
 
-.content>.property>.add_box>div:nth-child(2)>div:nth-child(1) {
+.task_modal .content>.property>.add_box>div:nth-child(2)>div:nth-child(1) {
 	background-color: rgb(99, 101, 98);
 	/* 배치 */
 	/* 내부 */
@@ -169,14 +222,14 @@ body>div>div:nth-child(2)>.content {
 	height: 20px;
 }
 
-.content>.property>.add_box>div:nth-child(2)>div:nth-child(2) {
+.task_modal .content>.property>.add_box>div:nth-child(2)>div:nth-child(2) {
 	/* 배치 */
 	margin: 0 5px;
 	/* 내부 */
 	/* 크기 */
 }
 
-.content>.property>.add_box>div:nth-child(2)>div:nth-child(3) {
+.task_modal .content>.property>.add_box>div:nth-child(2)>div:nth-child(3) {
 	background-color: rgb(104, 120, 96);
 	/* 배치 */
 	/* 내부 */
@@ -185,7 +238,7 @@ body>div>div:nth-child(2)>.content {
 	height: 20px;
 }
 
-.content>.property>.responsible>div:nth-child(3) {
+.task_modal .content>.property>.responsible>div:nth-child(3) {
 	/* 배치 */
 	/* 내부 */
 	font-size: small;
@@ -195,22 +248,31 @@ body>div>div:nth-child(2)>.content {
 	/* 크기 */
 }
 
-.content>.title {
+.task_modal .content>.title {
 	border-bottom: 1px solid rgb(163, 163, 163);
 	/* 배치 */
 	/* 내부 */
-	padding: 15px 10px;
+	padding: 15px;
 	/* 크기 */
 }
 
-.content>.content {
+.task_modal .content>.content {
 	/* 배치 */
 	/* 내부 */
-	padding: 5px 10px 35px 10px;
+	padding: 15px;
 	/* 크기 */
 }
 
-.comment {
+.task_modal .content>.content>div {
+	/* 배치 */
+	margin: 15px 5px 0 15px;
+	/* 내부 */
+	display: flex;
+	justify-content: end;
+	/* 크기 */
+}
+
+.task_modal .comment {
 	background-color: rgb(49, 49, 49);
 	/* 배치 */
 	/* 내부 */
@@ -218,7 +280,7 @@ body>div>div:nth-child(2)>.content {
 	/* 크기 */
 }
 
-.comment>div {
+.task_modal .comment>div {
 	background-color: rgb(125, 125, 125);
 	/* 배치 */
 	/* 내부 */
@@ -227,14 +289,14 @@ body>div>div:nth-child(2)>.content {
 	/* 크기 */
 }
 
-.comment>div:not(:last-child) {
+.task_modal .comment>div:not(:last-child) {
 	/* 배치 */
 	/* 내부 */
 	border-bottom: 1px solid rgb(163, 163, 163);
 	/* 크기 */
 }
 
-.comment>div {
+.task_modal .comment>div {
 	/* 배치 */
 	/* 내부 */
 	display: grid;
@@ -243,7 +305,7 @@ body>div>div:nth-child(2)>.content {
 	/* 크기 */
 }
 
-.comment>div>.comment_content>div:nth-child(1) {
+.task_modal .comment>div>.comment_content>div:nth-child(1) {
 	background-color: rgb(107, 87, 60);
 	/* 배치 */
 	/* 내부 */
@@ -252,7 +314,7 @@ body>div>div:nth-child(2)>.content {
 	/* 크기 */
 }
 
-.comment>div>.comment_content>div:nth-child(1)>div:nth-child(1) {
+.task_modal .comment>div>.comment_content>div:nth-child(1)>div:nth-child(1) {
 	background-color: rgb(107, 87, 60);
 	/* 배치 */
 	/* 내부 */
@@ -260,7 +322,7 @@ body>div>div:nth-child(2)>.content {
 	/* 크기 */
 }
 
-.comment>div>.user_profile {
+.task_modal .comment>div>.user_profile {
 	background-color: rgb(163, 147, 124);
 	/* 배치 */
 	/* 내부 */
@@ -269,11 +331,48 @@ body>div>div:nth-child(2)>.content {
 	height: 50px;
 }
 
-.comment>div>.comment_content>div:nth-child(2) {
+.task_modal .comment>div>.comment_content>div:nth-child(2) {
 	background-color: rgb(86, 107, 60);
 	/* 배치 */
 	/* 내부 */
 	display: flex;
 	/* 크기 */
 	/* width: 100%; */
+}
+
+.task_modal .footer {
+	/* 배치 */
+	/* 내부 */
+	display: grid;
+	grid-template-columns: 1fr 5fr 1fr;
+	justify-items: center;
+	align-items: center;
+	/* 크기 */
+}
+
+.task_modal .footer>textarea {
+	background-color: rgb(255, 255, 255);
+	/* 배치 */
+	/* 내부 */
+	resize: none;
+	/* 크기 */
+	width: 100%;
+	height: 60%;
+}
+
+.task_modal .footer>textarea:focus {
+	/* 배치 */
+	/* 내부 */
+	outline: none;
+	/* 크기 */
+}
+
+.task_modal .footer>div:nth-child(3) {
+	background-color: rgb(117, 184, 34);
+	/* 배치 */
+	/* 내부 */
+	cursor: pointer;
+	/* 크기 */
+	width: 60%;
+	height: 50%;
 }
