@@ -58,9 +58,9 @@ body>.task_modal>div:nth-child(2)::-webkit-scrollbar-thumb {
 	background-color: #2f3542;
 }
 
-body>.task_modal>div:nth-child(2)::-webkit-scrollbar-track {
-	background-color: transparent;
-}
+/* body>.task_modal>div:nth-child(2)::-webkit-scrollbar-track {
+	background-color: rgba(0, 0, 0, 0);
+} */
 
 body>.task_modal>div:nth-child(2)>.content {
 	background-color: rgb(140, 140, 140);
@@ -69,7 +69,21 @@ body>.task_modal>div:nth-child(2)>.content {
 	border-bottom: 1px solid rgb(163, 163, 163);
 	/* 크기 */
 }
+.task_modal .overheader{
+	/* 배치 */
+	/* 내부 */
+	display: flex;
+	padding: 15px;
+	font-size: small;
+	/* 크기 */
+}
 
+.task_modal .overheader>div:nth-child(2){
+	/* 배치 */
+	margin-left: 10px;
+	/* 내부 */
+	/* 크기 */
+}
 .task_modal>.header {
 	/* 배치 */
 	/* 내부 */
@@ -144,6 +158,7 @@ body>.task_modal>div:nth-child(2)>.content {
 	background-color: rgb(11, 101, 23);
 	/* 배치 */
 	/* 내부 */
+	cursor: pointer;
 	/* 크기 */
 	width: 25px;
 	height: 50px;

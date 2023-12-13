@@ -1,0 +1,9 @@
+Schema::dropIfExists('comments');
+        Schema::dropIfExists('attachments');
+        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('project_users');
+        Schema::dropIfExists('friends');
+        Schema::dropIfExists('friend_requests');
+        Schema::dropIfExists('projects');
+        Schema::dropIfExists('base_data');
+        Schema::dropIfExists('users');
