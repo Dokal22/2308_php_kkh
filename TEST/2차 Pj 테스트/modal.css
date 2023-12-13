@@ -1,0 +1,279 @@
+* {
+	/* 배치 */
+	/* 내부 */
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	/* 크기 */
+}
+
+body>div {
+	background-color: rgb(145, 145, 145);
+	/* 배치 */
+	margin: auto;
+	margin-top: 10vh;
+	/* 내부 */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* 크기 */
+	width: 462px;
+	height: 645px;
+}
+
+body>div>div {
+	background-color: rgb(102, 102, 102);
+	/* 배치 */
+	/* 내부 */
+	padding: 20px;
+	/* 크기 */
+	width: 100%;
+	height: 10%;
+}
+
+body>div>div:nth-child(2) {
+	background-color: rgb(66, 66, 66);
+	/* 배치 */
+
+	/* 내부 */
+	overflow: auto;
+	border-top: 1px solid rgb(163, 163, 163);
+	border-bottom: 1px solid rgb(163, 163, 163);
+	/* 크기 */
+	height: 80%;
+}
+
+body>div>div:nth-child(2)>.content {
+	background-color: rgb(140, 140, 140);
+	/* 배치 */
+	/* 내부 */
+	border-bottom: 1px solid rgb(163, 163, 163);
+	/* 크기 */
+}
+
+.content>.header {
+	background-color: rgb(159, 175, 210);
+	/* 배치 */
+	/* 내부 */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	/* 크기 */
+}
+
+.content>.header>div:nth-child(1) {
+	background-color: rgb(107, 114, 129);
+	/* 배치 */
+	/* 내부 */
+	display: flex;
+	flex-direction: row;
+	/* 크기 */
+}
+
+.content>.header>div:nth-child(1)>div {
+	background-color: rgb(107, 114, 129);
+	/* 배치 */
+	margin-right: 10px;
+	/* 내부 */
+	/* 크기 */
+}
+
+.user_profile {
+	background-color: rgb(101, 11, 11);
+	/* 배치 */
+	/* 내부 */
+	/* 크기 */
+	width: 50px;
+	height: 50px;
+}
+
+.more {
+	background-color: rgb(11, 101, 23);
+	/* 배치 */
+	/* 내부 */
+	/* 크기 */
+	width: 25px;
+	height: 50px;
+}
+
+.content>.property {
+	background-color: rgb(153, 162, 161);
+	/* 배치 */
+	/* 내부 */
+	padding: 5px 10px;
+	/* 크기 */
+}
+
+.content>.property>div {
+	background-color: rgb(107, 129, 128);
+	/* 배치 */
+	/* 내부 */
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	/* 크기 */
+}
+
+.content>.property>div:not(:nth-child(1)) {
+	/* 배치 */
+	margin-top: 5px;
+	/* 내부 */
+	/* 크기 */
+}
+
+.content>.property>div>div:nth-child(1) {
+	background-color: rgb(64, 195, 57);
+	/* 배치 */
+	/* 내부 */
+	/* 크기 */
+	width: 30px;
+	height: 30px;
+}
+
+.content>.property>div>div:not(:nth-child(1)) {
+	/* 배치 */
+	margin-left: 5px;
+	/* 내부 */
+	/* 크기 */
+}
+
+.content>.property>.status>div:not(:nth-child(1)) {
+	background-color: rgb(103, 117, 96);
+	/* 배치 */
+	margin-left: 5px;
+	/* 내부 */
+	text-align: center;
+	padding: 1%;
+	/* 크기 */
+	width: 70px;
+	height: 30px;
+	border-radius: 27px;
+}
+
+.content>.property>.add_box>div:nth-child(2) {
+	background-color: rgb(156, 166, 151);
+	/* 배치 */
+	/* 내부 */
+	display: flex;
+	padding: 1%;
+	/* 크기 */
+	border-radius: 7px;
+}
+
+.content>.property>.add_box>div:nth-child(2)>div:nth-child(1) {
+	background-color: rgb(99, 101, 98);
+	/* 배치 */
+	/* 내부 */
+	/* 크기 */
+	width: 20px;
+	height: 20px;
+}
+
+.content>.property>.add_box>div:nth-child(2)>div:nth-child(2) {
+	/* 배치 */
+	margin: 0 5px;
+	/* 내부 */
+	/* 크기 */
+}
+
+.content>.property>.add_box>div:nth-child(2)>div:nth-child(3) {
+	background-color: rgb(104, 120, 96);
+	/* 배치 */
+	/* 내부 */
+	/* 크기 */
+	width: 20px;
+	height: 20px;
+}
+
+.content>.property>.responsible>div:nth-child(3) {
+	/* 배치 */
+	/* 내부 */
+	font-size: small;
+	color: white;
+	border-bottom: 1px solid white;
+	cursor: pointer;
+	/* 크기 */
+}
+
+.content>.title {
+	border-bottom: 1px solid rgb(163, 163, 163);
+	/* 배치 */
+	/* 내부 */
+	padding: 15px 10px;
+	/* 크기 */
+}
+
+.content>.content {
+	/* 배치 */
+	/* 내부 */
+	padding: 5px 10px 35px 10px;
+	/* 크기 */
+}
+
+.comment {
+	background-color: rgb(49, 49, 49);
+	/* 배치 */
+	/* 내부 */
+	padding: 20px;
+	/* 크기 */
+}
+
+.comment>div {
+	background-color: rgb(125, 125, 125);
+	/* 배치 */
+	/* 내부 */
+
+	padding: 15px 0;
+	/* 크기 */
+}
+
+.comment>div:not(:last-child) {
+	/* 배치 */
+	/* 내부 */
+	border-bottom: 1px solid rgb(163, 163, 163);
+	/* 크기 */
+}
+
+.comment>div {
+	/* 배치 */
+	/* 내부 */
+	display: grid;
+	grid-template-columns: 1fr 6fr;
+	/* justify-content: space-between; */
+	/* 크기 */
+}
+
+.comment>div>.comment_content>div:nth-child(1) {
+	background-color: rgb(107, 87, 60);
+	/* 배치 */
+	/* 내부 */
+	display: flex;
+	justify-content: space-between;
+	/* 크기 */
+}
+
+.comment>div>.comment_content>div:nth-child(1)>div:nth-child(1) {
+	background-color: rgb(107, 87, 60);
+	/* 배치 */
+	/* 내부 */
+	display: flex;
+	/* 크기 */
+}
+
+.comment>div>.user_profile {
+	background-color: rgb(163, 147, 124);
+	/* 배치 */
+	/* 내부 */
+	/* 크기 */
+	width: 50px;
+	height: 50px;
+}
+
+.comment>div>.comment_content>div:nth-child(2) {
+	background-color: rgb(86, 107, 60);
+	/* 배치 */
+	/* 내부 */
+	display: flex;
+	/* 크기 */
+	/* width: 100%; */
+}
