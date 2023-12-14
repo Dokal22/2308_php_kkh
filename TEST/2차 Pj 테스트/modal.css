@@ -43,10 +43,15 @@ body>.task_modal>div:nth-child(2) {
 
 	/* 내부 */
 	overflow: auto;
-	border-top: 1px solid rgb(163, 163, 163);
-	border-bottom: 1px solid rgb(163, 163, 163);
 	/* 크기 */
 	height: 80%;
+}
+body>.task_modal>div:nth-child(2):not(.noline) {
+	/* 배치 */
+	/* 내부 */
+	border-bottom: 1px solid rgb(163, 163, 163);
+	border-top: 1px solid rgb(163, 163, 163);
+	/* 크기 */
 }
 
 /* 스크롤 */
@@ -62,7 +67,7 @@ body>.task_modal>div:nth-child(2)::-webkit-scrollbar-thumb {
 	background-color: rgba(0, 0, 0, 0);
 } */
 
-body>.task_modal>div:nth-child(2)>.content {
+body>.task_modal>div:nth-child(2)>.content:not(.noline) {
 	background-color: rgb(140, 140, 140);
 	/* 배치 */
 	/* 내부 */
@@ -264,10 +269,15 @@ body>.task_modal>div:nth-child(2)>.content {
 }
 
 .task_modal .content>.title {
-	border-bottom: 1px solid rgb(163, 163, 163);
 	/* 배치 */
 	/* 내부 */
 	padding: 15px;
+	/* 크기 */
+}
+.task_modal .content:not(.noline)>.title {
+	border-bottom: 1px solid rgb(163, 163, 163);
+	/* 배치 */
+	/* 내부 */
 	/* 크기 */
 }
 
@@ -391,3 +401,29 @@ body>.task_modal>div:nth-child(2)>.content {
 	width: 60%;
 	height: 50%;
 }
+
+.task_modal .insert_footer {
+	/* 배치 */
+	/* 내부 */
+	padding: 10px 20px;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	/* 크기 */
+}
+.task_modal .insert_footer>div {
+	background-color: white;
+	/* 배치 */
+	/* 내부 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 크기 */
+	width: 25%;
+	height: 80%;
+	border-radius: 7px;
+}
+
+/* background-image: url('/img/profile-img.png');
+	background-position: center;
+	background-size: cover; */
