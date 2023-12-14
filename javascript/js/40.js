@@ -25,17 +25,18 @@
     }
 
     BTNDAUM.addEventListener('click', popOpen ); // 함수파라미터(콜백함수)를 넘길 땐 ()를 빼야한다
-
-// ------------------
-// 팝업창 닫기
-// ------------------
+    
+    // ------------------
+    // 팝업창 닫기
+    // ------------------
     const BTNCLOSE = document.getElementById('btn_close');
     BTNCLOSE.addEventListener( 'click', popClose );
-
-// ------------------
-// 이벤트 삭제
-// ------------------
-    // BTNDAUM.removeEventListener( 'click', popOpen );
+    
+    // ------------------
+    // 이벤트 삭제
+    // ------------------
+    BTNDAUM.removeEventListener( 'click', popOpen );
+    BTNDAUM.addEventListener('click', popOpen ); // 함수파라미터(콜백함수)를 넘길 땐 ()를 빼야한다
     // BTNCLOSE.removeEventListener( 'click', popClose );
 
 // ------------------
