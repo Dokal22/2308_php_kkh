@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Masking Example</title>
+    <style>
+        .mask-container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+        }
+
+        .content {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #element1 {
+            top: 50px;
+            left: 50px;
+        }
+
+        #element2 {
+            top: 100px;
+            left: 150px;
+        }
+
+        .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, black 50%);
+            mask: url('middle_gradation.png') center / contain no-repeat;
+        }
+
+        img {
+            -webkit-mask-image: url("ddmask.png");
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-size: 100% 100%;
+            mask-image: url("ddmask.png");
+            mask-repeat: no-repeat;
+            mask-size: 100% 100%;
+        }
+        
+        @keyframes w600 {
+            to { transform: translate(15vw, 0px); }
+        }
+
+        .skeleton:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: -webkit-gradient(linear,left top, right top, from(#eee),color-stop(20%,#999),color-stop(40%,#eee),to(#eee));
+            background-image: linear-gradient(to right,#eee 0 ,#999 20%, #eee 40%, #eee 100%);
+            background-size: 600px;
+            -webkit-animation: w600 1.5s linear infinite;
+            animation: w600 1.5 linear infinite;
+            z-index: 1;
+            mix-blend-mode: color-burn;
+        }
+
+        .d1 {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mask-container">
+        <div class="content" id="element1">Element 1</div>
+        <div class="content" id="element2">Element 2</div>
+        <div class="mask"></div>
+    </div>
+    <img src="" alt="">
+    <div class="d1">
+        <div class="skeleton"></div>
+    </div>
+</body>
+</html>
