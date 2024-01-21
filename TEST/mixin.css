@@ -1,0 +1,25 @@
+.container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container {
+  width: 500px;
+  height: 500px;
+  background-color: black;
+}
+
+.float-left {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+
+.float-right {
+  float: right;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}/*# sourceMappingURL=mixin.css.map */
