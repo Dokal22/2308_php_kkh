@@ -29,7 +29,7 @@ class TokenUtil
 		return $header . '.' . $payload . '.' . $signature;
 	}
 
-	public function makeTokenHeader()
+	protected function makeTokenHeader()
 	{
 		$arr = [
 			'alg' => env('TOKEN_ALG'),
@@ -46,7 +46,7 @@ class TokenUtil
 	 * @param int $ttl 초 단위
 	 * @return array 헤더 배열
 	 */
-	public function makeTokenPayload(User $userInfo, int $ttl)
+	protected function makeTokenPayload(User $userInfo, int $ttl)
 	{
 		$now = time();
 		$arr = [
@@ -67,7 +67,7 @@ class TokenUtil
 	 * @param string $payload base64UrlEncode된
 	 * @return string 시그니쳐
 	 */
-	public function makeTokenSignature(string $header, string $payload)
+	protected function makeTokenSignature(string $header, string $payload)
 	{
 		return EncrypUtil::hashWithSalt(env('TOKEN_ALG'), $header . '.' . $payload . '.' . env('TOKEN_SECRET_KEY'), env('TOKEN_SALT_LENGTH'));
 	}
