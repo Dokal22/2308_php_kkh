@@ -1,9 +1,13 @@
 <?php
 namespace App\Http\Utils;
 
+use App\Exceptions\MyDBException;
+use App\Models\Token;
 use App\Models\User;
 use App\Http\Utils\EncrypUtil;
 use Exception;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class TokenUtil
@@ -57,6 +61,8 @@ class TokenUtil
 			'ext' => $now + $ttl,
 		];
 
+		Log::debug($arr);
+
 		return EncrypUtil::base64UrlEncode(json_encode($arr));
 	}
 
@@ -96,12 +102,75 @@ class TokenUtil
 	{
 		list($header, $payload, $signature) = $this->explodeToken($token);
 		$payloadDecoded = json_decode(EncrypUtil::base64UrlDecode($payload));
-		Log::debug('$payloadDecoded');
-		Log::debug([$payloadDecoded]);
-		if(is_null($payloadDecoded) || !isset($payloadDecoded->$key)){
+		if (is_null($payloadDecoded) || !isset($payloadDecoded->$key)) {
 			throw new Exception('E05');
 		}
 
 		return $payloadDecoded->$key;
+	}
+
+	/** 
+	 * 토큰체크 메소드
+	 * 
+	 * @param string|null $token Bearer
+	 * @return boolean 같냐
+	 */
+	public function chkToken(string|null $token)
+	// 토큰 안넣을 수도 있음
+	{
+		// 토큰 존재 유무
+		if (empty($token)) {
+			throw new Exception('E01');
+		}
+
+		// 시그니처 체크
+		// 토큰 분리
+		list($header, $payload, $signature) = $this->explodeToken($token);
+
+		if (
+			EncrypUtil::subStrSalt($signature, env('TOKEN_SALT_LENGTH'))
+			!== EncrypUtil::subStrSalt($this->makeTokenSignature($header, $payload), env('TOKEN_SALT_LENGTH'))
+		) {
+			throw new Exception('E03');
+		}
+		;
+
+		// 유효시간 체크
+		if ($this->getPayloadValueToKey($token, 'ext') < time()) {
+			throw new Exception('E02');
+		}
+
+		return true;
+	}
+
+	/** 
+	 * 리프레시토큰체크 DB 저장
+	 * 
+	 * @param string $refreshToken 
+	 * @return boolean 저장됐니
+	 */
+	public function upsertRefreshToken(string $refreshToken)
+	{
+		// 리플래쉬 토큰 DB 저장
+        $ext = Carbon::createFromTimestamp($this->getPayloadValueToKey($refreshToken, 'ext'));
+
+        try {
+            DB::beginTransaction();
+
+            // upsert = insert OR update
+            Token::updateOrInsert(
+                ['u_pk' => $this->getPayloadValueToKey($refreshToken, 'upk')],
+                [
+                    't_rt' => $refreshToken,
+                    't_ext' => $ext->format('Y-m-d H:i:s'),
+                ],
+            );
+
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('리프래쉬 토큰 저장 에러'.$e->getMessage());
+            throw new MyDBException('E80');
+        }
 	}
 }
