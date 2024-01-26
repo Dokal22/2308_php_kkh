@@ -48,7 +48,7 @@ class TokenUtil
 	 * 
 	 * @param User $userInfo 유저정보
 	 * @param int $ttl 초 단위
-	 * @return array 헤더 배열
+	 * @return string JSON
 	 */
 	protected function makeTokenPayload(User $userInfo, int $ttl)
 	{
@@ -61,7 +61,7 @@ class TokenUtil
 			'ext' => $now + $ttl,
 		];
 
-		Log::debug($arr);
+		// Log::debug($arr);
 
 		return EncrypUtil::base64UrlEncode(json_encode($arr));
 	}
@@ -151,15 +151,14 @@ class TokenUtil
 	 */
 	public function upsertRefreshToken(string $refreshToken)
 	{
-		// 리플래쉬 토큰 DB 저장
-        $ext = Carbon::createFromTimestamp($this->getPayloadValueToKey($refreshToken, 'ext'));
+		// 리플래쉬 토큰 DB 저장: Carbon::createFromTimestamp() => Unix시간으로 날짜생성
+        $ext = Carbon::createFromTimestamp($this->getPayloadValueToKey($refreshToken, 'ext')); // now + ttl (second)
 
         try {
             DB::beginTransaction();
 
-            // upsert = insert OR update
-            Token::updateOrInsert(
-                ['u_pk' => $this->getPayloadValueToKey($refreshToken, 'upk')],
+            Token::updateOrInsert( // upsert = insert OR update
+                ['u_pk' => $this->getPayloadValueToKey($refreshToken, 'upk')], // ? insert : update
                 [
                     't_rt' => $refreshToken,
                     't_ext' => $ext->format('Y-m-d H:i:s'),

@@ -2,6 +2,7 @@
 namespace App\Http\Utils;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class EncrypUtil // php만 url암호화 업서
@@ -25,9 +26,9 @@ class EncrypUtil // php만 url암호화 업서
 	/**
 	 * 암호화한 문자열 리턴
 	 * @param string $alg 알고리즘 명
-	 * @param string $str 암호화된 문자열
+	 * @param string $str 암호화 할 문자열
 	 * @param int $saltLength 솔트 문자열 길이
-	 * @return string 암호화된 문자열
+	 * @return string 암호화된 문자열 + 소금
 	 */
 	public static function hashWithSalt(string $alg, string $str, int $saltLength = 0)
 	{

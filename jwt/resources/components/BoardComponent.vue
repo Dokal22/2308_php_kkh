@@ -6,7 +6,7 @@
 </template>
 <script setup>
 import { useRouter } from 'vue-router';
-import { reactive, onMounted } from 'vue';
+import { inject, reactive, onMounted } from 'vue';
 import axios from 'axios';
 import router from '../js/router';
 
@@ -23,7 +23,6 @@ function getBoardInfo() {
 		})
 		.catch(err => {
 			console.log(err.response);
-			// 서버에 엑세스토큰 재발급 처리 TODO
 
 			router.push('/login');
 		})

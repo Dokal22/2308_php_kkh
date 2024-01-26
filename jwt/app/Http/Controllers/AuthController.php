@@ -93,7 +93,7 @@ class AuthController extends Controller
             }
 
             // 토큰 유효기간 체크
-            if(strtotime($tokenInfo->t_ext) < time()){ // strtotime: String -> time / time(): 현재
+            if(strtotime($tokenInfo->t_ext) < time()){ // strtotime: String -> UnixTime // time(): 현재
                 throw new Exception('E02');
             }
 

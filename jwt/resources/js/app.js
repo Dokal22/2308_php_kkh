@@ -1,16 +1,22 @@
 require('./bootstrap');
 
-import { createApp } from 'vue';
+import { reactive, provide, createApp } from 'vue';
 import router from './router'
 // import store from '../js/store.js'
 
 import AppComponent from '../components/AppComponent.vue';
 
-createApp({
+const store = reactive({
+	acc_lim: 0,
+	ref_lim: 0,
+});
+
+const app = createApp({
 	components: {
 		AppComponent,
 	},
 })
-.use(router)
-// .use(store)
-.mount('#app');
+	.provide('store', store)
+	.use(router)
+	// .use(store)
+	.mount('#app');
