@@ -4,10 +4,10 @@ import re
 from bs4 import BeautifulSoup
 
 # 웹사이트 URL
-url = 'https://web.joongna.com/search/%EA%B5%BF%EC%A6%88?page='
+url = 'https://www.joongna.com/'
 set_url = ''
 # 다운 위치
-path = 'D:\\kkh\\Market\\goodsMarket\\public\\images\\samples\\'
+path = 'D:\\'
 
 # 저장위치
 save_path = ''
@@ -28,31 +28,31 @@ def crawling(set_url):
     soup = BeautifulSoup(html, 'html.parser')
 
     # image : on/off -------------------------------
-    # # 모든 <img> 태그 찾기
-    # images = soup.findAll('img')
+    # 모든 <img> 태그 찾기
+    images = soup.findAll('img')
 
-    # # 이미지 URL 추출
-    # for image in images:
-    #     image_urls.append(image['src'])
+    # 이미지 URL 추출
+    for image in images:
+        image_urls.append(image['src'])
     # ---------------------------------------- image
 
     # h2 : on/off ----------------------------------
     # 모든 <img> 태그 찾기
-    h2s = soup.findAll('h2')
+    # h2s = soup.findAll('h2')
     
-    # 텍스트만 가져오기(지금 태그 범벅) : <class 'bs4.element.ResultSet'> 클래스에서 get_text()로
-    count = 0
+    # # 텍스트만 가져오기(지금 태그 범벅) : <class 'bs4.element.ResultSet'> 클래스에서 get_text()로
+    # count = 0
     
-    for h2 in h2s:
-        if count < 1:
-            count += 1
-            continue
+    # for h2 in h2s:
+    #     if count < 1:
+    #         count += 1
+    #         continue
         
-        h2s_arr.append(h2.get_text())
+    #     h2s_arr.append(h2.get_text())
         
-    for h in h2s_arr:   
-        with open(path + 'title_sample.txt', 'a', encoding='utf-8') as file: # 이어서 쓰려면 a
-            file.write(h + "\n")
+    # for h in h2s_arr:   
+    #     with open(path + 'title_sample.txt', 'a', encoding='utf-8') as file: # 이어서 쓰려면 a
+    #         file.write(h + "\n")
     # ------------------------------------------- h2
     
 # 이미지 다운로드
@@ -111,6 +111,6 @@ def download_pack():
 # download_pack()
 
 # on/off ------------ 시험삼아 돌려보기: h2 ------------
-for i in range(1,5):
-    set_url = url + str(i)
-    crawling(set_url)
+# for i in range(1,5):
+#     set_url = url + str(i)
+#     crawling(set_url)
